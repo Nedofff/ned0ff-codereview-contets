@@ -1,5 +1,5 @@
-import React from "react";
-import { cn } from "@/lib/utils";
+import React, { useEffect } from "react";
+import { cn } from "@/core/utils";
 import { Portal } from "./portal";
 import { CrossIcon } from "../icons";
 
@@ -11,6 +11,18 @@ interface ModalProps {
 }
 
 export function Popup({ isOpen, onClose, children, className }: ModalProps) {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
@@ -35,7 +47,6 @@ export function Popup({ isOpen, onClose, children, className }: ModalProps) {
           >
             <CrossIcon className="w-[14px] h-[14px]" />
           </button>
-
           {children}
         </div>
       </div>

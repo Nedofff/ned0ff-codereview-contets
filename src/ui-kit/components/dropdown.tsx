@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/core/utils";
+import { ArrowDownIcon } from "../icons";
 
 interface DropdownOption {
   value: string;
@@ -25,7 +26,7 @@ export function Dropdown({
   onChange,
 }: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(value || "");
+  const [selectedValue, setSelectedValue] = useState(value ?? "");
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Закрытие дропдауна при клике вне его
@@ -76,24 +77,15 @@ export function Dropdown({
               selectedOption ? "text-neutral-800" : "text-neutral-500"
             )}
           >
-            {selectedOption?.label || placeholder}
+            {selectedOption?.label ?? placeholder}
           </span>
-          <svg
+          <ArrowDownIcon
             className={cn(
               "w-5 h-5 transition-transform duration-200",
-              isOpen && "transform rotate-180"
+              isOpen && "transform rotate-180",
+              "text-neutral-500"
             )}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
+          />
         </div>
       </button>
 

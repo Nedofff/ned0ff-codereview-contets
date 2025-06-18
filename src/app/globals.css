@@ -1,2 +1,193 @@
 @import "tailwindcss";
 @tailwind utilities;
+
+@theme {
+  --font-wix-display: var(--font-wix-madefor-display, "Wix Madefor Display");
+  --font-wix-text: var(--font-wix-madefor-text, "Wix Madefor Text");
+
+  --color-primary-100: #ecf0ff;
+  --color-primary-200: #c7d4ff;
+  --color-primary-300: #8cabfe;
+  --color-primary-400: #3884fe;
+  --color-primary-500: #0560c9;
+  --color-primary-600: #024089;
+  --color-primary-700: #01224f;
+
+  --color-secondary-100: #f7edfe;
+  --color-secondary-200: #e6c4fd;
+  --color-secondary-300: #d48dfc;
+  --color-secondary-400: #c546fa;
+  --color-secondary-500: #9b16c9;
+  --color-secondary-600: #680b88;
+  --color-secondary-700: #39034c;
+
+  --color-tertiary-100: #ffe5c5;
+  --color-tertiary-200: #f5b61a;
+  --color-tertiary-300: #c59113;
+  --color-tertiary-400: #976e0b;
+  --color-tertiary-500: #6b4d05;
+  --color-tertiary-600: #422f02;
+  --color-tertiary-700: #1d1200;
+
+  --color-quaternary-100: #ffecec;
+  --color-quaternary-200: #ffc0c0;
+  --color-quaternary-300: #ff8383;
+  --color-quaternary-400: #ff2323;
+  --color-quaternary-500: #c20000;
+  --color-quaternary-600: #820000;
+  --color-quaternary-700: #480000;
+
+  --color-quinary-100: #93f90f;
+  --color-quinary-200: #78cd0a;
+  --color-quinary-300: #5ea306;
+  --color-quinary-400: #457b03;
+  --color-quinary-500: #2e5501;
+  --color-quinary-600: #193101;
+  --color-quinary-700: #071400;
+
+  --color-neutral-10: #ffffff;
+  --color-neutral-100: #f6f6f6;
+  --color-neutral-150: #f4f4f4;
+  --color-neutral-200: #f0f1f1;
+  --color-neutral-300: #d4d5d7;
+  --color-neutral-400: #acaeb2;
+  --color-neutral-500: #86888e;
+  --color-neutral-600: #636469;
+  --color-neutral-700: #414246;
+  --color-neutral-800: #232325;
+  --color-neutral-1000: #000000;
+}
+
+@layer base {
+  body {
+    @apply font-wix-text text-neutral-800;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-wix-display font-bold;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .gradient-primary {
+    @apply bg-gradient-to-r from-[#2093FE] to-[#C217FE];
+  }
+
+  .gradient-secondary {
+    @apply bg-gradient-to-r from-[#F4B8B8] via-[#E3B3EA] to-[#C5C9F1];
+  }
+
+  /* Скрыть полосу прокрутки */
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE и Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari и Opera */
+  }
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+/* Custom scrolling animation for ticker */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Smooth transitions for interactive elements */
+.transition-colors {
+  transition: color 0.3s ease, background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Improved hover states */
+.hover\:bg-white\/10:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Better loading states */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Enhanced backdrop blur support */
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Better gradient text support */
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Dark theme specific adjustments */
+.dark-bg {
+  background-color: #2f2b38;
+}
+
+/* Better border radius utilities */
+.rounded-xl {
+  border-radius: 0.75rem;
+}

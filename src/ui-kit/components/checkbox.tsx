@@ -1,5 +1,5 @@
 import React, { useId } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/core/utils";
 
 const TickIcon = () => (
   <svg width="12" height="12" viewBox="0 0 12 12" fill="none">

@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/core/utils";
 
 export const Logo = ({ className }: { className?: string }) => (
   <span
@@ -7,8 +7,11 @@ export const Logo = ({ className }: { className?: string }) => (
       className
     )}
   >
-    {"<"}
-    <span className="font-normal">code</span>
-    {"review/>"}
+    &lt;
+    <span className="hidden md:inline">
+      <span className="font-normal">code</span>
+      review
+    </span>
+    /&gt;
   </span>
 );

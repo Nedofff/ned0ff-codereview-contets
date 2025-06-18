@@ -1,6 +1,6 @@
 "use client";
 import React, { useId } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/core/utils";
 
 interface RadioButtonProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "type"> {

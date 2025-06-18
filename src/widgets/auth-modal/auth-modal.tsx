@@ -99,7 +99,7 @@ export function AuthModal() {
         variant="ghost"
         className="flex items-center gap-2"
       >
-        <ProfileIcon /> Войти
+        <ProfileIcon /> <span className="hidden md:inline text-lg">Войти</span>
       </Button>
 
       <Popup isOpen={isOpen} onClose={() => setIsOpen(false)}>

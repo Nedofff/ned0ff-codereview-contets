@@ -14,3 +14,4 @@ export { default as TelegramLogoIcon } from "./telegram-logo";
 export { default as CrossIcon } from "./cross";
 export { default as ProfileIcon } from "./profile";
 export { default as MenuIcon } from "./menu";
+export { default as ArrowDownIcon } from "./arrow-down";

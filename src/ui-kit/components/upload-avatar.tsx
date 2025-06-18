@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/core/utils";
 
 interface UploadAvatarProps {
   onFileSelect: (file: File) => void;

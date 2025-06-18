@@ -1,15 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/core/utils";
 
 interface PopupProps {
-  trigger: React.ReactNode;
+  renderTrigger: (isOpen: boolean) => React.ReactNode;
   children: React.ReactNode;
   className?: string;
   contentClassName?: string;
 }
 
 export function Popover({
-  trigger,
+  renderTrigger,
   children,
   className,
   contentClassName,
@@ -50,7 +50,7 @@ export function Popover({
   return (
     <div className={cn("relative inline-block", className)}>
       <div ref={triggerRef} onClick={togglePopup}>
-        {trigger}
+        {renderTrigger(isOpen)}
       </div>
 
       {isOpen && (
@@ -58,7 +58,6 @@ export function Popover({
           ref={contentRef}
           className={cn(
             "absolute top-full mt-5 left-1/2 -translate-x-1/2 z-50",
-            "shadow-2xl border border-neutral-100",
             "min-w-max",
             contentClassName
           )}

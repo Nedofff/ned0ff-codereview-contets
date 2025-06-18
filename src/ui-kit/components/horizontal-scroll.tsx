@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/core/utils";
 
 interface HorizontalScrollProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
@@ -44,15 +44,15 @@ export function HorizontalScroll({
     if (!enableDragScroll || !hasOverflow) return;
 
     setIsDragging(true);
-    setStartX(e.pageX - (scrollRef.current?.offsetLeft || 0));
-    setScrollLeft(scrollRef.current?.scrollLeft || 0);
+    setStartX(e.pageX - (scrollRef.current?.offsetLeft ?? 0));
+    setScrollLeft(scrollRef.current?.scrollLeft ?? 0);
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging || !enableDragScroll || !hasOverflow) return;
 
     e.preventDefault();
-    const x = e.pageX - (scrollRef.current?.offsetLeft || 0);
+    const x = e.pageX - (scrollRef.current?.offsetLeft ?? 0);
     const walk = (x - startX) * 2;
     if (scrollRef.current) {
       scrollRef.current.scrollLeft = scrollLeft - walk;

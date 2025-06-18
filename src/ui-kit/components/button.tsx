@@ -1,5 +1,5 @@
 import React, { createElement } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/core/utils";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -52,7 +52,7 @@ export function Button({
     <button
       className={cn(
         "cursor-pointer",
-        "inline-flex items-center justify-center gap-2 rounded-2xl font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed",
+        "inline-flex items-center justify-center gap-2 rounded-2xl font-medium transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed",
         "px-4 py-3 text-base",
         buttonVariants[variant].base,
         buttonVariants[variant].hover,
