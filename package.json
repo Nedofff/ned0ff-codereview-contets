@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "icons:generate": "npx @svgr/cli --out-dir src/ui-kit/icons/ --typescript --filename-case kebab --ext tsx --replace-attr-values \"#232325=currentColor\" --svg-props \"width={18},height={18}\" --prettier-config package.json src/ui-kit/icons/raw-icons/*.svg"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -26,6 +27,7 @@
     "@storybook/addon-onboarding": "^9.0.10",
     "@storybook/addon-vitest": "^9.0.10",
     "@storybook/nextjs-vite": "^9.0.10",
+    "@svgr/cli": "^8.1.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
