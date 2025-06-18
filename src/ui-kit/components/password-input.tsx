@@ -1,0 +1,34 @@
+"use client";
+import { Input } from "./input";
+import { EyeIcon, EyeOffIcon } from "../icons";
+import { useState } from "react";
+
+export interface PasswordInputProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "type"> {
+  label?: string;
+  errors?: string;
+}
+
+export const PasswordInput = (props: PasswordInputProps) => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  return (
+    <Input
+      type={showPassword ? "text" : "password"}
+      {...props}
+      rightIcon={
+        <button
+          type="button"
+          onClick={() => setShowPassword(!showPassword)}
+          className="cursor-pointer text-neutral-400 hover:text-neutral-600 "
+        >
+          {showPassword ? (
+            <EyeOffIcon className="w-[24px] h-[24px]" />
+          ) : (
+            <EyeIcon className="w-[24px] h-[24px]" />
+          )}
+        </button>
+      }
+    />
+  );
+};

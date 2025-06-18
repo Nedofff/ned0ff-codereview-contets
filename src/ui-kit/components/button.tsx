@@ -1,8 +1,10 @@
 import React, { createElement } from "react";
 import { cn } from "@/lib/utils";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "base" | "accent" | "second" | "filter";
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "base" | "accent" | "second" | "filter" | "ghost";
+  fullWidth?: boolean;
 }
 
 const buttonVariants = {
@@ -22,12 +24,17 @@ const buttonVariants = {
     base: "gradient-secondary text-neutral-800 border-0 font-medium rounded-xl",
     hover: "hover:opacity-90",
   },
+  ghost: {
+    base: "bg-transparent text-neutral-800 border-0 font-medium rounded-xl p-0",
+    hover: "hover:bg-transparent",
+  },
 };
 
 export function Button({
   variant = "accent",
   className,
   children,
+  fullWidth,
   ...props
 }: ButtonProps) {
   const content =
@@ -49,6 +56,7 @@ export function Button({
         "px-4 py-3 text-base",
         buttonVariants[variant].base,
         buttonVariants[variant].hover,
+        fullWidth && "w-full",
         className
       )}
       {...props}

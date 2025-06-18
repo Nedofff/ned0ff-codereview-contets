@@ -1,0 +1,16 @@
+export { default as BriefcaseIcon } from "./briefcase";
+export { default as CalendarIcon } from "./calendar";
+export { default as CodeIcon } from "./code";
+export { default as CodeAsteriskIcon } from "./code-asterisk";
+export { default as EyeIcon } from "./eye";
+export { default as EyeOffIcon } from "./eye-off";
+export { default as HhLogoIcon } from "./hh-logo";
+export { default as MessageIcon } from "./message";
+export { default as MicrophoneIcon } from "./microphone";
+export { default as PersonIcon } from "./person";
+export { default as SparklesIcon } from "./sparkles";
+export { default as StackIcon } from "./stack";
+export { default as TelegramLogoIcon } from "./telegram-logo";
+export { default as CrossIcon } from "./cross";
+export { default as ProfileIcon } from "./profile";
+export { default as MenuIcon } from "./menu";

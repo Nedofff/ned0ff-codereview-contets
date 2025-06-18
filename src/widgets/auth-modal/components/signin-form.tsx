@@ -1,0 +1,67 @@
+"use client";
+import { Button, Input, PasswordInput } from "@/ui-kit";
+import { useForm } from "react-hook-form";
+import { FormLayout } from "./layout";
+import { SignInFields } from "../auth.types";
+
+export const SignInForm = ({
+  goToLogin,
+  onSuccess,
+}: {
+  goToLogin: () => void;
+  onSuccess: () => void;
+}) => {
+  const { register, handleSubmit } = useForm<SignInFields>();
+
+  const onSubmit = (data: SignInFields) => {
+    console.log(data);
+
+    onSuccess();
+  };
+
+  const kek = handleSubmit(onSubmit);
+
+  return (
+    <FormLayout onSubmit={kek}>
+      <Input
+        label="Имя"
+        type="text"
+        placeholder="Светлана"
+        {...register("name")}
+      />
+
+      <Input
+        label="Почта"
+        type="email"
+        placeholder="example@mail.ru"
+        {...register("email")}
+      />
+
+      <PasswordInput
+        label="Пароль"
+        placeholder="****"
+        {...register("password")}
+      />
+
+      <PasswordInput
+        label="Еще раз пароль"
+        placeholder="****"
+        {...register("confirmPassword")}
+      />
+
+      <Button type="submit" fullWidth>
+        Зарегистрироваться
+      </Button>
+
+      <div className="text-center">
+        <button
+          type="button"
+          className="text-neutral-600 text-lg font-medium"
+          onClick={goToLogin}
+        >
+          Уже есть аккаунт? <span className="text-primary-500">Войти</span>
+        </button>
+      </div>
+    </FormLayout>
+  );
+};
