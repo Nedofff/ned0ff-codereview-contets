@@ -1,7 +1,10 @@
 "use client";
 
-import React, { SVGProps, useState } from "react";
-import { CategorySwitcher } from "@/widgets/category-switcher";
+import React, { SVGProps } from "react";
+import {
+  CategorySwitcher,
+  useCurrentCategory,
+} from "@/widgets/category-switcher";
 import {
   ArrowDownIcon,
   BriefcaseIcon,
@@ -50,8 +53,6 @@ const MenuItem = ({ title, href, Icon }: MenuItem) => {
     </Link>
   );
 };
-
-const CATEGORIES = ["Python", "Java", "JavaScript", "Data Science", "QA", "C#"];
 
 interface MenuItem {
   id: string;
@@ -118,8 +119,7 @@ const MENU_ITEMS: MenuItem[] = [
 ];
 
 export const PopupMenu = () => {
-  const [selectedCategory, setSelectedCategory] = useState(CATEGORIES[0]);
-  const category = "Data Science";
+  const category = useCurrentCategory();
 
   return (
     <Popover
@@ -151,11 +151,7 @@ export const PopupMenu = () => {
       >
         <div className="overflow-x-auto scrollbar-hide ">
           <HorizontalScroll className="flex items-center gap-2.5 w-max min-w-max">
-            <CategorySwitcher
-              categories={CATEGORIES}
-              selectedCategory={selectedCategory}
-              onCategoryChange={setSelectedCategory}
-            />
+            <CategorySwitcher />
           </HorizontalScroll>
         </div>
 

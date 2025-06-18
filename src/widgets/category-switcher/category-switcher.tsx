@@ -1,32 +1,20 @@
 "use client";
 
 import { cn } from "@/core/utils";
-import React, { useState } from "react";
+import { CATEGORIES } from "./model/consts";
+import { useCategory } from "./model/category-state";
 
-interface CategorySwitcherProps {
-  categories: string[];
-  selectedCategory?: string;
-  onCategoryChange?: (category: string) => void;
-}
-
-export const CategorySwitcher: React.FC<CategorySwitcherProps> = ({
-  categories,
-  selectedCategory,
-  onCategoryChange,
-}) => {
-  const [activeCategory, setActiveCategory] = useState(
-    selectedCategory ?? categories[0]
-  );
+export const CategorySwitcher = () => {
+  const { currentCategory, setCurrentCategory } = useCategory();
 
   const handleCategoryClick = (category: string) => {
-    setActiveCategory(category);
-    onCategoryChange?.(category);
+    setCurrentCategory(category);
   };
 
   return (
     <>
-      {categories.map((category) => {
-        const isActive = category === activeCategory;
+      {CATEGORIES.map((category) => {
+        const isActive = category === currentCategory;
 
         return (
           <button
