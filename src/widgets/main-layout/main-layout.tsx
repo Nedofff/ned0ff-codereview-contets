@@ -5,7 +5,9 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <TopMenu />
-      <main>{children}</main>
+      <main className="px-[15px] max-w-[1020px] mx-auto bg-neutral-10">
+        {children}
+      </main>
       <Footer />
     </>
   );
