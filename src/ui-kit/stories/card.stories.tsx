@@ -1,0 +1,55 @@
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { Card } from "../components/card";
+import { Button } from "../components";
+
+const meta = {
+  title: "Card",
+  component: Card,
+  parameters: {
+    layout: "centered",
+  },
+  tags: ["autodocs"],
+  argTypes: {
+    children: {
+      control: "text",
+    },
+  },
+} satisfies Meta<typeof Card>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  args: {
+    children: "Базовая карточка с контентом",
+  },
+};
+
+export const WithText: Story = {
+  args: {
+    children: "Это пример карточки с обычным текстом",
+  },
+};
+
+export const WithLongText: Story = {
+  args: {
+    children:
+      "Это карточка с длинным текстом для демонстрации того, как компонент работает с большим количеством контента. Текст автоматически переносится внутри карточки.",
+  },
+};
+
+export const WithHTML: Story = {
+  args: {
+    children: (
+      <div>
+        <h3 className="text-lg font-semibold mb-2">Заголовок карточки</h3>
+        <p className="text-gray-600">
+          Описание с HTML разметкой внутри карточки
+        </p>
+        <Button className="mt-2" variant="second">
+          Кнопка
+        </Button>
+      </div>
+    ),
+  },
+};
