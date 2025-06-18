@@ -4,6 +4,7 @@
 @theme {
   --font-wix-display: var(--font-wix-madefor-display, "Wix Madefor Display");
   --font-wix-text: var(--font-wix-madefor-text, "Wix Madefor Text");
+  --ease-section-card: cubic-bezier(0.14, 0.45, 0.36, 1.24);
 
   --color-primary-100: #ecf0ff;
   --color-primary-200: #c7d4ff;
@@ -60,7 +61,7 @@
 
 @layer base {
   body {
-    @apply font-wix-text text-neutral-800;
+    @apply font-wix-text text-neutral-800 tracking-[-0.5px];
   }
   h1,
   h2,
@@ -84,6 +85,23 @@
   .gradient-secondary {
     @apply bg-gradient-to-r from-[#F4B8B8] via-[#E3B3EA] to-[#C5C9F1];
   }
+
+  .gradient-secondary-light {
+    @apply bg-gradient-to-r from-[#F4B8B866] via-[#E3B3EA66] to-[#C5C9F166];
+  }
+
+  .gradient-tertiary {
+    @apply bg-gradient-to-r from-[#E25377] via-[#EEB902] to-[#62B4FF];
+  }
+
+  .gradient-quaternary {
+    @apply bg-gradient-to-r from-[#F4B8B8] via-[#E3EAB3] to-[#C5F1D0];
+  }
+  .gradient-quaternary-light {
+    @apply bg-gradient-to-r from-[#F4B8B866] via-[#E3EAB366] to-[#C5F1D066];
+  }
+
+  /* ------------------------------------------------------------------------------------------------ */
 
   /* Скрыть полосу прокрутки */
   .scrollbar-hide {

@@ -12,7 +12,7 @@ const wixMadeforDisplay = Wix_Madefor_Display({
 const wixMadeforText = Wix_Madefor_Text({
   variable: "--font-wix-madefor-text",
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
