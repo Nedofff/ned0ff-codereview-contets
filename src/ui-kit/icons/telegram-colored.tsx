@@ -1,16 +1,16 @@
 import * as React from "react";
 import type { SVGProps } from "react";
-const SvgTelegramLogo = (props: SVGProps<SVGSVGElement>) => (
+const SvgTelegramColored = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={18}
+    width={19}
     height={18}
     fill="none"
     {...props}
   >
-    <g clipPath="url(#telegram-logo_svg__a)">
+    <g clipPath="url(#telegram-colored_svg__a)">
       <path
-        fill="url(#telegram-logo_svg__b)"
+        fill="url(#telegram-colored_svg__b)"
         d="M9.5 18a9 9 0 1 0 0-18 9 9 0 0 0 0 18"
       />
       <path
@@ -28,7 +28,7 @@ const SvgTelegramLogo = (props: SVGProps<SVGSVGElement>) => (
     </g>
     <defs>
       <linearGradient
-        id="telegram-logo_svg__b"
+        id="telegram-colored_svg__b"
         x1={9.5}
         x2={9.5}
         y1={18}
@@ -38,10 +38,10 @@ const SvgTelegramLogo = (props: SVGProps<SVGSVGElement>) => (
         <stop stopColor="#1D93D2" />
         <stop offset={1} stopColor="#38B0E3" />
       </linearGradient>
-      <clipPath id="telegram-logo_svg__a">
+      <clipPath id="telegram-colored_svg__a">
         <path fill="#fff" d="M.5 0h18v18H.5z" />
       </clipPath>
     </defs>
   </svg>
 );
-export default SvgTelegramLogo;
+export default SvgTelegramColored;

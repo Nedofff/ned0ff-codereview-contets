@@ -55,7 +55,10 @@ export function TopMenu({ className }: TopMenuProps) {
             "shadow-[0px_0px_12px_0px_rgba(24,44,194,0.05)]"
           )}
         >
-          <Logo className="gradient-primary text-transparent bg-clip-text  md:bg-none md:text-neutral-600" />
+          <Logo
+            classNameText="hidden md:inline"
+            className="gradient-primary text-transparent bg-clip-text  md:bg-none md:text-neutral-600"
+          />
 
           {/* Меню с выпадающим списком */}
           <div className="relative">

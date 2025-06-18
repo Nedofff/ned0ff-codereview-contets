@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Logo } from "@/ui-kit/components/logo";
 import { ButtonLink } from "@/ui-kit/components/button-link";
-import { HhLogoIcon, TelegramLogoIcon } from "@/ui-kit";
+import { HhLogoIcon, TelegramColoredIcon } from "@/ui-kit";
 
 export const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -63,7 +63,7 @@ export const FormLayout = ({
       <form onSubmit={onSubmit} className="max-w-[360px] mx-auto space-y-4 ">
         <div className="space-y-2">
           <ButtonLink href="">
-            <TelegramLogoIcon /> Войти через Telegram
+            <TelegramColoredIcon /> Войти через Telegram
           </ButtonLink>
           <ButtonLink href="">
             <HhLogoIcon /> Войти через HH.ru

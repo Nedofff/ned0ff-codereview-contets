@@ -3,8 +3,8 @@ import type { SVGProps } from "react";
 const SvgCross = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={18}
-    height={18}
+    width={14}
+    height={14}
     fill="none"
     {...props}
   >

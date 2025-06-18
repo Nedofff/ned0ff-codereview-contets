@@ -10,7 +10,7 @@
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "icons:generate": "npx @svgr/cli --out-dir src/ui-kit/icons/ --typescript --filename-case kebab --ext tsx --replace-attr-values \"#232325=currentColor\" --svg-props \"width={18},height={18}\" --prettier-config package.json src/ui-kit/icons/raw-icons/*.svg"
+    "icons:generate": "npx @svgr/cli --out-dir src/ui-kit/icons/ --typescript --filename-case kebab --ext tsx --replace-attr-values \"#232325=currentColor\" --prettier-config package.json src/ui-kit/icons/raw-icons/*.svg"
   },
   "dependencies": {
     "clsx": "^2.1.1",

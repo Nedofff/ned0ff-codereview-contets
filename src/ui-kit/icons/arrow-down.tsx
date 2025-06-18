@@ -9,7 +9,7 @@ const SvgArrowDown = (props: SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <path
-      stroke="currentColor"
+      stroke="#86888E"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={1.5}
