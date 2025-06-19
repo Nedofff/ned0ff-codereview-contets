@@ -25,3 +25,5 @@ export { default as BuildingIcon } from "./building";
 export { default as TickIcon } from "./tick";
 export { default as BigArrowLeftIcon } from "./big-arrow-left";
 export { default as InfoCircleIcon } from "./info-circle";
+export { default as AsteriskIcon } from "./asterisk";
+export { default as ArrowTopRightIcon } from "./arrow-top-right";
