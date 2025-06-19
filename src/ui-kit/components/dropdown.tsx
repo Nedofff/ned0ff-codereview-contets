@@ -45,6 +45,10 @@ export function Dropdown({
     }
   }, []);
 
+  useEffect(() => {
+    setSelectedValue(value ?? "");
+  }, [value]);
+
   // Закрытие дропдауна при клике вне его и обновление позиции
   useEffect(() => {
     updateDropdownPosition();

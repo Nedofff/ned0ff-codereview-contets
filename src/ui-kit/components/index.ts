@@ -20,3 +20,4 @@ export { UploadLogo } from "./upload-logo";
 export { Logo } from "./logo";
 
 export { SeoKey } from "./seo-key";
+export { ButtonLink } from "./button-link";

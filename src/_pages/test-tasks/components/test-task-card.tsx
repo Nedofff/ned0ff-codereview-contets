@@ -1,6 +1,4 @@
-import { Card } from "@/ui-kit";
-import { ButtonLink } from "@/ui-kit/components/button-link";
-import { ArrowTopRightIcon } from "@/ui-kit/icons";
+import { Card, ButtonLink, ArrowTopRightIcon } from "@/ui-kit";
 import { DifficultyStars } from "../difficulty-start";
 
 interface TestTaskCardProps {

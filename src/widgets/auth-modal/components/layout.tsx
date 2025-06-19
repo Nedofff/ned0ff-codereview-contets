@@ -1,8 +1,5 @@
-/* eslint-disable react/display-name */
 import Image from "next/image";
-import { Logo } from "@/ui-kit/components/logo";
-import { ButtonLink } from "@/ui-kit/components/button-link";
-import { HhLogoIcon, TelegramColoredIcon } from "@/ui-kit";
+import { HhLogoIcon, TelegramColoredIcon, Logo, ButtonLink } from "@/ui-kit";
 
 export const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (

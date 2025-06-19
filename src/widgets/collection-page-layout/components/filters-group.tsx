@@ -1,4 +1,5 @@
 import { Dropdown, HorizontalScroll, Switch } from "@/ui-kit";
+import { SpecialtyChange } from "./specialty-change";
 
 type Filter =
   | {
@@ -18,7 +19,7 @@ type Filter =
 
 export type FilterGroupData = Filter[];
 
-export const FILTER_DATA_SPECIALTY: Filter = {
+export const FILTER_DATA_SPECIALTY: Filter & { type: "options" } = {
   id: "specialty",
   type: "options",
   label: "Специальность",
@@ -66,6 +67,16 @@ export const FiltersGroup = ({
       {action}
       {filters.map((filter) => {
         if (filter.type === "options") {
+          if (filter.id === "specialty") {
+            return (
+              <SpecialtyChange
+                key={filter.id}
+                label={filter.label}
+                options={filter.options}
+              />
+            );
+          }
+
           return (
             <Dropdown
               key={filter.id}

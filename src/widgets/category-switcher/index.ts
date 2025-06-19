@@ -1,2 +1,2 @@
 export { CategorySwitcher } from "./category-switcher";
-export { useCurrentCategory } from "./model/category-state";
+export { useCurrentCategory, useCategory } from "./model/category-state";
