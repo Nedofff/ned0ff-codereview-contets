@@ -4,6 +4,7 @@ export const routes = {
   jobCreate: "/jobs/add",
   jobId: (id: string) => `/jobs/${id}`,
   petProjects: "/pet-projects",
+  petProjectCreate: "/pet-projects/add",
   petProjectId: (id: string) => `/pet-projects/${id}`,
   questions: "/questions",
   questionId: (id: string) => `/questions/${id}`,
