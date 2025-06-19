@@ -1,27 +1,39 @@
 "use client";
 import React, { useRef } from "react";
 import { cn } from "@/core/utils";
+import { UseFormRegisterReturn } from "react-hook-form";
+import { UploadAvatarIcon } from "../icons";
+import Image from "next/image";
 
-interface UploadAvatarProps {
-  onFileSelect: (file: File) => void;
+interface UploadAvatarProps<T extends string> {
+  onFileSelect?: (file: File) => void;
   currentAvatar?: string;
   size?: "sm" | "md" | "lg";
   className?: string;
+  register?: UseFormRegisterReturn<T>;
 }
 
 const sizeClasses = {
-  sm: "w-16 h-16",
-  md: "w-24 h-24",
-  lg: "w-32 h-32",
+  sm: "w-10 h-10", // 40x40
+  md: "w-13 h-13", // 52x52 - основной размер по макету
+  lg: "w-16 h-16", // 64x64
 };
 
-export function UploadAvatar({
+const paddingClasses = {
+  sm: "p-2",
+  md: "p-[17px]", // точно как в макете
+  lg: "p-5",
+};
+
+export function UploadAvatar<T extends string>({
   onFileSelect,
   currentAvatar,
   size = "md",
   className,
-}: UploadAvatarProps) {
+  register,
+}: UploadAvatarProps<T>) {
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const { ref, ...restRegister } = register || {};
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -29,7 +41,7 @@ export function UploadAvatar({
       if (file.size > 2 * 1024 * 1024) {
         return;
       }
-      onFileSelect(file);
+      onFileSelect?.(file);
     }
   };
 
@@ -38,40 +50,37 @@ export function UploadAvatar({
   };
 
   return (
-    <div className={cn("relative", className)}>
+    <div className={cn("relative inline-block h-min", className)}>
       <div
         className={cn(
-          "rounded-full border-2 border-dashed border-neutral-300 cursor-pointer transition-all duration-200",
-          "hover:border-primary-400 hover:bg-primary-50",
-          "flex items-center justify-center overflow-hidden",
-          sizeClasses[size]
+          "bg-white border border-dashed border-[#ACAEB2] rounded-xl cursor-pointer transition-all duration-200",
+          "hover:border-[#C546FA] flex items-center justify-center group",
+          sizeClasses[size],
+          paddingClasses[size]
         )}
         onClick={handleClick}
       >
         <input
-          ref={fileInputRef}
+          ref={(e) => {
+            ref?.(e);
+            fileInputRef.current = e;
+          }}
           type="file"
           accept="image/*"
           onChange={handleFileChange}
           className="hidden"
+          {...restRegister}
         />
 
         {currentAvatar ? (
-          <img
+          <Image
             src={currentAvatar}
             alt="Avatar"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover rounded-lg"
           />
         ) : (
-          <div className="text-center">
-            <div className="text-2xl text-neutral-400 mb-1">👤</div>
-            <p className="text-xs text-neutral-500">Фото</p>
-          </div>
+          <UploadAvatarIcon className="w-[18px] h-[18px] text-[#ACAEB2] group-hover:text-[#C546FA] transition-colors duration-200" />
         )}
-      </div>
-
-      <div className="absolute -bottom-1 -right-1 bg-primary-400 text-white rounded-full p-1 text-xs">
-        📷
       </div>
     </div>
   );

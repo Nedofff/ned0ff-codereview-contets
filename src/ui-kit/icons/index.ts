@@ -27,3 +27,5 @@ export { default as BigArrowLeftIcon } from "./big-arrow-left";
 export { default as InfoCircleIcon } from "./info-circle";
 export { default as AsteriskIcon } from "./asterisk";
 export { default as ArrowTopRightIcon } from "./arrow-top-right";
+export { default as DownloadIcon } from "./download";
+export { default as UploadAvatarIcon } from "./upload-avatar";

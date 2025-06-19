@@ -45,7 +45,7 @@ export function Input({
         <input
           id={id}
           className={cn(
-            "w-full py-3 border border-neutral-300 rounded-xl transition-colors duration-100",
+            "w-full h-13 py-3 border border-neutral-300 rounded-xl transition-colors duration-100",
             "font-wix-display text-lg placeholder:text-neutral-300",
             "hover:border-neutral-400",
             !!errors && "border-quaternary-400",

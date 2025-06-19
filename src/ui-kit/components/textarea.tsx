@@ -1,0 +1,35 @@
+import { cn } from "@/core/utils";
+import { useId } from "react";
+
+export const Textarea = ({
+  label,
+  className,
+  ...props
+}: {
+  label: string;
+  className?: string;
+} & React.ComponentProps<"textarea">) => {
+  const id = useId();
+  return (
+    <div className={className}>
+      <label
+        className={cn("block font-medium mb-2 font-wix-display")}
+        htmlFor={id}
+      >
+        {label}
+      </label>
+      <textarea
+        {...props}
+        id={id}
+        className={cn(
+          "h-full resize-none",
+          "w-full p-[15px] border border-neutral-300 rounded-xl transition-colors duration-100",
+          "font-wix-display text-lg placeholder:text-neutral-300",
+          "hover:border-neutral-400",
+          "focus:border-secondary-500 focus:ring-2 focus:ring-secondary-500 focus:outline-none",
+          "disabled:border-neutral-200 disabled:bg-neutral-100"
+        )}
+      />
+    </div>
+  );
+};

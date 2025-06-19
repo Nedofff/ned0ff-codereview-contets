@@ -1,0 +1,12 @@
+import { CreateForm } from "./components/create-form";
+
+export const PetProjectCreatePage = () => {
+  return (
+    <div className="max-w-[560px] mx-auto -mt-[35px] mb-20">
+      <h1 className="font-bold text-[26px] leading-[30px] mb-[25px]">
+        Добавление проекта
+      </h1>
+      <CreateForm />
+    </div>
+  );
+};
