@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function HeroSection() {
   return (
-    <section className="pt-32 pb-[50px] lg:pb-[80px] relative">
+    <section className="pb-[50px] lg:pb-[80px] relative">
       <div className="max-w-2xl mx-auto text-center">
         <div className="mb-8">
           <div className="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden">

@@ -9,7 +9,7 @@ import { Card } from "@/ui-kit";
 
 export function SectionsCards() {
   return (
-    <section className=" pb-[50px] lg:pb-25">
+    <section className=" pb-7.5 lg:pb-20">
       <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 mb-2">
         {CARDS_DATA.map(({ Icon, description, href, title, className }) => (
           <SectionCard

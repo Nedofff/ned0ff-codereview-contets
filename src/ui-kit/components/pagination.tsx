@@ -1,7 +1,7 @@
 import React from "react";
 import { cn } from "@/core/utils";
 
-interface PaginationProps {
+export interface PaginationProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;

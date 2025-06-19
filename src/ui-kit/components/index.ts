@@ -8,7 +8,7 @@ export { Switch } from "./switch";
 export { Input } from "./input";
 export { PasswordInput } from "./password-input";
 
-export { Pagination } from "./pagination";
+export { Pagination, type PaginationProps } from "./pagination";
 export { HorizontalScroll } from "./horizontal-scroll";
 
 export { Popover } from "./popover";
