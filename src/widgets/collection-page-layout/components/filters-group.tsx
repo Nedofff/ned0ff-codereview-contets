@@ -18,6 +18,38 @@ type Filter =
 
 export type FilterGroupData = Filter[];
 
+export const FILTER_DATA_SPECIALTY: Filter = {
+  id: "specialty",
+  type: "options",
+  label: "Специальность",
+  options: [
+    {
+      label: "Python",
+      value: "python",
+    },
+    {
+      label: "Java",
+      value: "java",
+    },
+    {
+      label: "JavaScript",
+      value: "javascript",
+    },
+    {
+      label: "Data Science",
+      value: "data-science",
+    },
+    {
+      label: "QA",
+      value: "qa",
+    },
+    {
+      label: "C#",
+      value: "csharp",
+    },
+  ],
+};
+
 export interface FiltersGroupProps {
   onChange: (id: string, value: string | boolean) => void;
   filters: FilterGroupData;

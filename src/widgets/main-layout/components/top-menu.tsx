@@ -12,12 +12,12 @@ export function TopMenu() {
     <div
       className={cn(
         "fixed left-1/2 transform -translate-x-1/2 z-50",
-        "lg:top-[29px]"
+        "sm:top-[29px]"
       )}
     >
       <nav
         className={cn(
-          "lg:flex items-center gap-2.5",
+          "flex items-center gap-2.5",
           "bg-transparent h-[56px]",
           "rounded-[18px]"
         )}

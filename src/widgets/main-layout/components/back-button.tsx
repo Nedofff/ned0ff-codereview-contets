@@ -15,7 +15,7 @@ export const BackButton = () => {
   return (
     <button
       className={cn(
-        "flex items-center justify-center",
+        "hidden sm:flex items-center justify-center",
         "px-6 py-5 rounded-[18px]",
         "bg-white/92 backdrop-blur-[8px]",
         "shadow-[0px_0px_12px_0px_rgba(24,44,194,0.05)]",

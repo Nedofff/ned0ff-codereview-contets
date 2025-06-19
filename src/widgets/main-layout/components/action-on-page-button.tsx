@@ -12,7 +12,7 @@ export const ActionOnPageButton = () => {
   }
 
   return (
-    <Button className="flex items-center justify-center gap-2.5 h-full">
+    <Button className="hidden items-center justify-center gap-2.5 h-full sm:flex">
       Автоотклик
     </Button>
   );
