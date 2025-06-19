@@ -18,3 +18,5 @@ export { UploadImage } from "./upload-image";
 export { UploadAvatar } from "./upload-avatar";
 export { UploadLogo } from "./upload-logo";
 export { Logo } from "./logo";
+
+export { SeoKey } from "./seo-key";

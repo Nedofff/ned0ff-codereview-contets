@@ -4,7 +4,7 @@ import {
   FiltersGroup,
   type FiltersGroupProps,
 } from "./components/filters-group";
-import { SeoKey } from "./components/seo-key";
+import { SeoKey } from "@/ui-kit";
 
 export const CollectionPageLayout = ({
   children,
