@@ -6,6 +6,7 @@ import { Logo } from "@/ui-kit";
 import Link from "next/link";
 import { ActionOnPageButton } from "./action-on-page-button";
 import { BackButton } from "./back-button";
+import { routes } from "@/core/router";
 
 export function TopMenu() {
   return (
@@ -32,7 +33,7 @@ export function TopMenu() {
             "shadow-[0px_0px_12px_0px_rgba(24,44,194,0.05)]"
           )}
         >
-          <Link href="/">
+          <Link href={routes.home}>
             <Logo
               classNameText="hidden md:inline "
               className="gradient-primary text-transparent bg-clip-text  md:bg-none md:text-neutral-600 leading-[22px] "

@@ -1,3 +1,4 @@
+import { routes } from "@/core/router";
 import {
   BriefcaseIcon,
   CalendarIcon,
@@ -23,7 +24,7 @@ export const CARDS_DATA: CardData[] = [
     title: "Вакансии / Cтажировки",
     description:
       "Актуальные junior-вакансии и стажировки с hh.ru, Habr Career, LinkedIn, Telegram и других платформ",
-    href: "/jobs",
+    href: routes.jobs,
   },
   {
     Icon: StackIcon,

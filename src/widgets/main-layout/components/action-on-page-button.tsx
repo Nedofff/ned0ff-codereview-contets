@@ -1,11 +1,12 @@
 "use client";
+import { routes } from "@/core/router";
 import { Button } from "@/ui-kit";
 import { usePathname } from "next/navigation";
 
 export const ActionOnPageButton = () => {
   const pathname = usePathname();
 
-  const isHomePage = pathname === "/";
+  const isHomePage = pathname === routes.home;
 
   if (isHomePage) {
     return null;

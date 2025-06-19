@@ -10,6 +10,7 @@ import { jobsData } from "./mock-data";
 import { useState } from "react";
 import { ButtonLink } from "@/ui-kit/components/button-link";
 import { useQueryParams } from "@/core/use-query-params";
+import { routes } from "@/core/router";
 
 const filters: FilterGroupData = [
   FILTER_DATA_SPECIALTY,
@@ -82,7 +83,7 @@ export function JobsPage() {
       <CollectionPageLayout.FiltersGroup
         action={
           <ButtonLink
-            href="/jobs/add"
+            href={routes.jobCreate}
             variant="filter"
             className="text-lg mr-2.5 leading-[22px] text-nowrap p-[12px_15px]"
           >

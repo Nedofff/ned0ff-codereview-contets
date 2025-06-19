@@ -1,4 +1,5 @@
 "use client";
+import { routes } from "@/core/router";
 import { cn } from "@/core/utils";
 import { BigArrowLeftIcon } from "@/ui-kit";
 import { usePathname } from "next/navigation";
@@ -6,7 +7,7 @@ import { usePathname } from "next/navigation";
 export const BackButton = () => {
   const pathname = usePathname();
 
-  const isHomePage = pathname === "/";
+  const isHomePage = pathname === routes.home;
 
   if (isHomePage) {
     return null;

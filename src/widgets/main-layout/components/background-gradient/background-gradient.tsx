@@ -3,10 +3,11 @@ import Image from "next/image";
 import bgGradient from "./bg-gradient.png";
 import { usePathname } from "next/navigation";
 import { cn } from "@/core/utils";
+import { routes } from "@/core/router";
 
 export function BackgroundGradient() {
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  const isHome = pathname === routes.home;
 
   return (
     <div

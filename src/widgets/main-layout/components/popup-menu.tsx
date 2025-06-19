@@ -23,6 +23,7 @@ import {
 } from "@/ui-kit";
 import { cn } from "@/core/utils";
 import Link from "next/link";
+import { routes } from "@/core/router";
 
 const MenuItem = ({ title, href, Icon }: MenuItem) => {
   return (
@@ -65,7 +66,7 @@ const MENU_ITEMS: MenuItem[] = [
   {
     id: "jobs",
     title: "Вакансии / Cтажировки",
-    href: "/jobs",
+    href: routes.jobs,
     Icon: BriefcaseIcon,
   },
   {
