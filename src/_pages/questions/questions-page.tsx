@@ -8,6 +8,7 @@ import {
 } from "@/widgets/collection-page-layout";
 import { useState } from "react";
 import { QuestionCard } from "./components/question-card";
+import { useCurrentCategory } from "@/widgets/category-switcher";
 
 interface Question {
   id: number;
@@ -110,6 +111,7 @@ const filters: FilterGroupData = [
 ];
 
 export function QuestionsPage() {
+  const currentCategory = useCurrentCategory();
   const { searchParams, setSearchParams } = useQueryParams();
   const currentPage = searchParams.get("page") ?? 1;
   const [selectedFilters, setSelectedFilters] = useState<
@@ -124,7 +126,7 @@ export function QuestionsPage() {
     <CollectionPageLayout>
       <CollectionPageLayout.TitleSection>
         <CollectionPageLayout.Title>
-          Вопросы по JavaScript на собеседовании
+          Вопросы по {currentCategory} на собеседовании
         </CollectionPageLayout.Title>
         <CollectionPageLayout.Description>
           Раздел помогает пользователям подготовиться к техническим и

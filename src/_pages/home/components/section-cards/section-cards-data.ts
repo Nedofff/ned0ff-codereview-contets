@@ -31,14 +31,14 @@ export const CARDS_DATA: CardData[] = [
     title: "Необходимые навыки",
     description:
       "Популярные навыки и ключевые слова из вакансий — можно использовать для улучшения резюме",
-    href: "/not-now",
+    href: routes.requirements,
   },
   {
     Icon: CodeIcon,
     title: "Тестовые задания",
     description:
       "Реальные задания с отборов на стажировки и junior-позиции — для практики и портфолио",
-    href: "/not-now",
+    href: routes.testTasks,
     className: "gradient-quaternary-light",
   },
   {
@@ -46,14 +46,14 @@ export const CARDS_DATA: CardData[] = [
     title: "Собеседования",
     description:
       "Реальные вопросы с интервью, сгруппированные по стеку и уровню сложности — с пояснениями и примерами ответов",
-    href: "/questions",
+    href: routes.questions,
   },
   {
     Icon: CalendarIcon,
     title: "IT-мероприятия",
     description:
       "Конференции, хакатоны, метапы и курсы — чтобы расширить кругозор, найти стажировку и завести связи",
-    href: "/not-now",
+    href: routes.events,
     className: "gradient-secondary-light",
   },
   {
@@ -61,20 +61,20 @@ export const CARDS_DATA: CardData[] = [
     title: "Пет-проекты",
     description:
       "Проекты для портфолио, в том числе коммерческие. Отличный способ прокачать скиллы и показать опыт",
-    href: "/not-now",
+    href: routes.petProjects,
   },
   {
     Icon: MessageIcon,
     title: "Контакты рекрутеров",
     description:
       "Контакты рекрутеров и сотрудников, готовых рекомендовать в свою компанию. Можно найти того, кто поможет попасть на собеседование",
-    href: "/not-now",
+    href: routes.recruiters,
   },
   {
     Icon: SparklesIcon,
     title: "ИИ инструменты",
     description:
       "Подборка AI-тулзов для автоматизации, разработки и поиска работы — с описаниями и рейтингом полезности",
-    href: "/not-now",
+    href: routes.aiTools,
   },
 ];

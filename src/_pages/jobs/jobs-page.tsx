@@ -11,6 +11,7 @@ import { useState } from "react";
 import { ButtonLink } from "@/ui-kit/components/button-link";
 import { useQueryParams } from "@/core/use-query-params";
 import { routes } from "@/core/router";
+import { useCurrentCategory } from "@/widgets/category-switcher";
 
 const filters: FilterGroupData = [
   FILTER_DATA_SPECIALTY,
@@ -58,6 +59,7 @@ const filters: FilterGroupData = [
 
 export function JobsPage() {
   const filteredJobs = jobsData;
+  const currentCategory = useCurrentCategory();
   const { searchParams, setSearchParams } = useQueryParams();
   const currentPage = searchParams.get("page") ?? 1;
   const [selectedFilters, setSelectedFilters] = useState<
@@ -72,7 +74,7 @@ export function JobsPage() {
     <CollectionPageLayout>
       <CollectionPageLayout.TitleSection>
         <CollectionPageLayout.Title>
-          Вакансии по Data Science
+          Вакансии по {currentCategory}
         </CollectionPageLayout.Title>
         <CollectionPageLayout.Description>
           На этой странице агрегируются junior-вакансии и стажировки из
