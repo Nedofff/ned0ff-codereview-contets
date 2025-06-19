@@ -23,3 +23,4 @@ export { default as WebIcon } from "./web";
 export { default as MoneyBagIcon } from "./moneybag";
 export { default as BuildingIcon } from "./building";
 export { default as TickIcon } from "./tick";
+export { default as BigArrowLeftIcon } from "./big-arrow-left";

@@ -126,10 +126,10 @@ export const PopupMenu = () => {
       renderTrigger={(isOpen) => (
         <Button
           variant="ghost"
-          className="grid grid-cols-[max-content_auto_max-content] items-center gap-2"
+          className="grid grid-cols-[max-content_auto_max-content]  items-center gap-2"
         >
           <MenuIcon />
-          <div className="w-max md:text-lg">{category}</div>
+          <div className="w-max leading-[22px] md:text-lg">{category}</div>
           <span className="text-center">
             <ArrowDownIcon
               className={cn(

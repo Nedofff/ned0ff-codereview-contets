@@ -200,11 +200,6 @@
   background-clip: text;
 }
 
-/* Dark theme specific adjustments */
-.dark-bg {
-  background-color: #2f2b38;
-}
-
 /* Better border radius utilities */
 .rounded-xl {
   border-radius: 0.75rem;

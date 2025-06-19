@@ -1,52 +1,29 @@
-"use client";
 import React from "react";
 import { cn } from "@/core/utils";
-import { AuthModal } from "../../auth-modal/auth-modal";
+import { AuthModalButton } from "../../auth-modal/auth-modal";
 import { PopupMenu } from "./popup-menu";
 import { Logo } from "@/ui-kit";
+import Link from "next/link";
+import { ActionOnPageButton } from "./action-on-page-button";
+import { BackButton } from "./back-button";
 
-interface TopMenuProps {
-  className?: string;
-}
-
-export function TopMenu({ className }: TopMenuProps) {
+export function TopMenu() {
   return (
     <div
       className={cn(
         "fixed left-1/2 transform -translate-x-1/2 z-50",
-        "lg:top-[29px]",
-        className
+        "lg:top-[29px]"
       )}
     >
       <nav
         className={cn(
           "lg:flex items-center gap-2.5",
-          "bg-transparent",
+          "bg-transparent h-[56px]",
           "rounded-[18px]"
         )}
       >
-        {/* Кнопка назад */}
-        <button
-          className={cn(
-            "flex items-center justify-center",
-            "px-6 py-5 rounded-[18px]",
-            "bg-white/92 backdrop-blur-[8px]",
-            "shadow-[0px_0px_12px_0px_rgba(24,44,194,0.05)]",
-            "hover:bg-white/100 transition-colors"
-          )}
-        >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path
-              d="M10 12L6 8L10 4"
-              stroke="#636469"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
+        <BackButton />
 
-        {/* Основное меню */}
         <div
           className={cn(
             "flex items-center gap-5",
@@ -55,40 +32,18 @@ export function TopMenu({ className }: TopMenuProps) {
             "shadow-[0px_0px_12px_0px_rgba(24,44,194,0.05)]"
           )}
         >
-          <Logo
-            classNameText="hidden md:inline"
-            className="gradient-primary text-transparent bg-clip-text  md:bg-none md:text-neutral-600"
-          />
+          <Link href="/">
+            <Logo
+              classNameText="hidden md:inline "
+              className="gradient-primary text-transparent bg-clip-text  md:bg-none md:text-neutral-600 leading-[22px] "
+            />
+          </Link>
 
-          {/* Меню с выпадающим списком */}
-          <div className="relative">
-            <PopupMenu />
-          </div>
+          <PopupMenu />
 
-          {/* Кнопка Войти */}
-          <AuthModal />
+          <AuthModalButton />
         </div>
-
-        {/* Кнопка Автоотклик */}
-        <button
-          className={cn(
-            "flex items-center justify-center gap-2.5",
-            "px-5 py-[18px] rounded-[18px]",
-            "bg-gradient-to-r from-[#2093FE] to-[#C217FE]",
-            "backdrop-blur-[8px]",
-            "hover:opacity-90 transition-opacity"
-          )}
-        >
-          <span
-            className={cn(
-              "text-[18px] font-medium leading-[1.11] tracking-[-2.78%]",
-              "text-white",
-              "font-['Wix_Madefor_Text']"
-            )}
-          >
-            Автоотклик
-          </span>
-        </button>
+        <ActionOnPageButton />
       </nav>
     </div>
   );

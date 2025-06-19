@@ -15,7 +15,7 @@ import { ProfileIcon } from "@/ui-kit";
 
 type AuthStep = "login" | "register" | "success" | "thanks";
 
-export function AuthModal() {
+export function AuthModalButton() {
   const [step, setStep] = useState<AuthStep>("login");
   const [isOpen, setIsOpen] = useState(false);
 
@@ -97,9 +97,10 @@ export function AuthModal() {
       <Button
         onClick={() => setIsOpen(true)}
         variant="ghost"
-        className="flex items-center gap-2"
+        className="flex items-center gap-2 h-min"
       >
-        <ProfileIcon /> <span className="hidden md:inline text-lg">Войти</span>
+        <ProfileIcon />{" "}
+        <span className="hidden md:inline text-lg leading-[22px]">Войти</span>
       </Button>
 
       <Popup isOpen={isOpen} onClose={() => setIsOpen(false)}>
