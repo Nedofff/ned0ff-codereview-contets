@@ -21,7 +21,7 @@ const buttonVariants = {
     hover: "hover:text-primary-500",
   },
   filter: {
-    base: "gradient-secondary text-neutral-800 border-0 font-medium rounded-xl",
+    base: "gradient-secondary-light text-neutral-800 border-0 font-medium rounded-xl",
     hover: "hover:opacity-90",
   },
   ghost: {

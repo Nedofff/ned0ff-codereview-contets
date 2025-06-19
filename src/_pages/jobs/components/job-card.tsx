@@ -1,0 +1,74 @@
+import {
+  BriefcaseIcon,
+  BuildingIcon,
+  Card,
+  MoneyBagIcon,
+  WebIcon,
+} from "@/ui-kit";
+import type { Vacancy } from "../types";
+import { cn } from "@/core/utils";
+import Image from "next/image";
+
+export const JobCard = ({ job }: { job: Vacancy }) => {
+  return (
+    <Card
+      key={job.id}
+      className={cn(
+        "w-full max-w-[345px] mx-auto",
+        "grid grid-rows-[auto_1fr_auto] ",
+        "lg:mx-0 lg:max-w-[502px]"
+      )}
+    >
+      <h3 className="text-lg font-bold leading-[22px] text-neutral-800 mb-2.5">
+        {job.title}
+      </h3>
+      <div className="flex flex-wrap items-center leading-[20px] text-neutral-800 gap-2 font-wix-display mb-7.5 md:mb-12.5">
+        {job.remote ? (
+          <span className="flex items-center">
+            <WebIcon className="mr-0.5" /> удаленно
+          </span>
+        ) : (
+          <span className="flex items-center">
+            <BuildingIcon className="mr-0.5" /> в офис
+          </span>
+        )}
+        {job.internship && (
+          <span className="flex items-center">
+            <BriefcaseIcon
+              width={18}
+              height={18}
+              viewBox="0 0 26 26"
+              className="mr-0.5"
+            />{" "}
+            стажировка
+          </span>
+        )}
+        <span className="flex items-center">
+          <MoneyBagIcon className="mr-0.5" /> {job.salary ?? "не указана"}
+        </span>
+      </div>
+      <div className="flex flex-col gap-y-[15px] items-end  md:gap-y-0 md:justify-between md:flex-row">
+        <div className="grid grid-cols-[max-content_auto] grid-rows-[max-content_auto] gap-x-2.5">
+          {job.image && (
+            <Image
+              src={job.image}
+              width={42}
+              height={42}
+              alt={`Лого ${job.companyName}`}
+              className="row-span-2 rounded-lg"
+            />
+          )}
+          <span className="font-semibold font-wix-display text-lg leading-[22px]">
+            {job.companyName}
+          </span>
+          <span className="font-semibold font-wix-display leading-[20px] text-neutral-600">
+            {job.location}
+          </span>
+        </div>
+        <div className="text-neutral-500 font-wix-display leading-[20px]">
+          {new Date(job.datePublication).toLocaleDateString()}
+        </div>
+      </div>
+    </Card>
+  );
+};

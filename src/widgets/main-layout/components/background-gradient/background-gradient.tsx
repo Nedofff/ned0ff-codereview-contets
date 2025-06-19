@@ -10,16 +10,19 @@ export function BackgroundGradient() {
 
   return (
     <div
-      className={cn("absolute  left-0 w-full h-[674px] z-1", {
-        "top-0": isHome,
-        "-top-[230px]": !isHome,
-      })}
+      className={cn(
+        "absolute pointer-events-none left-0 w-full h-[674px] z-1",
+        {
+          "top-0": isHome,
+          "-top-[230px]": !isHome,
+        }
+      )}
     >
       <Image
         src={bgGradient}
         alt="Background stars"
         fill
-        className="object-cover h-full"
+        className="object-cover h-full pointer-events-none"
         priority
         draggable={false}
       />

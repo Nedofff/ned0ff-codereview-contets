@@ -19,3 +19,7 @@ export { default as LinkedinIcon } from "./linkedin";
 export { default as TelegramIcon } from "./telegram";
 export { default as YoutubeIcon } from "./youtube";
 export { default as DuckIcon } from "./duck";
+export { default as WebIcon } from "./web";
+export { default as MoneyBagIcon } from "./moneybag";
+export { default as BuildingIcon } from "./building";
+export { default as TickIcon } from "./tick";

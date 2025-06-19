@@ -72,7 +72,7 @@ export function HorizontalScroll({
     <div
       ref={scrollRef}
       className={cn(
-        "flex",
+        "flex -mx-[15px] px-[15px]",
         hasOverflow && "overflow-x-auto",
         !showScrollbar && hasOverflow && "scrollbar-hide",
         enableDragScroll && hasOverflow && "cursor-grab select-none",

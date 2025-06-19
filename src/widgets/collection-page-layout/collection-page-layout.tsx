@@ -4,13 +4,14 @@ import {
   FiltersGroup,
   type FiltersGroupProps,
 } from "./components/filters-group";
+import { SeoKey } from "./components/seo-key";
 
 export const CollectionPageLayout = ({
   children,
 }: {
   children: React.ReactNode;
 }) => (
-  <div className={cn("grid grid-cols-1 gap-y-[15px]", "md:gap-y-5")}>
+  <div className={cn("w-full grid grid-cols-1 gap-y-[15px]", "md:gap-y-5")}>
     {children}
   </div>
 );
@@ -54,15 +55,27 @@ CollectionPageLayout.Description = ({
 );
 
 CollectionPageLayout.FiltersGroup = (props: FiltersGroupProps) => (
-  <FiltersGroup {...props} className="md:mb-[5px]" />
+  <section className="md:mb-[5px] z-10">
+    <FiltersGroup {...props} />
+  </section>
 );
 
-CollectionPageLayout.Content = ({ children }: { children: React.ReactNode }) =>
-  children;
+CollectionPageLayout.Content = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => <section className={className}>{children}</section>;
 
 CollectionPageLayout.Pagination = (
   props: Omit<PaginationProps, "className">
 ) => <Pagination {...props} className="mb-[25px] md:mb-10" />;
 
-CollectionPageLayout.SeoKeys = ({ seoKeys }: { seoKeys: string[] }) =>
-  seoKeys.map((item, index) => <div key={index}>{item}</div>);
+CollectionPageLayout.SeoKeys = ({ seoKeys }: { seoKeys: string[] }) => (
+  <div className="flex flex-wrap gap-2 justify-center">
+    {seoKeys.map((item, index) => (
+      <SeoKey key={index}>{item}</SeoKey>
+    ))}
+  </div>
+);

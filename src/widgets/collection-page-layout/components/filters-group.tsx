@@ -16,10 +16,11 @@ type Filter =
       label: string;
     };
 
+export type FilterGroupData = Filter[];
+
 export interface FiltersGroupProps {
   onChange: (id: string, value: string | boolean) => void;
-  filters: Filter[];
-  className?: string;
+  filters: FilterGroupData;
   action?: React.ReactNode;
 }
 
@@ -27,10 +28,9 @@ export const FiltersGroup = ({
   filters,
   action,
   onChange,
-  className,
 }: FiltersGroupProps) => {
   return (
-    <HorizontalScroll className={className}>
+    <HorizontalScroll className="gap-x-[15px] md:gap-x-2.5">
       {action}
       {filters.map((filter) => {
         if (filter.type === "options") {
@@ -38,6 +38,7 @@ export const FiltersGroup = ({
             <Dropdown
               key={filter.id}
               options={filter.options}
+              placeholder={filter.label}
               onChange={(value) => onChange(filter.id, value)}
             />
           );

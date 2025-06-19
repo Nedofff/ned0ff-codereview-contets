@@ -1,7 +1,8 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { cn } from "@/core/utils";
-import { ArrowDownIcon } from "../icons";
+import { ArrowDownIcon, TickIcon } from "../icons";
+import { Portal } from "./portal";
 
 interface DropdownOption {
   value: string;
@@ -28,24 +29,56 @@ export function Dropdown({
 }: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState(value ?? "");
+  const dropdownContainerRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Закрытие дропдауна при клике вне его
+  const updateDropdownPosition = useCallback(() => {
+    if (dropdownRef.current && dropdownContainerRef.current) {
+      const rect = dropdownRef.current.getBoundingClientRect();
+      dropdownContainerRef.current.style.top = `${
+        rect.bottom + window.scrollY + 8
+      }px`;
+      dropdownContainerRef.current.style.left = `${
+        rect.left + window.scrollX
+      }px`;
+      dropdownContainerRef.current.style.width = `${rect.width}px`;
+    }
+  }, []);
+
+  // Закрытие дропдауна при клике вне его и обновление позиции
   useEffect(() => {
+    updateDropdownPosition();
     const handleClickOutside = (event: MouseEvent) => {
       if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
+        !dropdownRef.current?.contains(event.target as Node) &&
+        !dropdownContainerRef.current?.contains(event.target as Node)
       ) {
         setIsOpen(false);
       }
     };
 
+    const handleResize = () => {
+      if (isOpen) {
+        updateDropdownPosition();
+      }
+    };
+
+    const handleScroll = () => {
+      if (isOpen) {
+        updateDropdownPosition();
+      }
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleScroll);
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isOpen, updateDropdownPosition]);
 
   const handleSelect = (optionValue: string) => {
     setSelectedValue(optionValue);
@@ -53,36 +86,38 @@ export function Dropdown({
     onChange?.(optionValue);
   };
 
+  const handleToggle = () => {
+    if (disabled) return;
+    setIsOpen(!isOpen);
+  };
+
   const selectedOption = options.find(
     (option) => option.value === selectedValue
   );
 
   return (
-    <div className={cn("relative w-full", className)} ref={dropdownRef}>
-      {/* Основная кнопка дропдауна */}
+    <div className={cn("relative", className)} ref={dropdownRef}>
       <button
         type="button"
         className={cn(
-          "w-full px-4 py-3 text-left rounded-xl border transition-all duration-200",
+          "p-3 pl-[15px] text-left rounded-xl border transition-all duration-200 ",
           "bg-neutral-100 border-neutral-200 text-neutral-800",
-          "hover:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500",
-          isOpen && "border-blue-500 ring-2 ring-blue-500",
+          "hover:border-neutral-300 focus:outline-none  ",
           disabled && "opacity-50 cursor-not-allowed"
         )}
-        onClick={() => !disabled && setIsOpen(!isOpen)}
+        onClick={handleToggle}
         disabled={disabled}
       >
-        <div className="flex items-center justify-between">
-          <span
-            className={cn(
-              selectedOption ? "text-neutral-800" : "text-neutral-500"
-            )}
-          >
+        <div className="flex items-center font-medium">
+          <span className="text-neutral-800 text-lg text-nowrap leading-[20px] md:leading-[22px]">
             {selectedOption?.label ?? placeholder}
           </span>
           <ArrowDownIcon
+            width={16}
+            height={16}
             className={cn(
-              "w-5 h-5 transition-transform duration-200",
+              "ml-[5px]",
+              "transition-transform duration-200",
               isOpen && "transform rotate-180",
               "text-neutral-500"
             )}
@@ -90,32 +125,38 @@ export function Dropdown({
         </div>
       </button>
 
-      {/* Выпадающий список */}
       {isOpen && !disabled && (
-        <div className="absolute z-50 w-full mt-1 bg-white rounded-xl border border-neutral-200 shadow-lg max-h-60 overflow-auto">
-          {options.length === 0 ? (
-            <div className="px-4 py-3 text-neutral-500 text-center">
-              Нет доступных опций
-            </div>
-          ) : (
-            options.map((option) => (
-              <button
-                key={option.value}
-                type="button"
-                className={cn(
-                  "w-full px-4 py-3 text-left transition-colors duration-150",
-                  "hover:bg-neutral-50 focus:bg-neutral-50 focus:outline-none",
-                  selectedValue === option.value && "bg-blue-50 text-blue-600",
-                  option.disabled && "opacity-50 cursor-not-allowed"
-                )}
-                onClick={() => !option.disabled && handleSelect(option.value)}
-                disabled={option.disabled}
-              >
-                {option.label}
-              </button>
-            ))
-          )}
-        </div>
+        <Portal>
+          <div
+            ref={dropdownContainerRef}
+            className="absolute z-20 bg-white rounded-xl border border-neutral-200 shadow-lg max-h-60 p-[10px_0px_5px] overflow-auto"
+          >
+            {options.length === 0 ? (
+              <div className="px-4 py-3 text-neutral-500 text-center">
+                Нет доступных опций
+              </div>
+            ) : (
+              options.map((option) => (
+                <button
+                  key={option.value}
+                  type="button"
+                  className={cn(
+                    "w-full px-4 py-3 text-left transition-colors duration-150",
+                    "hover:bg-neutral-50 focus:bg-neutral-50 focus:outline-none",
+                    "flex justify-between items-center",
+                    selectedValue === option.value && "bg-neutral-200",
+                    option.disabled && "opacity-50 cursor-not-allowed"
+                  )}
+                  onClick={() => !option.disabled && handleSelect(option.value)}
+                  disabled={option.disabled}
+                >
+                  {option.label}
+                  {selectedValue === option.value && <TickIcon />}
+                </button>
+              ))
+            )}
+          </div>
+        </Portal>
       )}
     </div>
   );
