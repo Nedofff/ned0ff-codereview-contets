@@ -82,7 +82,7 @@ export function Pagination({
                 "flex items-center justify-center w-10 h-10 rounded-[10px] text-[18px] font-medium transition-all duration-200",
                 "text-[#232325] leading-[1.22]",
                 currentPage === page
-                  ? "bg-gradient-to-r from-[#F4B8B8] via-[#EAD6B5] via-[#E3EAB3] to-[#C5F1D0]"
+                  ? "gradient-quaternary-light"
                   : "hover:bg-[#F6F6F6]"
               )}
               style={{ letterSpacing: "-2.78%" }}

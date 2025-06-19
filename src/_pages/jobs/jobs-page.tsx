@@ -8,6 +8,8 @@ import { JobCard } from "./components/job-card";
 import { jobsData } from "./mock-data";
 import { useState } from "react";
 import { ButtonLink } from "@/ui-kit/components/button-link";
+import { useSearchParams } from "next/navigation";
+import { useQueryParams } from "@/core/use-query-params";
 
 const filters: FilterGroupData = [
   {
@@ -85,6 +87,8 @@ const filters: FilterGroupData = [
 
 export function JobsPage() {
   const filteredJobs = jobsData;
+  const { searchParams, setSearchParams } = useQueryParams();
+  const currentPage = searchParams.get("page") ?? 1;
   const [selectedFilters, setSelectedFilters] = useState<
     Record<string, string | boolean>
   >({});
@@ -124,9 +128,9 @@ export function JobsPage() {
         ))}
       </CollectionPageLayout.Content>
       <CollectionPageLayout.Pagination
-        currentPage={1}
-        totalPages={1}
-        onPageChange={() => {}}
+        currentPage={+currentPage}
+        totalPages={20}
+        onPageChange={(page) => setSearchParams("page", page.toString())}
       />
       <CollectionPageLayout.SeoKeys
         seoKeys={[

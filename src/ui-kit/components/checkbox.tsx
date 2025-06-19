@@ -35,13 +35,8 @@ export function Checkbox({
           )}
           {...props}
         />
-        <div className="absolute inset-0 pt-[3px] flex items-center justify-center text-white pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity duration-200">
-          <TickIcon
-            width={12}
-            height={12}
-            className="text-white"
-            viewBox="0 0 18 18"
-          />
+        <div className="absolute inset-0  flex items-center justify-center text-white pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity duration-200">
+          <TickIcon width={16} height={16} viewBox="0 0 17 17" />
         </div>
       </div>
       {label && (

@@ -24,7 +24,7 @@ export function Input({
   const id = useId();
 
   return (
-    <div className="w-full">
+    <div className={cn("w-full", className)}>
       {label && (
         <label
           className={cn("block font-medium mb-2 font-wix-display", {
@@ -56,8 +56,7 @@ export function Input({
               "pl-4 pr-12": rightIcon,
               "px-4": !leftIcon && !rightIcon,
               "pl-12 pr-12": leftIcon && rightIcon,
-            },
-            className
+            }
           )}
           disabled={disabled}
           {...props}
