@@ -2,47 +2,17 @@
 
 import {
   CollectionPageLayout,
+  FILTER_DATA_SPECIALTY,
   type FilterGroupData,
 } from "@/widgets/collection-page-layout/";
 import { JobCard } from "./components/job-card";
 import { jobsData } from "./mock-data";
 import { useState } from "react";
 import { ButtonLink } from "@/ui-kit/components/button-link";
-import { useSearchParams } from "next/navigation";
 import { useQueryParams } from "@/core/use-query-params";
 
 const filters: FilterGroupData = [
-  {
-    id: "specialty",
-    type: "options",
-    label: "Специальность",
-    options: [
-      {
-        label: "Python",
-        value: "python",
-      },
-      {
-        label: "Java",
-        value: "java",
-      },
-      {
-        label: "JavaScript",
-        value: "javascript",
-      },
-      {
-        label: "Data Science",
-        value: "data-science",
-      },
-      {
-        label: "QA",
-        value: "qa",
-      },
-      {
-        label: "C#",
-        value: "csharp",
-      },
-    ],
-  },
+  FILTER_DATA_SPECIALTY,
   {
     id: "source",
     type: "options",
