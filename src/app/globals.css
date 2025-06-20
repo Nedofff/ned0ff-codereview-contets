@@ -200,6 +200,20 @@
   background-clip: text;
 }
 
+/* Ticker animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
 /* Better border radius utilities */
 .rounded-xl {
   border-radius: 0.75rem;

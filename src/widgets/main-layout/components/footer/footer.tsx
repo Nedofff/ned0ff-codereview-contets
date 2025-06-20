@@ -9,10 +9,12 @@ import {
 } from "@/ui-kit";
 import Link from "next/link";
 import { cn } from "@/core/utils";
+import { Ticker } from "./ticker";
 
 export function Footer() {
   return (
     <footer className="">
+      <Ticker />
       <div className="relative bg-gray-900 text-white overflow-hidden">
         <Image
           src={bgGradient}
@@ -125,7 +127,7 @@ export function Footer() {
             )}
           >
             <div className="flex items-center gap-x-[10px] text-neutral-200 tracking-[-0.5x]">
-              <DuckIcon />
+              <DuckIcon withGradient />
               junior for juniors
             </div>
             <div
