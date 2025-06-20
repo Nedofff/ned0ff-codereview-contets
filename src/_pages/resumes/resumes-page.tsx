@@ -2,116 +2,119 @@
 
 import {
   CollectionPageLayout,
-  FilterGroupData,
+  createFilter,
 } from "@/widgets/collection-page-layout";
 import { resumesMock } from "./resumes-mock";
 import { ResumeCard } from "./components/resume-card";
 import { ButtonLink } from "@/ui-kit";
 import { routes } from "@/core/router";
 
-const filters: FilterGroupData = [
-  {
-    id: "position",
-    type: "options",
-    label: "Позиция",
-    options: [
-      {
-        label: "Data Science",
-        value: "data-science",
-      },
-      {
-        label: "Frontend Developer",
-        value: "frontend",
-      },
-      {
-        label: "Backend Developer",
-        value: "backend",
-      },
-      {
-        label: "DevOps Engineer",
-        value: "devops",
-      },
-      {
-        label: "Mobile Developer",
-        value: "mobile",
-      },
-      {
-        label: "QA Engineer",
-        value: "qa",
-      },
-      {
-        label: "Fullstack Developer",
-        value: "fullstack",
-      },
-      {
-        label: "UI/UX Designer",
-        value: "design",
-      },
-    ],
-  },
-  {
-    id: "grade",
-    type: "options",
-    label: "Уровень",
-    options: [
-      {
-        label: "Junior",
-        value: "junior",
-      },
-      {
-        label: "Middle",
-        value: "middle",
-      },
-      {
-        label: "Senior",
-        value: "senior",
-      },
-      {
-        label: "Lead",
-        value: "lead",
-      },
-    ],
-  },
-  {
-    id: "city",
-    type: "options",
-    label: "Город",
-    options: [
-      {
-        label: "Москва",
-        value: "moscow",
-      },
-      {
-        label: "Санкт-Петербург",
-        value: "spb",
-      },
-      {
-        label: "Новосибирск",
-        value: "novosibirsk",
-      },
-      {
-        label: "Екатеринбург",
-        value: "ekaterinburg",
-      },
-      {
-        label: "Нижний Новгород",
-        value: "nizhny-novgorod",
-      },
-      {
-        label: "Казань",
-        value: "kazan",
-      },
-      {
-        label: "Краснодар",
-        value: "krasnodar",
-      },
-      {
-        label: "Ростов-на-Дону",
-        value: "rostov",
-      },
-    ],
-  },
-];
+const filters = createFilter(
+  [
+    {
+      id: "position",
+      type: "options",
+      label: "Позиция",
+      options: [
+        {
+          label: "Data Science",
+          value: "data-science",
+        },
+        {
+          label: "Frontend Developer",
+          value: "frontend",
+        },
+        {
+          label: "Backend Developer",
+          value: "backend",
+        },
+        {
+          label: "DevOps Engineer",
+          value: "devops",
+        },
+        {
+          label: "Mobile Developer",
+          value: "mobile",
+        },
+        {
+          label: "QA Engineer",
+          value: "qa",
+        },
+        {
+          label: "Fullstack Developer",
+          value: "fullstack",
+        },
+        {
+          label: "UI/UX Designer",
+          value: "design",
+        },
+      ],
+    },
+    {
+      id: "grade",
+      type: "options",
+      label: "Уровень",
+      options: [
+        {
+          label: "Junior",
+          value: "junior",
+        },
+        {
+          label: "Middle",
+          value: "middle",
+        },
+        {
+          label: "Senior",
+          value: "senior",
+        },
+        {
+          label: "Lead",
+          value: "lead",
+        },
+      ],
+    },
+    {
+      id: "city",
+      type: "options",
+      label: "Город",
+      options: [
+        {
+          label: "Москва",
+          value: "moscow",
+        },
+        {
+          label: "Санкт-Петербург",
+          value: "spb",
+        },
+        {
+          label: "Новосибирск",
+          value: "novosibirsk",
+        },
+        {
+          label: "Екатеринбург",
+          value: "ekaterinburg",
+        },
+        {
+          label: "Нижний Новгород",
+          value: "nizhny-novgorod",
+        },
+        {
+          label: "Казань",
+          value: "kazan",
+        },
+        {
+          label: "Краснодар",
+          value: "krasnodar",
+        },
+        {
+          label: "Ростов-на-Дону",
+          value: "rostov",
+        },
+      ],
+    },
+  ],
+  { withOutSpecialty: true }
+);
 
 export const ResumesPage = () => {
   const handleSelectFilter = (id: string, value: string | boolean) => {

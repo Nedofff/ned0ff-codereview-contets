@@ -22,3 +22,4 @@ export { Logo } from "./logo";
 export { SeoKey } from "./seo-key";
 export { ButtonLink } from "./button-link";
 export { Textarea } from "./textarea";
+export { Rating } from "./rating";

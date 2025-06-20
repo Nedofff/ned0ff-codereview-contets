@@ -1,6 +1,5 @@
-import { Card } from "@/ui-kit";
+import { Card, Rating } from "@/ui-kit";
 import Link from "next/link";
-import { Rating } from "./rating";
 
 export const RecruitersCard = ({
   title,

@@ -1,8 +1,7 @@
 "use client";
 import {
   CollectionPageLayout,
-  type FilterGroupData,
-  FILTER_DATA_SPECIALTY,
+  createFilter,
 } from "@/widgets/collection-page-layout";
 import { useQueryParams } from "@/core/use-query-params";
 import { useState } from "react";
@@ -12,8 +11,7 @@ import { requirementsMockData } from "./requirements-page-mock-data";
 import { cn } from "@/core/utils";
 import { InfoCircleIcon } from "@/ui-kit";
 
-const filters: FilterGroupData = [
-  FILTER_DATA_SPECIALTY,
+const filters = createFilter([
   {
     id: "source",
     type: "options",
@@ -33,7 +31,7 @@ const filters: FilterGroupData = [
       },
     ],
   },
-];
+]);
 
 export const RequirementsPage = () => {
   const currentCategory = useCurrentCategory();

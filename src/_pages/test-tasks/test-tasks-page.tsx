@@ -3,15 +3,13 @@ import { useQueryParams } from "@/core/use-query-params";
 import { useCurrentCategory } from "@/widgets/category-switcher";
 import {
   CollectionPageLayout,
-  type FilterGroupData,
-  FILTER_DATA_SPECIALTY,
+  createFilter,
 } from "@/widgets/collection-page-layout";
 import { useState } from "react";
 import { testTasksMockData } from "./test-tasks-mock";
 import { TestTaskCard } from "./components/test-task-card";
 
-const filters: FilterGroupData = [
-  FILTER_DATA_SPECIALTY,
+const filters = createFilter([
   {
     id: "position",
     type: "options",
@@ -65,7 +63,7 @@ const filters: FilterGroupData = [
       },
     ],
   },
-];
+]);
 
 export const TestTasksPage = () => {
   const currentCategory = useCurrentCategory();

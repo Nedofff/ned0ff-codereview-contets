@@ -2,6 +2,7 @@
 
 import {
   CollectionPageLayout,
+  createFilter,
   FILTER_DATA_SPECIALTY,
 } from "@/widgets/collection-page-layout/";
 import { RecruitersCard } from "./components/recruiters-card";
@@ -38,7 +39,7 @@ export function RecruitersPage() {
             Добавить контакт
           </ButtonLink>
         }
-        filters={[FILTER_DATA_SPECIALTY]}
+        filters={createFilter([])}
         onChange={handleSelectFilter}
       />
       <CollectionPageLayout.Content className="grid grid-cols-1 gap-2.5 md:grid-cols-2  lg:gap-4 lg:grid-cols-3">

@@ -3,7 +3,7 @@ import { useQueryParams } from "@/core/use-query-params";
 import { useCurrentCategory } from "@/widgets/category-switcher";
 import {
   CollectionPageLayout,
-  FILTER_DATA_SPECIALTY,
+  createFilter,
 } from "@/widgets/collection-page-layout";
 import { useState } from "react";
 import { ButtonLink } from "@/ui-kit";
@@ -36,7 +36,7 @@ export const PetProjectsPage = () => {
         </CollectionPageLayout.Description>
       </CollectionPageLayout.TitleSection>
       <CollectionPageLayout.FiltersGroup
-        filters={[FILTER_DATA_SPECIALTY]}
+        filters={createFilter([])}
         onChange={handleSelectFilter}
         action={
           <ButtonLink variant="filter" href={routes.petProjectCreate}>

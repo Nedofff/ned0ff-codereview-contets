@@ -2,8 +2,7 @@
 
 import {
   CollectionPageLayout,
-  FILTER_DATA_SPECIALTY,
-  type FilterGroupData,
+  createFilter,
 } from "@/widgets/collection-page-layout/";
 import { JobCard } from "./components/job-card";
 import { jobsData } from "./mock-data";
@@ -13,8 +12,7 @@ import { useQueryParams } from "@/core/use-query-params";
 import { routes } from "@/core/router";
 import { useCurrentCategory } from "@/widgets/category-switcher";
 
-const filters: FilterGroupData = [
-  FILTER_DATA_SPECIALTY,
+const filters = createFilter([
   {
     id: "source",
     type: "options",
@@ -55,7 +53,7 @@ const filters: FilterGroupData = [
     type: "switch",
     label: "Стажировка",
   },
-];
+]);
 
 export function JobsPage() {
   const filteredJobs = jobsData;

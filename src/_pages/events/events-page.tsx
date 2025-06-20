@@ -4,15 +4,13 @@ import { useQueryParams } from "@/core/use-query-params";
 import { useCurrentCategory } from "@/widgets/category-switcher";
 import {
   CollectionPageLayout,
-  type FilterGroupData,
-  FILTER_DATA_SPECIALTY,
+  createFilter,
 } from "@/widgets/collection-page-layout";
 import { useState } from "react";
 import { EventCard } from "./components/event-card";
 import { eventsData } from "./events-mock";
 
-const filters: FilterGroupData = [
-  FILTER_DATA_SPECIALTY,
+const filters = createFilter([
   {
     id: "city",
     type: "options",
@@ -41,7 +39,7 @@ const filters: FilterGroupData = [
     type: "switch",
     label: "Онлайн",
   },
-];
+]);
 
 export const EventsPage = () => {
   const currentCategory = useCurrentCategory();

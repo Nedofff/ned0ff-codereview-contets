@@ -3,8 +3,7 @@
 import { useQueryParams } from "@/core/use-query-params";
 import {
   CollectionPageLayout,
-  FILTER_DATA_SPECIALTY,
-  FilterGroupData,
+  createFilter,
 } from "@/widgets/collection-page-layout";
 import { useState } from "react";
 import { QuestionCard } from "./components/question-card";
@@ -64,8 +63,7 @@ const questions: Question[] = [
   },
 ];
 
-const filters: FilterGroupData = [
-  FILTER_DATA_SPECIALTY,
+const filters = createFilter([
   {
     id: "stack",
     type: "options",
@@ -108,7 +106,7 @@ const filters: FilterGroupData = [
       },
     ],
   },
-];
+]);
 
 export function QuestionsPage() {
   const currentCategory = useCurrentCategory();

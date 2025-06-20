@@ -29,11 +29,13 @@ const RatingButton = ({
 export const Rating = ({
   dislike,
   like,
+  className,
 }: {
   like: number;
   dislike: number;
+  className?: string;
 }) => (
-  <div className="flex items-center gap-x-2.5">
+  <div className={cn("flex items-center gap-x-2.5", className)}>
     <RatingButton count={like} className="active:text-quinary-400">
       <LikeIcon />
     </RatingButton>
