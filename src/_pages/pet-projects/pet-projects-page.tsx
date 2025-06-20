@@ -44,7 +44,10 @@ export const PetProjectsPage = () => {
           </ButtonLink>
         }
       />
-      <CollectionPageLayout.Content className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+      <CollectionPageLayout.Content
+        titleAuthWall="Получите доступ к 150+ коммерческим проектам для опыта"
+        className="grid grid-cols-1 md:grid-cols-2 gap-2.5"
+      >
         {petProjectsMock.map((item) => (
           <PetProjectCard key={item.id} {...item} />
         ))}

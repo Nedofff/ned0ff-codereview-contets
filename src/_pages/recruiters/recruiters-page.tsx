@@ -42,7 +42,10 @@ export function RecruitersPage() {
         filters={createFilter([])}
         onChange={handleSelectFilter}
       />
-      <CollectionPageLayout.Content className="grid grid-cols-1 gap-2.5 md:grid-cols-2  lg:gap-4 lg:grid-cols-3">
+      <CollectionPageLayout.Content
+        titleAuthWall="Получите доступ к контактам 500+ рекрутеров и рефералов"
+        className="grid grid-cols-1 gap-2.5 md:grid-cols-2  lg:gap-4 lg:grid-cols-3"
+      >
         {filteredRecruiters.map((recruiter) => (
           <RecruitersCard key={recruiter.id} {...recruiter} />
         ))}

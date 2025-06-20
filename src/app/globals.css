@@ -106,6 +106,10 @@
     @apply bg-gradient-to-r from-[#DE5467E5] to-[#A014CF];
   }
 
+  .gradient-auth-wall {
+    @apply bg-gradient-to-b from-transparent from-0% via-[#FFFFFF8A] via-5% to-[#FFF] to-50%;
+  }
+
   /* ------------------------------------------------------------------------------------------------ */
 
   /* Скрыть полосу прокрутки */

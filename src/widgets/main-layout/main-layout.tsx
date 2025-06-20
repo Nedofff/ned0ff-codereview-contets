@@ -1,3 +1,4 @@
+import { AuthModal } from "./components/auth-modal";
 import { BackgroundGradient } from "./components/background-gradient";
 import { Footer } from "./components/footer";
 import { TopMenu } from "./components/top-menu";
@@ -10,6 +11,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
         <BackgroundGradient />
         {children}
       </main>
+      <AuthModal />
       <Footer />
     </>
   );

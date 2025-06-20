@@ -92,7 +92,10 @@ export const TestTasksPage = () => {
         filters={filters}
         onChange={handleSelectFilter}
       />
-      <CollectionPageLayout.Content className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <CollectionPageLayout.Content
+        titleAuthWall="Получите доступ к 200+ тестовым заданиям с решениями"
+        className="grid grid-cols-1 md:grid-cols-2 gap-4"
+      >
         {testTasksMockData.map((item) => (
           <TestTaskCard key={item.id} {...item} />
         ))}

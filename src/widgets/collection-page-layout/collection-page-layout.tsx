@@ -5,6 +5,7 @@ import {
   type FiltersGroupProps,
 } from "./components/filters-group";
 import { SeoKey } from "@/ui-kit";
+import { AuthWall, AuthWallMargin } from "../auth-wall/";
 
 export const CollectionPageLayout = ({
   children,
@@ -63,17 +64,28 @@ CollectionPageLayout.FiltersGroup = (props: FiltersGroupProps) => (
 CollectionPageLayout.Content = ({
   children,
   className,
+  titleAuthWall,
 }: {
   children: React.ReactNode;
+  titleAuthWall: string;
   className?: string;
-}) => <section className={className}>{children}</section>;
+}) => (
+  <section className={cn(className, "relative")}>
+    {children}
+    <AuthWall title={titleAuthWall} />
+  </section>
+);
 
 CollectionPageLayout.Pagination = (
   props: Omit<PaginationProps, "className">
-) => <Pagination {...props} className="mb-[25px] md:mb-10" />;
+) => (
+  <AuthWallMargin>
+    <Pagination {...props} className="mb-[25px] md:mb-10" />
+  </AuthWallMargin>
+);
 
 CollectionPageLayout.SeoKeys = ({ seoKeys }: { seoKeys: string[] }) => (
-  <div className="flex flex-wrap gap-2 justify-center">
+  <div className="flex flex-wrap gap-2 md:justify-center">
     {seoKeys.map((item, index) => (
       <SeoKey key={index}>{item}</SeoKey>
     ))}

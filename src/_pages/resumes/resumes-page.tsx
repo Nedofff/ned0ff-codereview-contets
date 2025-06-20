@@ -145,7 +145,10 @@ export const ResumesPage = () => {
         filters={filters}
         onChange={handleSelectFilter}
       />
-      <CollectionPageLayout.Content className="grid grid-cols-1 gap-2.5 lg:gap-4 lg:grid-cols-3">
+      <CollectionPageLayout.Content
+        titleAuthWall="Получите доступ к контактам 800+ резюме специалистов"
+        className="grid grid-cols-1 gap-2.5 lg:gap-4 lg:grid-cols-3"
+      >
         {resumesMock.map((resume) => (
           <ResumeCard key={resume.id} {...resume} />
         ))}

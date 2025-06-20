@@ -137,7 +137,10 @@ export function QuestionsPage() {
         filters={filters}
         onChange={handleSelectFilter}
       />
-      <CollectionPageLayout.Content className="flex flex-col gap-[10px]">
+      <CollectionPageLayout.Content
+        titleAuthWall="Получите доступ к 1000+ вопросов с ответами на собеседование"
+        className="flex flex-col gap-[10px]"
+      >
         {questions.map((item, index) => (
           <QuestionCard
             key={item.id}

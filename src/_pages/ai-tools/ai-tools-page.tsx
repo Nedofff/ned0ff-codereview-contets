@@ -64,7 +64,10 @@ export const AiToolsPage = () => {
         filters={filters}
         onChange={handleSelectFilter}
       />
-      <CollectionPageLayout.Content className="grid grid-cols-1 gap-2.5 lg:gap-4 lg:grid-cols-2">
+      <CollectionPageLayout.Content
+        titleAuthWall="Получить доступ к 300+ AI-инструментам для разработки"
+        className="grid grid-cols-1 gap-2.5 lg:gap-4 lg:grid-cols-2"
+      >
         {aiToolsMock.map((tool) => (
           <AiToolCard key={tool.id} {...tool} />
         ))}

@@ -1,12 +1,12 @@
 import React from "react";
 import { cn } from "@/core/utils";
-import { AuthModalButton } from "../../auth-modal/auth-modal";
 import { PopupMenu } from "./popup-menu";
 import { Logo } from "@/ui-kit";
 import Link from "next/link";
 import { ActionOnPageButton } from "./action-on-page-button";
 import { BackButton } from "./back-button";
 import { routes } from "@/core/router";
+import { AuthButton } from "./auth-button";
 
 export function TopMenu() {
   return (
@@ -42,7 +42,7 @@ export function TopMenu() {
 
           <PopupMenu />
 
-          <AuthModalButton />
+          <AuthButton />
         </div>
         <ActionOnPageButton />
       </nav>

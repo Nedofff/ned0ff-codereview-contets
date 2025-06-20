@@ -93,9 +93,12 @@ export function JobsPage() {
         filters={filters}
         onChange={handleSelectFilter}
       />
-      <CollectionPageLayout.Content className="grid grid-cols-1 gap-2.5 lg:gap-4 lg:grid-cols-2">
+      <CollectionPageLayout.Content
+        titleAuthWall="Получите доступ к 1200 вакансиям и стажировкам"
+        className="grid grid-cols-1 gap-2.5 md:gap-4 md:grid-cols-2"
+      >
         {filteredJobs.map((job) => (
-          <JobCard key={job.id} job={job} />
+          <JobCard key={job.id} {...job} />
         ))}
       </CollectionPageLayout.Content>
       <CollectionPageLayout.Pagination

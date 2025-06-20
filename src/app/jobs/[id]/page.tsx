@@ -59,8 +59,6 @@ const jobDetail: JobDetail = {
 Насыщенная корпоративная культура.`,
 };
 
-const seoKeywords = ;
-
 const similarJobs = [
   {
     title: "Начинающий тестировщик / AQA Engineer (Java)",

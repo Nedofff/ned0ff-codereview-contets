@@ -13,7 +13,7 @@ import { Ticker } from "./ticker";
 
 export function Footer() {
   return (
-    <footer className="">
+    <footer>
       <Ticker />
       <div className="relative bg-gray-900 text-white overflow-hidden">
         <Image

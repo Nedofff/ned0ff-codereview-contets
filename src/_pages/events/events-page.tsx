@@ -70,7 +70,7 @@ export const EventsPage = () => {
         filters={filters}
         onChange={handleSelectFilter}
       />
-      <CollectionPageLayout.Content>
+      <CollectionPageLayout.Content titleAuthWall="Получите доступ к 100+ IT-мероприятий и событий">
         <div className="grid grid-cols-1 gap-y-2.5 md:grid-cols-2 md:gap-4">
           {eventsData.map((item) => (
             <EventCard key={item.id} {...item} />

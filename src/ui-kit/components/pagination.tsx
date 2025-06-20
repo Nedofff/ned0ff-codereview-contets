@@ -6,6 +6,7 @@ export interface PaginationProps {
   totalPages: number;
   onPageChange: (page: number) => void;
   className?: string;
+  disabled?: boolean;
 }
 
 export function Pagination({
@@ -13,6 +14,7 @@ export function Pagination({
   totalPages,
   onPageChange,
   className,
+  disabled,
 }: PaginationProps) {
   const getVisiblePages = () => {
     const delta = 2;
@@ -52,11 +54,11 @@ export function Pagination({
     >
       <button
         onClick={() => onPageChange(currentPage - 1)}
-        disabled={currentPage === 1}
+        disabled={currentPage === 1 || disabled}
         className={cn(
           "flex items-center justify-center w-10 h-10 rounded-[10px] text-[18px] font-medium transition-all duration-200",
           "text-[#232325] leading-[1.22]",
-          currentPage === 1
+          currentPage === 1 || disabled
             ? "text-neutral-400 cursor-not-allowed"
             : "hover:bg-[#F6F6F6]"
         )}
@@ -78,10 +80,13 @@ export function Pagination({
           ) : (
             <button
               onClick={() => onPageChange(page as number)}
+              disabled={disabled}
               className={cn(
                 "flex items-center justify-center w-10 h-10 rounded-[10px] text-[18px] font-medium transition-all duration-200",
                 "text-[#232325] leading-[1.22]",
-                currentPage === page
+                disabled
+                  ? "text-neutral-400 cursor-not-allowed"
+                  : currentPage === page
                   ? "gradient-quaternary-light"
                   : "hover:bg-[#F6F6F6]"
               )}
@@ -95,11 +100,11 @@ export function Pagination({
 
       <button
         onClick={() => onPageChange(currentPage + 1)}
-        disabled={currentPage === totalPages}
+        disabled={currentPage === totalPages || disabled}
         className={cn(
           "flex items-center justify-center w-10 h-10 rounded-[10px] text-[18px] font-medium transition-all duration-200",
           "text-[#232325] leading-[1.22]",
-          currentPage === totalPages
+          currentPage === totalPages || disabled
             ? "text-neutral-400 cursor-not-allowed"
             : "hover:bg-[#F6F6F6]"
         )}

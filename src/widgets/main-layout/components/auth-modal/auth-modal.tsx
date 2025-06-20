@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { Button } from "../../ui-kit/components/button";
-import { Popup } from "../../ui-kit/components/popup";
+import { Button } from "../../../../ui-kit/components/button";
+import { Popup } from "../../../../ui-kit/components/popup";
 import {
   AuthLayout,
   InfoScreenLayout,
@@ -11,13 +11,13 @@ import {
 import { LoginForm } from "./components/login-form";
 import { SignInForm } from "./components/signin-form";
 import { Hearts, Sd } from "./components/hearts";
-import { ProfileIcon } from "@/ui-kit";
+import { useAuthModal } from "./state/use-auth-modal";
 
 type AuthStep = "login" | "register" | "success" | "thanks";
 
-export function AuthModalButton() {
+export function AuthModal() {
+  const { isOpen, close } = useAuthModal();
   const [step, setStep] = useState<AuthStep>("login");
-  const [isOpen, setIsOpen] = useState(false);
 
   const renderContent = () => {
     switch (step) {
@@ -93,19 +93,8 @@ export function AuthModalButton() {
   };
 
   return (
-    <>
-      <Button
-        onClick={() => setIsOpen(true)}
-        variant="ghost"
-        className="flex items-center gap-2 h-min"
-      >
-        <ProfileIcon />{" "}
-        <span className="hidden md:inline text-lg leading-[22px]">Войти</span>
-      </Button>
-
-      <Popup isOpen={isOpen} onClose={() => setIsOpen(false)}>
-        <AuthLayout>{renderContent()}</AuthLayout>
-      </Popup>
-    </>
+    <Popup isOpen={isOpen} onClose={close}>
+      <AuthLayout>{renderContent()}</AuthLayout>
+    </Popup>
   );
 }

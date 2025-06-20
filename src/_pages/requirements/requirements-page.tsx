@@ -62,6 +62,7 @@ export const RequirementsPage = () => {
         onChange={handleSelectFilter}
       />
       <CollectionPageLayout.Content
+        titleAuthWall="Получите доступ к полному списку требований к Junior специалистам"
         className={cn(
           "grid grid-cols-1",
           "-mx-[15px] px-[15px] border-y-2 border-[#EAEAEA] p-5 md:border-1 md:rounded-xl",
