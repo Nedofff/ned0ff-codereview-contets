@@ -1,0 +1,66 @@
+import { ArrowTopRightIcon, ButtonLink, Card, Rating } from "@/ui-kit";
+import Image from "next/image";
+
+export const AiToolCard = ({
+  title,
+  iconUrl,
+  tags,
+  category,
+  description,
+  url,
+  like,
+  dislike,
+}: {
+  title: string;
+  iconUrl: string;
+  tags: string[];
+  category: string;
+  description: string;
+  url: string;
+  like: number;
+  dislike: number;
+}) => {
+  return (
+    <Card className="font-wix-display grid grid-cols-[max-content_1fr_min-content] grid-rows-[max-content_60px_max-content] gap-2.5">
+      <Image
+        src={iconUrl}
+        alt={title}
+        width={40}
+        height={40}
+        className="object-contain row-span-3 col-span-1 rounded-lg"
+      />
+      <div>
+        <h3 className="text-neutral-800 font-semibold text-lg leading-[22px]">
+          {title}
+        </h3>
+        <p className="text-neutral-600 font-semibold leading-[20px]">
+          {tags.map((tag, index) => (
+            <>
+              {tag}
+              {index !== tags.length - 1 && (
+                <span className="mx-1 text-neutral-300">•</span>
+              )}
+            </>
+          ))}
+        </p>
+      </div>
+      <div className="text-neutral-600 font-medium leading-[20px] ml-auto">
+        {category}
+      </div>
+      <div className="text-neutral-800 font-medium col-span-2 row-start-2 col-start-2">
+        <p className="line-clamp-3 leading-[20px]">{description}</p>
+      </div>
+      <div className="w-min mt-5">
+        <ButtonLink
+          variant="second"
+          href={url}
+          className="flex items-center gap-2 "
+        >
+          <span className="leading-[20px]">Перейти</span>{" "}
+          <ArrowTopRightIcon className="w-4 h-4" />
+        </ButtonLink>
+      </div>
+      <Rating like={like} dislike={dislike} className="mt-auto" />
+    </Card>
+  );
+};

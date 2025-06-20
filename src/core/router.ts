@@ -12,10 +12,11 @@ export const routes = {
   resumeCreate: "/resumes/add",
   requirements: "/requirements",
   recruitersCreate: "/recruiters/add",
+  aiTools: "/ai-tools",
+  aiToolCreate: "/ai-tools/add",
   testTasks: "/test-tasks",
   events: "/events",
   recruiters: "/recruiters",
-  aiTools: "/ai-tools",
   aboutUs: "/about-us",
   notNow: "/not-now",
 };
