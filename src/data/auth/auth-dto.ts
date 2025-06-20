@@ -1,4 +1,5 @@
-export interface LoginRequest {
+// DTO типы (для бекенда)
+export interface LoginRequestDto {
   grant_type?: string | null;
   username: string;
   password: string;
@@ -7,7 +8,22 @@ export interface LoginRequest {
   client_secret?: string | null;
 }
 
-export interface TokenResponse {
+export interface TokenResponseDto {
   access_token: string;
   token_type: string;
+}
+
+// Клиентские типы (для UI)
+export interface LoginRequest {
+  grantType?: string | null;
+  username: string;
+  password: string;
+  scope?: string;
+  clientId?: string | null;
+  clientSecret?: string | null;
+}
+
+export interface TokenResponse {
+  accessToken: string;
+  tokenType: string;
 }

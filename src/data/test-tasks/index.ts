@@ -1,2 +1,6 @@
 export * from "./test-tasks-api";
-export * from "./test-tasks-dto";
+export type {
+  TestTask,
+  TestTaskCreate,
+  TestTaskFilters,
+} from "./test-tasks-dto";

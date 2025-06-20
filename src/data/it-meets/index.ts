@@ -1,2 +1,2 @@
 export * from "./it-meets-api";
-export * from "./it-meets-dto";
+export type { ITMeet, ITMeetCreate, ITMeetFilters } from "./it-meets-dto";

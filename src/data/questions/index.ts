@@ -1,2 +1,6 @@
 export * from "./questions-api";
-export * from "./questions-dto";
+export type {
+  Question,
+  QuestionCreate,
+  QuestionFilters,
+} from "./questions-dto";

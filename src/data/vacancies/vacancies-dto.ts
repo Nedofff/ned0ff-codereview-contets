@@ -1,6 +1,7 @@
-import { PaginationParams } from "@/core/http-client";
+import { PaginationModel, PaginationParams } from "@/core/http-client";
 
-export interface Vacancy {
+// DTO типы (для бекенда)
+export interface VacancyDto {
   id: number;
   active: boolean;
   external_id: string | null;
@@ -18,7 +19,9 @@ export interface Vacancy {
   date_publication: string;
 }
 
-export interface VacancyCreate {
+export type VacancyAll = PaginationModel<VacancyDto>;
+
+export interface VacancyCreateDto {
   active?: boolean;
   external_id: string | null;
   company_name: string;
@@ -35,9 +38,52 @@ export interface VacancyCreate {
   date_publication: string;
 }
 
-export interface VacancyFilters extends PaginationParams {
+export interface VacancyFiltersDto extends PaginationParams {
   search?: string | null;
   speciality?: string | null;
   location?: string | null;
   company_name?: string | null;
+}
+
+// Клиентские типы (для UI)
+export interface Vacancy {
+  id: number;
+  active: boolean;
+  externalId: string | null;
+  companyName: string;
+  title: string;
+  salary: string | null;
+  location: string | null;
+  specialty: string;
+  internship: boolean;
+  remote: boolean;
+  url: string;
+  description: string;
+  source: string;
+  image: string | null;
+  datePublication: string;
+}
+
+export interface VacancyCreate {
+  active?: boolean;
+  externalId: string | null;
+  companyName: string;
+  title: string;
+  salary: string | null;
+  location: string | null;
+  specialty: string;
+  internship?: boolean;
+  remote?: boolean;
+  url: string;
+  description: string;
+  source: string;
+  image: string | null;
+  datePublication: string;
+}
+
+export interface VacancyFilters extends PaginationParams {
+  search?: string | null;
+  specialty?: string | null;
+  location?: string | null;
+  companyName?: string | null;
 }

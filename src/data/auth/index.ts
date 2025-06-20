@@ -1,2 +1,2 @@
 export * from "./auth-api";
-export * from "./auth-dto";
+export type { LoginRequest, TokenResponse } from "./auth-dto";

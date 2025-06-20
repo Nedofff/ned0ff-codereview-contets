@@ -1,44 +1,60 @@
 import { backendClient } from "../backend-client";
-import type { ApiResponse, HttpClient } from "@/core/http-client";
-import type { LoginRequest, TokenResponse } from "./auth-dto";
+import type { HttpClient } from "@/core/http-client";
+import type { TokenResponseDto, LoginRequest, TokenResponse } from "./auth-dto";
+import { mapLoginRequestToDto, mapTokenResponseFromDto } from "./auth-mapper";
 
 class AuthApi {
   private readonly basePath = "/auth";
 
   constructor(private readonly client: HttpClient) {}
 
-  async login(credentials: LoginRequest): Promise<ApiResponse<TokenResponse>> {
+  async login(credentials: LoginRequest): Promise<TokenResponse> {
+    const dtoCredentials = mapLoginRequestToDto(credentials);
     const formData = new URLSearchParams();
-    formData.append("username", credentials.username);
-    formData.append("password", credentials.password);
+    formData.append("username", dtoCredentials.username);
+    formData.append("password", dtoCredentials.password);
 
-    if (credentials.grant_type) {
-      formData.append("grant_type", credentials.grant_type);
+    if (dtoCredentials.grant_type) {
+      formData.append("grant_type", dtoCredentials.grant_type);
     }
-    if (credentials.scope) {
-      formData.append("scope", credentials.scope);
+    if (dtoCredentials.scope) {
+      formData.append("scope", dtoCredentials.scope);
     }
-    if (credentials.client_id) {
-      formData.append("client_id", credentials.client_id);
+    if (dtoCredentials.client_id) {
+      formData.append("client_id", dtoCredentials.client_id);
     }
-    if (credentials.client_secret) {
-      formData.append("client_secret", credentials.client_secret);
+    if (dtoCredentials.client_secret) {
+      formData.append("client_secret", dtoCredentials.client_secret);
     }
 
-    return this.client.postForm<TokenResponse>(
+    const response = await this.client.postForm<TokenResponseDto>(
       `${this.basePath}/token`,
       formData
     );
+
+    if (!response.data) {
+      throw new Error("No data received");
+    }
+
+    return mapTokenResponseFromDto(response.data);
   }
 
-  async getMe(): Promise<ApiResponse<unknown>> {
-    return this.client.get<unknown>(`${this.basePath}/users/me/`);
+  async getMe(): Promise<unknown> {
+    const response = await this.client.get<unknown>(
+      `${this.basePath}/users/me/`
+    );
+
+    if (!response.data) {
+      throw new Error("No data received");
+    }
+
+    return response.data;
   }
 
   // Метод для авторизации и сохранения токена
   async authorize(credentials: LoginRequest): Promise<TokenResponse> {
-    const response = await this.login(credentials);
-    const token = response.data.access_token;
+    const tokenData = await this.login(credentials);
+    const token = tokenData.accessToken;
 
     // Сохраняем токен в API клиенте
     this.client.setAuthToken(token);
@@ -48,7 +64,7 @@ class AuthApi {
       localStorage.setItem("auth_token", token);
     }
 
-    return response.data;
+    return tokenData;
   }
 
   // Метод для выхода из системы

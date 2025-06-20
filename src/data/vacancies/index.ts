@@ -1,2 +1,2 @@
 export * from "./vacancies-api";
-export * from "./vacancies-dto";
+export type { Vacancy, VacancyCreate, VacancyFilters } from "./vacancies-dto";
