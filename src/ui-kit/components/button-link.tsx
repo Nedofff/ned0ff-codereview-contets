@@ -6,7 +6,7 @@ export interface ButtonLinkProps {
   href: string;
   children?: React.ReactNode;
   className?: string;
-  variant?: "filter" | "default" | "second";
+  variant?: "filter" | "default" | "second" | "accent";
 }
 
 export const ButtonLink = ({
@@ -41,6 +41,8 @@ export const ButtonLink = ({
             variant === "filter",
           "rounded-[10px] p-px gradient-tertiary hover:text-primary-500":
             variant === "second",
+          "gradient-primary text-neutral-10 hover:opacity-90":
+            variant === "accent",
           [className ?? ""]: variant !== "second",
         }
       )}

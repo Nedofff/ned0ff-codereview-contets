@@ -22,5 +22,6 @@ export const routes = {
 };
 
 export const externalLinks = {
-  auth: "https://tailwindcss.com/docs/background-image#setting-gradient-color-stops",
+  sofi: "https://jobs.yourcodereview.com/ai/",
+  testing: "https://interview.yourcodereview.com/testing",
 };

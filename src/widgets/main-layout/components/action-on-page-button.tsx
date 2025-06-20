@@ -1,30 +1,30 @@
 "use client";
-import { routes } from "@/core/router";
+import { externalLinks, routes } from "@/core/router";
 import { cn } from "@/core/utils";
-import { Button } from "@/ui-kit";
+import { ButtonLink } from "@/ui-kit";
 import { usePathname } from "next/navigation";
 import { createPortal } from "react-dom";
 
 const actions = {
-  [routes.home]: {
+  [routes.jobs]: {
     text: "Автоотклик",
-    onClick: () => {},
-  },
-  [routes.requirements]: {
-    text: "Конструктор резюме",
-    onClick: () => {},
-  },
-  [routes.testTasks]: {
-    text: "Тренажер заданий",
-    onClick: () => {},
+    href: externalLinks.sofi,
   },
   [routes.questions]: {
     text: "Тренажер вопросов",
-    onClick: () => {},
+    href: externalLinks.testing,
+  },
+  [routes.requirements]: {
+    text: "Конструктор резюме",
+    href: routes.notNow,
+  },
+  [routes.testTasks]: {
+    text: "Тренажер заданий",
+    href: routes.notNow,
   },
   [routes.aboutUs]: {
     text: "Заказать подбор",
-    onClick: () => {},
+    href: routes.notNow,
   },
 };
 
@@ -48,11 +48,11 @@ const ActionOnPageButtonInner = ({ className }: { className?: string }) => {
   }
 
   return (
-    <Button
+    <ButtonLink
       className={cn("gap-2.5 text-nowrap", className)}
-      onClick={action.onClick}
+      href={externalLinks.sofi}
     >
       {action.text}
-    </Button>
+    </ButtonLink>
   );
 };
