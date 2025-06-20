@@ -1,4 +1,4 @@
-import { PetProjectsPage } from "@/_pages/pet-projects";
+import { PetProjectsPage } from "@/pages/pet-projects";
 
 export default function PetProjects() {
   return <PetProjectsPage />;

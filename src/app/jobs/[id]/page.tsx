@@ -1,6 +1,6 @@
 "use client";
 
-import { JobDetailPage } from "@/_pages/job-detail";
+import { JobDetailPage } from "@/pages/job-detail";
 import React from "react";
 
 interface JobDetail {

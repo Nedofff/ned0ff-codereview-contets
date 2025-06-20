@@ -1,4 +1,4 @@
-import { RequirementsPage } from "@/_pages/requirements";
+import { RequirementsPage } from "@/pages/requirements";
 
 export default function Requirements() {
   return <RequirementsPage />;

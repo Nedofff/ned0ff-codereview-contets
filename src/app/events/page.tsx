@@ -1,4 +1,4 @@
-import { EventsPage } from "@/_pages/events";
+import { EventsPage } from "@/pages/events";
 
 export default function Events() {
   return <EventsPage />;
