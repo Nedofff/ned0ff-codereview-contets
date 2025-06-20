@@ -11,6 +11,7 @@ export const routes = {
   resumes: "/resumes",
   resumeCreate: "/resumes/add",
   requirements: "/requirements",
+  recruitersCreate: "/recruiters/add",
   testTasks: "/test-tasks",
   events: "/events",
   recruiters: "/recruiters",
