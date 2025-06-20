@@ -9,7 +9,7 @@ const DefaultChildren = () => (
   </>
 );
 
-export const InDevelopPage = ({
+export const UnderConstructionPage = ({
   href,
   children,
   linkText,

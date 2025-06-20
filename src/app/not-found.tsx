@@ -1,3 +1,5 @@
+import { NotFoundPage } from "@/_pages/not-found";
+
 export default function NotFound() {
-  return <div>NotFound</div>;
+  return <NotFoundPage />;
 }

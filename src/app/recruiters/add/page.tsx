@@ -1,5 +1,5 @@
-import { InDevelopPage } from "@/widgets/in-develop";
+import { UnderConstructionPage } from "@/_pages/under-construction";
 
 export default function RecruitersAddPage() {
-  return <InDevelopPage />;
+  return <UnderConstructionPage />;
 }

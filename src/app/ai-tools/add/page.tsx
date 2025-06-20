@@ -1,3 +1,3 @@
-import { InDevelopPage } from "@/widgets/in-develop";
+import { UnderConstructionPage } from "@/_pages/under-construction";
 
-export default InDevelopPage;
+export default UnderConstructionPage;

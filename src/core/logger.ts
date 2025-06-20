@@ -1,0 +1,120 @@
+const colors = {
+  reset: "\x1b[0m",
+  bright: "\x1b[1m",
+  red: "\x1b[31m",
+  green: "\x1b[32m",
+  yellow: "\x1b[33m",
+  blue: "\x1b[34m",
+  magenta: "\x1b[35m",
+  cyan: "\x1b[36m",
+  white: "\x1b[37m",
+  gray: "\x1b[90m",
+} as const;
+
+export enum LogLevel {
+  DEBUG = 0,
+  INFO = 1,
+  WARN = 2,
+  ERROR = 3,
+}
+
+export interface ILogger {
+  debug(message: string, ...args: unknown[]): void;
+  info(message: string, ...args: unknown[]): void;
+  warn(message: string, ...args: unknown[]): void;
+  error(message: string, ...args: unknown[]): void;
+  setLevel(level: LogLevel): void;
+}
+
+interface LoggerConfig {
+  level: LogLevel;
+  showTimestamp: boolean;
+  showLevel: boolean;
+  colorize: boolean;
+}
+
+class ConsoleLogger implements ILogger {
+  private config: LoggerConfig = {
+    level: LogLevel.INFO,
+    showTimestamp: true,
+    showLevel: true,
+    colorize: true,
+  };
+
+  constructor(config?: Partial<LoggerConfig>) {
+    if (config) {
+      this.config = { ...this.config, ...config };
+    }
+  }
+
+  private formatMessage(level: string, message: string, color: string): string {
+    const timestamp = this.config.showTimestamp
+      ? new Date().toISOString().replace("T", " ").slice(0, 19)
+      : "";
+
+    const levelText = this.config.showLevel ? `[${level.toUpperCase()}]` : "";
+
+    const prefix = [timestamp, levelText].filter(Boolean).join(" ");
+    const fullMessage = prefix ? `${prefix} ${message}` : message;
+
+    return this.config.colorize
+      ? `${color}${fullMessage}${colors.reset}`
+      : fullMessage;
+  }
+
+  private shouldLog(level: LogLevel): boolean {
+    return level >= this.config.level;
+  }
+
+  debug(message: string, ...args: unknown[]): void {
+    if (!this.shouldLog(LogLevel.DEBUG)) return;
+
+    const formatted = this.formatMessage("debug", message, colors.gray);
+    console.log(formatted, ...args);
+  }
+
+  info(message: string, ...args: unknown[]): void {
+    if (!this.shouldLog(LogLevel.INFO)) return;
+
+    const formatted = this.formatMessage("info", message, colors.blue);
+    console.log(formatted, ...args);
+  }
+
+  warn(message: string, ...args: unknown[]): void {
+    if (!this.shouldLog(LogLevel.WARN)) return;
+
+    const formatted = this.formatMessage("warn", message, colors.yellow);
+    console.warn(formatted, ...args);
+  }
+
+  error(message: string, ...args: unknown[]): void {
+    if (!this.shouldLog(LogLevel.ERROR)) return;
+
+    const formatted = this.formatMessage("error", message, colors.red);
+    console.error(formatted, ...args);
+  }
+
+  setLevel(level: LogLevel): void {
+    this.config.level = level;
+  }
+
+  configure(config: Partial<LoggerConfig>): void {
+    this.config = { ...this.config, ...config };
+  }
+}
+
+export const createLogger = (config?: Partial<LoggerConfig>): ILogger => {
+  return new ConsoleLogger(config);
+};
+
+export const logger = createLogger({
+  level:
+    process.env.NODE_ENV === "development" ? LogLevel.DEBUG : LogLevel.INFO,
+});
+
+// // Для легкой замены на другой логгер (например, Winston, Pino)
+// export const setGlobalLogger = (newLogger: ILogger): void => {
+//   Object.assign(logger, newLogger);
+// };
+
+// export default logger;

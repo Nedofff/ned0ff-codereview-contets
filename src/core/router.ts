@@ -18,7 +18,7 @@ export const routes = {
   events: "/events",
   recruiters: "/recruiters",
   aboutUs: "/about-us",
-  notNow: "/not-now",
+  underConstruction: "/under-construction",
 };
 
 export const externalLinks = {

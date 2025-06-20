@@ -1,5 +1,5 @@
 import { UnderConstructionPage } from "@/_pages/under-construction";
 
-export default function ResumeAddPage() {
+export default function UnderConstruction() {
   return <UnderConstructionPage />;
 }
