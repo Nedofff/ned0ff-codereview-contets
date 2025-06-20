@@ -1,5 +1,5 @@
 import { InDevelopPage } from "@/widgets/in-develop";
 
-export default function NotNowPage() {
+export default function ResumeAddPage() {
   return <InDevelopPage />;
 }

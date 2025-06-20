@@ -1,13 +1,22 @@
+import { routes } from "@/core/router";
 import Link from "next/link";
+
+const DefaultChildren = () => (
+  <>
+    Мы работаем над этой страницей.
+    <br />
+    Скоро здесь будет что-то интересное!
+  </>
+);
 
 export const InDevelopPage = ({
   href,
   children,
   linkText,
 }: {
-  children: React.ReactNode;
-  linkText: React.ReactNode;
-  href: string;
+  children?: React.ReactNode;
+  linkText?: React.ReactNode;
+  href?: string;
 }) => (
   <div className="min-h-screen bg-white relative overflow-hidden">
     {/* Background effects */}
@@ -31,15 +40,15 @@ export const InDevelopPage = ({
         </h1>
 
         <p className="text-lg lg:text-xl text-gray-600 mb-8 px-4 lg:px-0">
-          {children}
+          {children ?? <DefaultChildren />}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
-            href={href}
+            href={href ?? routes.home}
             className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
           >
-            {linkText}
+            {linkText ?? "На главную"}
           </Link>
         </div>
       </div>
