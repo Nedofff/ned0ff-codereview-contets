@@ -25,11 +25,10 @@ export const InfoScreenLayout = ({
           </div>
         )}
 
-        {/* Центральное круглое изображение профиля */}
         <div className="flex-1 flex items-center justify-center">
           <div className="relative w-[276px] h-[276px] rounded-full overflow-hidden">
             <Image
-              src="/profile-img.png"
+              src="/sofi.png"
               alt="Profile"
               fill
               className="object-cover object-center"

@@ -1,18 +1,29 @@
 import type { Metadata } from "next";
-import { Wix_Madefor_Display, Wix_Madefor_Text } from "next/font/google";
+import {
+  Wix_Madefor_Display,
+  Wix_Madefor_Text,
+  IBM_Plex_Sans,
+} from "next/font/google";
 import { MainLayout } from "@/widgets/main-layout";
 import "./globals.css";
 
 const wixMadeforDisplay = Wix_Madefor_Display({
   variable: "--font-wix-madefor-display",
-  subsets: ["latin"],
+  subsets: ["latin", "cyrillic"],
   weight: ["500", "600", "700"],
 });
 
 const wixMadeforText = Wix_Madefor_Text({
   variable: "--font-wix-madefor-text",
-  subsets: ["latin"],
+  subsets: ["latin", "cyrillic"],
   weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+});
+
+const ibmPlexSans = IBM_Plex_Sans({
+  variable: "--font-ibm-plex-sans",
+  subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -28,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body
-        className={`${wixMadeforDisplay.variable} ${wixMadeforText.variable} antialiased`}
+        className={`${wixMadeforDisplay.variable} ${wixMadeforText.variable} ${ibmPlexSans.variable} antialiased`}
       >
         <MainLayout>{children}</MainLayout>
       </body>

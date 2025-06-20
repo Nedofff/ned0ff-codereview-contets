@@ -7,15 +7,14 @@ import { routes } from "@/core/router";
 
 export function BackgroundGradient() {
   const pathname = usePathname();
-  const isHome = pathname === routes.home;
+  const isGetUp = [routes.home, routes.aboutUs].includes(pathname);
 
   return (
     <div
       className={cn(
-        "absolute pointer-events-none left-0 w-full h-[674px] z-1",
+        "absolute pointer-events-none left-0 w-full h-[674px] z-1  -top-[230px]",
         {
-          "top-0": isHome,
-          "-top-[230px]": !isHome,
+          "top-0": isGetUp,
         }
       )}
     >

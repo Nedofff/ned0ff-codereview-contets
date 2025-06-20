@@ -1,0 +1,18 @@
+import { cn } from "@/core/utils";
+
+export const PeopleIcon = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <span
+    className={cn(
+      "block w-10 h-10 rounded-full overflow-hidden border-2 border-neutral-100 object-center",
+      className
+    )}
+  >
+    {children}
+  </span>
+);

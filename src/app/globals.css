@@ -4,6 +4,7 @@
 @theme {
   --font-wix-display: var(--font-wix-madefor-display, "Wix Madefor Display");
   --font-wix-text: var(--font-wix-madefor-text, "Wix Madefor Text");
+  --font-ibm-plex-sans: var(--font-ibm-plex-sans, "IBM Plex Sans");
   --ease-section-card: cubic-bezier(0.14, 0.45, 0.36, 1.24);
 
   --color-primary-100: #ecf0ff;
@@ -99,6 +100,10 @@
   }
   .gradient-quaternary-light {
     @apply bg-gradient-to-r from-[#F4B8B866] via-[#E3EAB366] to-[#C5F1D066];
+  }
+
+  .gradient-about-us {
+    @apply bg-gradient-to-r from-[#DE5467E5] to-[#A014CF];
   }
 
   /* ------------------------------------------------------------------------------------------------ */

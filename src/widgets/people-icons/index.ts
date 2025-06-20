@@ -1,0 +1,1 @@
+export { PeopleIcons } from "./people-icons";

@@ -1,11 +1,8 @@
 import { SectionCard } from "./section-card";
 import { CARDS_DATA } from "./section-cards-data";
-import Person1 from "./assets/person-1.jpg";
-import Person2 from "./assets/person-2.jpg";
-import Person3 from "./assets/person-3.jpg";
-import { BannerIcon, BannerImage } from "./banner-icon";
 import { cn } from "@/core/utils";
 import { Card } from "@/ui-kit";
+import { PeopleIcons } from "@/widgets/people-icons";
 
 export function SectionsCards() {
   return (
@@ -27,28 +24,7 @@ export function SectionsCards() {
         ))}
 
         <Card className="col-span-2 sm:col-span-1 lg:col-span-3">
-          <div className="flex -space-x-3">
-            <BannerIcon>
-              <BannerImage src={Person1} className="object-[0_-6px]" />
-            </BannerIcon>
-            <BannerIcon className="z-1">
-              <BannerImage src={Person2} />
-            </BannerIcon>
-            <BannerIcon className="z-2">
-              <BannerImage src={Person3} />
-            </BannerIcon>
-            <BannerIcon className="z-3 border-none p-0.5 bg-gradient-to-r from-[#E25377] via-[#EEB902] to-[#62B4FF]">
-              <div
-                className={cn(
-                  "w-full h-full grid place-items-center pr-1",
-                  "bg-neutral-100  rounded-[calc(70%-2px)]",
-                  "text-xs font-semibold leading-[14px]"
-                )}
-              >
-                +293
-              </div>
-            </BannerIcon>
-          </div>
+          <PeopleIcons />
           <div className="mt-[15px] lg:mt-[25px]">
             <p className="font-semibold text-gray-800 leading-[18px] lg:text-2xl lg:leading-[26px]">
               База резюме соискателей. Свяжитесь

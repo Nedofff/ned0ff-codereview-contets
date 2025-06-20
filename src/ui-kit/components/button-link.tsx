@@ -39,7 +39,7 @@ export const ButtonLink = ({
             variant === "default",
           "gradient-secondary-light text-neutral-800 hover:bg-neutral-300":
             variant === "filter",
-          "rounded-[10px] p-px bg-gradient-to-r from-[#E25377] via-[#EEB902] to-[#62B4FF] hover:text-primary-500":
+          "rounded-[10px] p-px gradient-tertiary hover:text-primary-500":
             variant === "second",
           [className ?? ""]: variant !== "second",
         }

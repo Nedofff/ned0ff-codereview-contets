@@ -1,0 +1,18 @@
+export const Measure = ({
+  bottom,
+  top,
+}: {
+  top: string;
+  bottom: React.ReactNode;
+}) => {
+  return (
+    <div className="flex flex-col gap-y-[5px] text-neutral-800 lg:gap-y-2.5">
+      <p className="font-bold text-[30px] leading-[100%] tracking-[-1px] md:text-[50px]">
+        {top}
+      </p>
+      <p className="text-sm leading-[100%] tracking-[-0.8px] md:text-base">
+        {bottom}
+      </p>
+    </div>
+  );
+};
