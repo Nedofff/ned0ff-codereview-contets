@@ -1,5 +1,5 @@
-import { backendClient } from "../backend-client";
-import type { HttpClient } from "@/core/http-client";
+import { getBackendClient } from "../backend-client";
+import type { GetAuthToken, HttpClient } from "@/core/http-client";
 import type {
   QuestionDto,
   Question,
@@ -90,4 +90,5 @@ class QuestionsApi {
   }
 }
 
-export const questionsApi = new QuestionsApi(backendClient);
+export const getQuestionsApi = (getAuthToken: GetAuthToken) =>
+  new QuestionsApi(getBackendClient(getAuthToken));

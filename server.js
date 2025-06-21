@@ -104,7 +104,7 @@ const createPaginationResponse = (items, skip = 0, limit = 10) => {
 };
 
 // Применяем middleware авторизации ко всем маршрутам
-app.use(authMiddleware);
+// app.use(authMiddleware);
 
 // Эндпоинты для всех коллекций
 const collections = [
