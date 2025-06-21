@@ -36,15 +36,23 @@ export function Popup({ isOpen, onClose, children, className }: ModalProps) {
 
         <div
           className={cn(
-            "relative bg-white rounded-3xl shadow-2xl max-w-[838px] w-full mx-4 max-h-[90vh] ",
-            "sm:mx-4 xs:mx-2 xs:rounded-2xl",
+            "relative bg-white shadow-2xl max-w-[838px] w-full h-full ",
+            "sm:mx-4 sm:max-h-[90vh] sm:rounded-3xl sm:h-max",
             className
           )}
           onClick={(e) => e.stopPropagation()}
         >
           <button
             onClick={onClose}
-            className="cursor-pointer absolute top-[5px] -right-[38px] z-10 w-7 h-7 bg-neutral-100 backdrop-blur-xl rounded-full flex items-center justify-center transition-colors hover:bg-neutral-200/80"
+            className={cn(
+              "cursor-pointer",
+              "absolute top-4 right-4 z-10",
+              "w-7 h-7 bg-neutral-100 backdrop-blur-xl rounded-full",
+              "flex items-center justify-center",
+              "transition-colors hover:bg-neutral-200/80",
+              "sm:-top-[20vh] sm:right-0",
+              "lg:absolute lg:top-[5px] lg:-right-[38px]"
+            )}
           >
             <CrossIcon className="w-[14px] h-[14px]" />
           </button>

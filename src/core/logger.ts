@@ -91,7 +91,7 @@ class ConsoleLogger implements ILogger {
     if (!this.shouldLog(LogLevel.ERROR)) return;
 
     const formatted = this.formatMessage("error", message, colors.red);
-    console.error(formatted, ...args);
+    console.log(formatted, ...args);
   }
 
   setLevel(level: LogLevel): void {

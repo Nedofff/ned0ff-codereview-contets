@@ -32,7 +32,7 @@ export const SignInForm = ({
 
       <Input
         label="Почта"
-        type="email"
+        type="text"
         placeholder="example@mail.ru"
         {...register("email")}
       />

@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { HhLogoIcon, TelegramColoredIcon, Logo, ButtonLink } from "@/ui-kit";
+import { externalLinks } from "@/core/router";
 
 export const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="grid h-full w-full grid-cols-[19fr_21fr] rounded-3xl overflow-hidden">
+    <div className="grid h-full w-full grid-cols-1fr items-center rounded-3xl overflow-hidden md:grid-cols-[19fr_21fr]">
       {children}
     </div>
   );
@@ -55,13 +56,13 @@ export const FormLayout = ({
   onSubmit: (e?: React.BaseSyntheticEvent) => Promise<void>;
 }) => {
   return (
-    <div className="flex-1 p-4 md:p-8">
+    <div className="p-4 md:p-8">
       <form onSubmit={onSubmit} className="max-w-[360px] mx-auto space-y-4 ">
         <div className="space-y-2">
-          <ButtonLink href="">
+          <ButtonLink href={externalLinks.loginTelegram}>
             <TelegramColoredIcon /> Войти через Telegram
           </ButtonLink>
-          <ButtonLink href="">
+          <ButtonLink href={externalLinks.loginHh}>
             <HhLogoIcon /> Войти через HH.ru
           </ButtonLink>
         </div>

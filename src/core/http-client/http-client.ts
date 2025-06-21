@@ -3,12 +3,11 @@ import { ApiError, ApiResponse } from "./http-client-types";
 
 export class HttpClient {
   private client: AxiosInstance;
-  private authToken: string | null = null;
 
   constructor(baseURL: string) {
     this.client = axios.create({
       baseURL,
-      timeout: 2000,
+      timeout: 10000,
       headers: {
         "Content-Type": "application/json",
       },
@@ -19,23 +18,29 @@ export class HttpClient {
 
   private setupInterceptors() {
     // Request interceptor для добавления токена авторизации
-    this.client.interceptors.request.use(
-      (config) => {
-        if (this.authToken) {
-          config.headers.Authorization = `Bearer ${this.authToken}`;
-        }
-        return config;
-      },
-      (error: unknown) => Promise.reject(error)
-    );
-
+    // this.client.interceptors.request.use(
+    //   (config) => {
+    //     // if (this.authToken) {
+    //     //   config.headers.Authorization = `Bearer ${this.authToken}`;
+    //     // }
+    //     return config;
+    //   },
+    //   (error: unknown) => error
+    // );
     // Response interceptor для обработки ошибок
     this.client.interceptors.response.use(
       (response: AxiosResponse) => response,
       (error: unknown) => {
+        console.log("Interceptor поймал ошибку:", error);
+
         if (!axios.isAxiosError(error)) {
           return Promise.reject(error);
         }
+
+        // Логируем все детали ошибки
+        console.log("Response есть?", !!error.response);
+        console.log("Статус:", error.response?.status);
+        console.log("Данные ответа:", error.response?.data);
 
         const apiError: ApiError = {
           message:
@@ -43,17 +48,10 @@ export class HttpClient {
           status: error.response?.status,
           details: error.response?.data,
         };
+
         return Promise.reject(apiError);
       }
     );
-  }
-
-  setAuthToken(token: string) {
-    this.authToken = token;
-  }
-
-  clearAuthToken() {
-    this.authToken = null;
   }
 
   async get<T = unknown>(

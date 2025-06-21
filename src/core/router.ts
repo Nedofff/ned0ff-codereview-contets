@@ -24,4 +24,6 @@ export const routes = {
 export const externalLinks = {
   sofi: "https://jobs.yourcodereview.com/ai/",
   testing: "https://interview.yourcodereview.com/testing",
+  loginTelegram: "https://t.me/yourcodereview_bot",
+  loginHh: "https://hh.ru/login",
 };

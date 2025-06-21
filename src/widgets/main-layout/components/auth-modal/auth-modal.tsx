@@ -1,8 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
-import { Button } from "../../../../ui-kit/components/button";
-import { Popup } from "../../../../ui-kit/components/popup";
+import { Button, Popup } from "@/ui-kit";
 import {
   AuthLayout,
   InfoScreenLayout,
@@ -13,11 +11,8 @@ import { SignInForm } from "./components/signin-form";
 import { Hearts, Sd } from "./components/hearts";
 import { useAuthModal } from "./state/use-auth-modal";
 
-type AuthStep = "login" | "register" | "success" | "thanks";
-
 export function AuthModal() {
-  const { isOpen, close } = useAuthModal();
-  const [step, setStep] = useState<AuthStep>("login");
+  const { isOpen, close, step, setStep } = useAuthModal();
 
   const renderContent = () => {
     switch (step) {

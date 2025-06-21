@@ -1,0 +1,8 @@
+import { COOKIE_AUTH_TOKEN } from "../consts";
+import { cookieService } from "./cookie-service-client";
+
+export const authCookieService = {
+  setToken: (token: string) => cookieService.setItem(COOKIE_AUTH_TOKEN, token),
+  getToken: () => cookieService.getItem(COOKIE_AUTH_TOKEN),
+  removeToken: () => cookieService.removeItem(COOKIE_AUTH_TOKEN),
+};

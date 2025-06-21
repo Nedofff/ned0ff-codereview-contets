@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build",
     "icons:generate": "npx @svgr/cli --out-dir src/ui-kit/icons/ --typescript --filename-case kebab --ext tsx --replace-attr-values \"#232325=currentColor\" --prettier-config package.json src/ui-kit/icons/raw-icons/*.svg"
   },
