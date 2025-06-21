@@ -1,4 +1,3 @@
-import Link from "next/link";
 import BgImg from "./assets/background-category.png";
 import Image from "next/image";
 import { Card } from "@/ui-kit";
@@ -17,7 +16,7 @@ export const SectionCard = ({
 }) => (
   <Card
     className={cn(
-      "relative overflow-hidden group hover:bg-gray-200 h-min-content",
+      "overflow-hidden group h-min-content",
       "md:h-[280px] md:p-5",
       className
     )}
@@ -34,10 +33,10 @@ export const SectionCard = ({
       <Image src={BgImg} alt="background" fill className="object-cover" />
     </div>
 
-    <div className="relative z-1 grid grid-rows-[max-content_1fr_max-content] h-full">
+    <div className="relative grid grid-rows-[max-content_1fr_max-content] h-full">
       {children}
     </div>
-    <Link href={href} className="absolute inset-0 z-2" aria-label={label} />
+    <Card.Link href={href} title={label} />
   </Card>
 );
 
