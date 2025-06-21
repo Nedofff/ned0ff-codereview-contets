@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import bgGradient from "./bg-gradient.png";
 import {
@@ -31,8 +32,10 @@ export function Footer() {
         >
           <div
             className={cn(
-              "grid gap-y-[30px] mb-5",
-              "lg:mb-15 lg:grid-cols-[max-content_1fr_max-content] lg:gap-x-[50px]"
+              "grid gap-y-7.5 mb-5",
+              "md:grid-cols-[1fr_max-content] md:grid-rows-[max-content_max-content] md:gap-x-2",
+              "lg:mb-15 lg:gap-x-8 lg:grid-cols-[max-content_1fr_max-content]",
+              "xl:gap-x-12.5"
             )}
           >
             <div
@@ -41,9 +44,11 @@ export function Footer() {
                 "lg:col-start-3 lg:justify-between"
               )}
             >
-              <Logo className={cn("text-xl", "lg: text-3xl")} />
+              <Logo className={cn("text-xl", "lg:text-3xl")} />
 
-              <div className={cn("flex flex-col font-semibold", "mb-[17px]")}>
+              <div
+                className={cn("flex flex-col font-semibold", "md:mb-[17px]")}
+              >
                 <Link
                   className={cn("text-xl text-neutral-200", "lg:text-2xl")}
                   href="tel:+74991108276"
@@ -51,7 +56,7 @@ export function Footer() {
                   +7 (499) 110-82-76
                 </Link>
                 <Link
-                  className={cn("text-neutral-500", "lg:text-lg")}
+                  className={cn("text-neutral-500", "xl:text-lg")}
                   href="mailto:yourcodereview@gmail.com"
                 >
                   yourcodereview@gmail.com
@@ -61,12 +66,14 @@ export function Footer() {
             <div
               className={cn(
                 "grid grid-cols-[max-content_max-content] gap-x-[23px] text-neutral-100",
-                "lg:gap-x-[50px] lg:row-start-1 lg:text-lg"
+                "md:grid-cols-1 md:grid-rows-[max-content_max-content] md:gap-x-0 md:gap-y-3 md:row-span-2",
+                "lg:grid-cols-[max-content_max-content] lg:grid-rows-1 lg:gap-x-[23px]",
+                "lg:gap-x-[50px] md:row-start-1 lg:text-lg"
               )}
             >
               <div
                 className={cn(
-                  "flex flex-col gap-y-[12px] leading-[18px]",
+                  "flex flex-col gap-y-3 leading-[18px]",
                   "lg:leading-[22px]"
                 )}
               >
@@ -85,8 +92,9 @@ export function Footer() {
             </div>
             <button
               className={cn(
-                "bg-neutral-10/5 w-full rounded-lg p-[15px] text-neutral-100 font-medium flex flex-col items-center gap-y-[30px] leading-[18px]",
-                "lg:bg-neutral-800 lg:w-[156px] lg:lg:row-start-1"
+                "bg-neutral-10/5 w-full rounded-lg p-[15px] text-neutral-100 font-medium flex flex-col items-center gap-y-7.5 leading-[18px]",
+                "md:col-start-2",
+                "lg:bg-neutral-800 lg:row-start-1 lg:w-[156px]"
               )}
             >
               <span className="text-neutral-100 ">
