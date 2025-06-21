@@ -8,7 +8,7 @@ import {
 import { useState } from "react";
 import { ButtonLink } from "@/ui-kit";
 import { routes } from "@/core/router";
-import { petProjectsMock } from "./pet-projects-mock";
+import { petProjectsMock } from "../../data/mocks/pet-projects-mock";
 import { PetProjectCard } from "./components/pet-project-card";
 
 export const PetProjectsPage = () => {

@@ -1,14 +1,6 @@
-interface TestTaskMock {
-  id: number;
-  title: string;
-  difficulty: "easy" | "medium" | "hard";
-  company: string;
-  description: string;
-  url: string; // обязательная ссылка
-  solution?: string; // необязательная ссылка
-}
+import { TestTask } from "../test-tasks";
 
-export const testTasksMockData: TestTaskMock[] = [
+export const testTasksMockData: TestTask[] = [
   {
     id: 1,
     title: "Реализация алгоритма сортировки массива",

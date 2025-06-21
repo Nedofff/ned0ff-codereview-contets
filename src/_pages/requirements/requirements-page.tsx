@@ -7,7 +7,7 @@ import { useQueryParams } from "@/core/use-query-params";
 import { useState } from "react";
 import { useCurrentSpecialty } from "@/widgets/category-switcher";
 import { RequirementItem } from "./components/requirement-item";
-import { requirementsMockData } from "./requirements-page-mock-data";
+import { requirementsMockData } from "../../data/mocks/requirements-page-mock-data";
 import { cn } from "@/core/utils";
 import { InfoCircleIcon } from "@/ui-kit";
 

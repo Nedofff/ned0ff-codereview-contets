@@ -1,15 +1,6 @@
-export interface PetProject {
-  id: string;
-  title: string;
-  description: string;
-  author: string;
-  icon?: string;
-  type: "opensource" | "commercial";
-  githubUrl: string;
-  contactUrl: string;
-}
+import { Project } from "../pet-projects";
 
-export const petProjectsMock: PetProject[] = [
+export const petProjectsMock: Project[] = [
   {
     id: "1",
     title: "TaskFlow Manager",

@@ -1,10 +1,11 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
-import { ApiError, ApiResponse } from "./http-client-types";
+import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
+import { ApiResponse, GetAuthToken } from "./http-client-types";
 
 export class HttpClient {
-  private client: AxiosInstance;
+  private readonly client: AxiosInstance;
+  private readonly getAuthToken: GetAuthToken;
 
-  constructor(baseURL: string) {
+  constructor(baseURL: string, getAuthToken: GetAuthToken) {
     this.client = axios.create({
       baseURL,
       timeout: 10000,
@@ -12,45 +13,21 @@ export class HttpClient {
         "Content-Type": "application/json",
       },
     });
-
+    this.getAuthToken = getAuthToken;
     this.setupInterceptors();
   }
 
   private setupInterceptors() {
-    // Request interceptor для добавления токена авторизации
-    // this.client.interceptors.request.use(
-    //   (config) => {
-    //     // if (this.authToken) {
-    //     //   config.headers.Authorization = `Bearer ${this.authToken}`;
-    //     // }
-    //     return config;
-    //   },
-    //   (error: unknown) => error
-    // );
-    // Response interceptor для обработки ошибок
-    this.client.interceptors.response.use(
-      (response: AxiosResponse) => response,
-      (error: unknown) => {
-        console.log("Interceptor поймал ошибку:", error);
-
-        if (!axios.isAxiosError(error)) {
-          return Promise.reject(error);
+    this.client.interceptors.request.use(
+      (config) => {
+        const token = this.getAuthToken();
+        console.log("token", token);
+        if (token) {
+          config.headers.Authorization = `Bearer ${token}`;
         }
-
-        // Логируем все детали ошибки
-        console.log("Response есть?", !!error.response);
-        console.log("Статус:", error.response?.status);
-        console.log("Данные ответа:", error.response?.data);
-
-        const apiError: ApiError = {
-          message:
-            error.response?.data?.detail ?? error.message ?? "Произошла ошибка",
-          status: error.response?.status,
-          details: error.response?.data,
-        };
-
-        return Promise.reject(apiError);
-      }
+        return config;
+      },
+      (error: unknown) => error
     );
   }
 
@@ -124,4 +101,5 @@ export class HttpClient {
   }
 }
 
-export const getHttpClient = (baseURL: string) => new HttpClient(baseURL);
+export const getHttpClient = (baseURL: string, getAuthToken: GetAuthToken) =>
+  new HttpClient(baseURL, getAuthToken);

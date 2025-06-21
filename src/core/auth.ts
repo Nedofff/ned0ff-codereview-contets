@@ -1,4 +1,4 @@
-import { authApi, LoginRequest } from "@/data/auth";
+import { getAuthApi, LoginRequest } from "@/data/auth";
 import { authCookieService } from "./cookie/auth-cookie";
 
 export const getIsAuth = () => {
@@ -14,7 +14,7 @@ export const login = async ({ username, password }: LoginRequest) => {
 };
 
 export const signup = async ({ username, password }: LoginRequest) => {
-  const response = await authApi.login({ username, password });
+  const response = await getAuthApi.login({ username, password });
   authCookieService.setToken(response.accessToken);
 };
 

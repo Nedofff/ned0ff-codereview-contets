@@ -6,7 +6,7 @@ import {
   FILTER_DATA_SPECIALTY,
 } from "@/widgets/collection-page-layout/";
 import { RecruitersCard } from "./components/recruiters-card";
-import { recruitersData } from "./recruiters-mock";
+import { recruitersData } from "../../data/mocks/recruiters-mock";
 
 import { useQueryParams } from "@/core/use-query-params";
 import { ButtonLink } from "@/ui-kit";

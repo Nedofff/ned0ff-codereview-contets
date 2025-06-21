@@ -33,3 +33,5 @@ export interface PaginationParams {
   sort_by?: string | null;
   order?: "asc" | "desc";
 }
+
+export type GetAuthToken = () => string | undefined | null;

@@ -9,6 +9,7 @@ import { ButtonLink } from "@/ui-kit";
 import { routes } from "@/core/router";
 import { Vacancy } from "@/data/vacancies";
 import { PaginationPageProps } from "@/core/pagination/pagination-types";
+import { jobsData } from "../../data/mocks/job-mock";
 
 const filters = createFilter([
   {
@@ -84,7 +85,7 @@ export const JobsPage = ({
         titleAuthWall="Получите доступ к 1200 вакансиям и стажировкам"
         className="grid grid-cols-1 gap-2.5 md:gap-4 md:grid-cols-2"
       >
-        {vacancies.map((job) => (
+        {jobsData.map((job) => (
           <JobCard key={job.id} {...job} />
         ))}
       </CollectionPageLayout.Content>

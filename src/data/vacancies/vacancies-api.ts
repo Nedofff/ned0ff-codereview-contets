@@ -1,5 +1,9 @@
-import { backendClient } from "../backend-client";
-import type { HttpClient, PaginationModel } from "@/core/http-client";
+import { getBackendClient } from "../backend-client";
+import type {
+  GetAuthToken,
+  HttpClient,
+  PaginationModel,
+} from "@/core/http-client";
 import type {
   VacancyDto,
   Vacancy,
@@ -11,6 +15,7 @@ import {
   mapVacancyToDto,
   mapVacancyFiltersToDto,
 } from "./vacancies-mapper";
+import { missingBackend } from "@/core/http-client/missing-backend";
 
 class VacanciesApi {
   private readonly basePath = "/vacancies";
@@ -36,7 +41,7 @@ class VacanciesApi {
     const response = await this.client.get<PaginationModel<VacancyDto>>(url);
 
     if (!response.data) {
-      throw new Error("No data received");
+      throw new Error("Отсутствуют");
     }
 
     return {
@@ -51,7 +56,7 @@ class VacanciesApi {
     );
 
     if (!response.data) {
-      throw new Error("No data received");
+      throw new Error("Отсутствуют");
     }
 
     return mapVacancyFromDto(response.data);
@@ -59,13 +64,14 @@ class VacanciesApi {
 
   async createVacancy(vacancy: VacancyCreate): Promise<Vacancy> {
     const dtoVacancy = mapVacancyToDto(vacancy);
+    missingBackend();
     const response = await this.client.post<VacancyDto>(
       `${this.basePath}/`,
       dtoVacancy
     );
 
     if (!response.data) {
-      throw new Error("No data received");
+      throw new Error("Отсутствуют");
     }
 
     return mapVacancyFromDto(response.data);
@@ -76,21 +82,24 @@ class VacanciesApi {
     vacancy: VacancyCreate
   ): Promise<Vacancy> {
     const dtoVacancy = mapVacancyToDto(vacancy);
+    missingBackend();
     const response = await this.client.put<VacancyDto>(
       `${this.basePath}/${vacancyId}`,
       dtoVacancy
     );
 
     if (!response.data) {
-      throw new Error("No data received");
+      throw new Error("Отсутствуют");
     }
 
     return mapVacancyFromDto(response.data);
   }
 
   async deleteVacancy(vacancyId: number): Promise<void> {
+    missingBackend();
     await this.client.delete<void>(`${this.basePath}/${vacancyId}`);
   }
 }
 
-export const vacanciesApi = new VacanciesApi(backendClient);
+export const getVacanciesApi = (getAuthToken: GetAuthToken) =>
+  new VacanciesApi(getBackendClient(getAuthToken));

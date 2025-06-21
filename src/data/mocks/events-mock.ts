@@ -1,14 +1,6 @@
-interface Event {
-  id: number;
-  title: string;
-  location: string;
-  dateTime: string;
-  isOnline: boolean;
-  description: string;
-  url: string;
-}
+import { ITMeet } from "../it-meets";
 
-export const eventsData: Event[] = [
+export const eventsData: ITMeet[] = [
   {
     id: 1,
     title: "Java Meetup: Spring Boot 3.0",

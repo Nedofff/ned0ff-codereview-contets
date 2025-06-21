@@ -1,0 +1,664 @@
+{
+  "vacancies": [
+    {
+      "id": 1,
+      "active": true,
+      "externalId": "bell-integrator-1",
+      "title": "Тестировщик Java/QA инженер по автоматизированному тестированию Java с нуля (стажер)",
+      "companyName": "Bell Integrator",
+      "location": "Воронеж",
+      "datePublication": "01.03.2025",
+      "salary": "50000",
+      "specialty": "QA/Testing",
+      "remote": true,
+      "internship": true,
+      "image": "/bell-integrator.png",
+      "url": "https://example.com/vacancy/1",
+      "description": "Описание вакансии тестировщика Java",
+      "source": "hh.ru"
+    },
+    {
+      "id": 2,
+      "active": true,
+      "externalId": "infomaximum-1",
+      "title": "Начинающий тестировщик / AQA Engineer (Java)",
+      "companyName": "Инфомаксимум",
+      "location": "Санкт-Петербург",
+      "datePublication": "01.03.2025",
+      "salary": null,
+      "specialty": "QA/Testing",
+      "remote": true,
+      "internship": true,
+      "image": "/info-spb.png",
+      "url": "https://example.com/vacancy/2",
+      "description": "Описание вакансии AQA Engineer",
+      "source": "hh.ru"
+    },
+    {
+      "id": 3,
+      "active": true,
+      "externalId": "wanted-1",
+      "title": "Стажер Java разработчик",
+      "companyName": "Wanted.",
+      "location": "Нижний-Новгород",
+      "datePublication": "01.03.2025",
+      "salary": "15 000 ₽",
+      "specialty": "Backend Development",
+      "remote": true,
+      "internship": true,
+      "image": "/wanted.png",
+      "url": "https://example.com/vacancy/3",
+      "description": "Описание вакансии стажера Java разработчика",
+      "source": "hh.ru"
+    },
+    {
+      "id": 4,
+      "active": true,
+      "externalId": "infomaximum-2",
+      "title": "Специалист технической поддержки (java junior)",
+      "companyName": "Инфомаксимум",
+      "location": "Иркутск",
+      "datePublication": "11.02.2025",
+      "salary": "50 000 ₽",
+      "specialty": "Backend Development",
+      "remote": true,
+      "internship": false,
+      "image": "/info-irkt.png",
+      "url": "https://example.com/vacancy/4",
+      "description": "Описание вакансии специалиста технической поддержки",
+      "source": "hh.ru"
+    },
+    {
+      "id": 5,
+      "active": true,
+      "externalId": "sbertech-1",
+      "title": "Intern Java developer (Платформа дистрибуции)",
+      "companyName": "СберТех",
+      "location": "Волгоград",
+      "datePublication": "05.02.2025",
+      "salary": "не указана",
+      "specialty": "Backend Development",
+      "remote": true,
+      "internship": true,
+      "image": "/sber.png",
+      "url": "https://example.com/vacancy/5",
+      "description": "Описание вакансии Intern Java developer",
+      "source": "hh.ru"
+    },
+    {
+      "id": 6,
+      "active": true,
+      "externalId": "aston-1",
+      "title": "Тестировщик Java/QA инженер по автоматизированному тестированию Java с нуля (стажер)",
+      "companyName": "Aston",
+      "location": "Санкт-Петербург",
+      "datePublication": "21.03.2025",
+      "salary": "15 000 ₽",
+      "specialty": "QA/Testing",
+      "remote": false,
+      "internship": true,
+      "image": "/aston.png",
+      "url": "https://example.com/vacancy/6",
+      "description": "Описание вакансии тестировщика Java в Aston",
+      "source": "hh.ru"
+    },
+    {
+      "id": 7,
+      "active": true,
+      "externalId": "button-one-1",
+      "title": "Junior Java QA engineer",
+      "companyName": "Button One",
+      "location": "Санкт-Петербург",
+      "datePublication": "21.03.2025",
+      "salary": "не указана",
+      "specialty": "QA/Testing",
+      "remote": true,
+      "internship": false,
+      "image": "/button-one.png",
+      "url": "https://example.com/vacancy/7",
+      "description": "Описание вакансии Junior Java QA engineer",
+      "source": "hh.ru"
+    },
+    {
+      "id": 8,
+      "active": true,
+      "externalId": "button-one-2",
+      "title": "Junior Java QA engineer",
+      "companyName": "Button One",
+      "location": "Санкт-Петербург",
+      "datePublication": "21.03.2025",
+      "salary": "не указана",
+      "specialty": "QA/Testing",
+      "remote": true,
+      "internship": false,
+      "image": "/button-one.png",
+      "url": "https://example.com/vacancy/8",
+      "description": "Описание вакансии Junior Java QA engineer",
+      "source": "hh.ru"
+    }
+  ],
+  "aiTools": [
+    {
+      "id": 1,
+      "title": "ChatGPT",
+      "iconUrl": "/sofi.png",
+      "tags": ["Ассистент", "Чат-бот"],
+      "category": "Контент",
+      "description": "Многофункциональный чат-бот от OpenAI, способный вести диалоги, писать тексты, решать задачи и помогать в программировании. Многофункциональный чат-бот от OpenAI, способный вести диалоги, писать тексты, решать задачи и помогать в программировании.",
+      "url": "https://chat.openai.com",
+      "like": 8,
+      "dislike": 0
+    },
+    {
+      "id": 2,
+      "title": "Midjourney",
+      "iconUrl": "/sofi.png",
+      "tags": ["Графика"],
+      "category": "Контент",
+      "description": "ИИ-генератор.",
+      "url": "https://midjourney.com",
+      "like": 12,
+      "dislike": 1
+    },
+    {
+      "id": 3,
+      "title": "Claude",
+      "iconUrl": "/sofi.png",
+      "tags": ["Ассистент", "Чат-бот"],
+      "category": "Контент",
+      "description": "ИИ-ассистент от Anthropic для анализа текстов, программирования и решения сложных задач. Отличается безопасностью и точностью.",
+      "url": "https://claude.ai",
+      "like": 6,
+      "dislike": 0
+    },
+    {
+      "id": 4,
+      "title": "DALL-E 3",
+      "iconUrl": "/sofi.png",
+      "tags": ["Графика"],
+      "category": "Контент",
+      "description": "Генератор изображений от OpenAI, интегрированный в ChatGPT. Создает реалистичные изображения по детальным текстовым описаниям.",
+      "url": "https://openai.com/dall-e-3",
+      "like": 9,
+      "dislike": 2
+    },
+    {
+      "id": 5,
+      "title": "GitHub Copilot",
+      "iconUrl": "/sofi.png",
+      "tags": ["Ассистент"],
+      "category": "Разработка",
+      "description": "ИИ-помощник для программистов, автодополняющий код и предлагающий решения. Интегрируется с популярными IDE и редакторами.",
+      "url": "https://github.com/features/copilot",
+      "like": 15,
+      "dislike": 3
+    },
+    {
+      "id": 6,
+      "title": "Stable Diffusion",
+      "iconUrl": "/sofi.png",
+      "tags": ["Графика"],
+      "category": "Контент",
+      "description": "Открытая модель генерации изображений. Позволяет создавать и редактировать изображения с высокой степенью контроля над процессом.",
+      "url": "https://stability.ai/stable-diffusion",
+      "like": 7,
+      "dislike": 1
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "title": "Java Meetup: Spring Boot 3.0",
+      "location": "Москва, IT-парк Технополис",
+      "dateTime": "2024-12-15T18:00:00",
+      "isOnline": false,
+      "description": "Встреча разработчиков для обсуждения новых возможностей Spring Boot 3.0. Доклады от экспертов, нетворкинг и обмен опытом.",
+      "url": "https://meetup.com/java-moscow/events/spring-boot-3"
+    },
+    {
+      "id": 2,
+      "title": "Онлайн конференция: Frontend Trends 2024",
+      "location": "Онлайн",
+      "dateTime": "2024-12-20T10:00:00",
+      "isOnline": true,
+      "description": "Большая онлайн конференция о трендах фронтенд разработки. React, Vue, Angular, и новые подходы к разработке интерфейсов.",
+      "url": "https://frontend-conf.ru/2024"
+    },
+    {
+      "id": 3,
+      "title": "DevOps Workshop: Kubernetes для начинающих",
+      "location": "Санкт-Петербург, Дом IT",
+      "dateTime": "2024-12-22T14:00:00",
+      "isOnline": false,
+      "description": "Практический воркшоп по основам Kubernetes. Развертывание приложений, управление контейнерами, мониторинг.",
+      "url": "https://devops-spb.ru/kubernetes-workshop"
+    },
+    {
+      "id": 4,
+      "title": "AI & ML Meetup: ChatGPT в разработке",
+      "location": "Новосибирск, Академгородок",
+      "dateTime": "2024-12-25T19:00:00",
+      "isOnline": false,
+      "description": "Обсуждение применения ChatGPT и других AI инструментов в ежедневной разработке. Практические кейсы и live demo.",
+      "url": "https://ai-meetup-nsk.ru/chatgpt-development"
+    },
+    {
+      "id": 5,
+      "title": "Онлайн вебинар: TypeScript Advanced Patterns",
+      "location": "Онлайн",
+      "dateTime": "2024-12-28T16:00:00",
+      "isOnline": true,
+      "description": "Глубокое погружение в продвинутые паттерны TypeScript. Conditional types, template literal types, и другие магические возможности.",
+      "url": "https://typescript-webinar.dev/advanced-patterns"
+    },
+    {
+      "id": 6,
+      "title": "Mobile Dev Conference: React Native vs Flutter",
+      "location": "Екатеринбург, УрФУ",
+      "dateTime": "2025-01-10T11:00:00",
+      "isOnline": false,
+      "description": "Сравнение популярных фреймворков для мобильной разработки. Производительность, экосистема, будущее развития.",
+      "url": "https://mobile-conf-ekb.ru/react-native-flutter"
+    },
+    {
+      "id": 7,
+      "title": "Хакатон: Финтех решения",
+      "location": "Казань, IT-парк",
+      "dateTime": "2025-01-15T09:00:00",
+      "isOnline": false,
+      "description": "48-часовой хакатон по разработке финтех решений. Команды до 4 человек, призовой фонд 500,000 рублей.",
+      "url": "https://fintech-hackathon-kazan.ru/2025"
+    },
+    {
+      "id": 8,
+      "title": "Онлайн митап: Blockchain для разработчиков",
+      "location": "Онлайн",
+      "dateTime": "2025-01-18T20:00:00",
+      "isOnline": true,
+      "description": "Введение в блокчейн разработку. Смарт-контракты, DeFi протоколы, NFT. Практические примеры на Solidity.",
+      "url": "https://blockchain-dev-meetup.org/intro-2025"
+    }
+  ],
+  "petProjects": [
+    {
+      "id": 1,
+      "title": "TaskFlow Manager",
+      "description": "Современный трекер задач с Kanban досками и командной работой. Поддерживает drag&drop, уведомления и интеграцию с популярными сервисами.",
+      "author": "Алексей Смирнов",
+      "icon": "https://avatars.githubusercontent.com/u/12345678?v=4",
+      "type": "opensource",
+      "githubUrl": "https://github.com/username/taskflow-manager",
+      "contactUrl": "https://t.me/taskflow_dev"
+    },
+    {
+      "id": 2,
+      "title": "WeatherBot AI",
+      "description": "Telegram бот с ИИ для прогноза погоды. Использует машинное обучение для точных предсказаний и персонализированных рекомендаций.",
+      "author": "Мария Иванова",
+      "icon": "https://avatars.githubusercontent.com/u/87654321?v=4",
+      "type": "commercial",
+      "githubUrl": "https://github.com/username/weather-bot-ai",
+      "contactUrl": "mailto:weatherbot.dev@gmail.com"
+    },
+    {
+      "id": 3,
+      "title": "CodeReview Assistant",
+      "description": "VS Code расширение для автоматизации код-ревью. Интегрируется с GitHub/GitLab, анализирует код на уязвимости и стилистические ошибки.",
+      "author": "Дмитрий Петров",
+      "icon": "https://avatars.githubusercontent.com/u/11223344?v=4",
+      "type": "opensource",
+      "githubUrl": "https://github.com/username/codereview-assistant",
+      "contactUrl": "https://t.me/codereview_help"
+    },
+    {
+      "id": 4,
+      "title": "Crypto Portfolio Tracker",
+      "description": "Трекер криптовалютного портфеля с real-time обновлениями, аналитикой доходности и уведомлениями о значительных изменениях цен.",
+      "author": "Анна Козлова",
+      "type": "commercial",
+      "githubUrl": "https://github.com/username/crypto-tracker",
+      "contactUrl": "https://discord.gg/cryptotracker"
+    },
+    {
+      "id": 5,
+      "title": "Habit Tracker Mobile",
+      "description": "React Native приложение для отслеживания привычек с красивой аналитикой, напоминаниями и социальными функциями.",
+      "author": "Игорь Соколов",
+      "type": "opensource",
+      "githubUrl": "https://github.com/username/habit-tracker-mobile",
+      "contactUrl": "mailto:habits.dev@outlook.com"
+    },
+    {
+      "id": 6,
+      "title": "Smart Home Dashboard",
+      "description": "Web-панель для управления умным домом. Интеграция с IoT устройствами, графики потребления энергии, автоматизация сценариев.",
+      "author": "Елена Волкова",
+      "type": "commercial",
+      "githubUrl": "https://github.com/username/smart-home-dashboard",
+      "contactUrl": "https://t.me/smarthome_support"
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "question": "В чем разница передачи параметров по ссылке и значению?",
+      "technology": "Java",
+      "mentions": "1490 упоминаний"
+    },
+    {
+      "id": 2,
+      "question": "Какие знаете шаблоны проектирования? Расскажите о двух шаблонах, используемых в работе.",
+      "technology": "Java",
+      "mentions": "1050 упоминаний"
+    },
+    {
+      "id": 3,
+      "question": "Какие типы данных в Java? Чем отличается объект от простых типов данных?",
+      "technology": "Java",
+      "mentions": "920 упоминаний"
+    },
+    {
+      "id": 4,
+      "question": "Что такое JVM, JDK, JRE?",
+      "technology": "Java",
+      "mentions": "506 упоминаний"
+    },
+    {
+      "id": 5,
+      "question": "Зачем используют JVM?",
+      "technology": "Java",
+      "mentions": "429 упоминаний"
+    },
+    {
+      "id": 6,
+      "question": "Что такое bytecode?",
+      "technology": "Java",
+      "mentions": "292 упоминаний"
+    },
+    {
+      "id": 7,
+      "question": "Какие признаки JavaBean?",
+      "technology": "Java",
+      "mentions": "94 упоминаний"
+    }
+  ],
+  "recruiters": [
+    {
+      "id": 1,
+      "title": "Senior IT Recruiter в Сбере",
+      "jobTitle": "Senior IT Recruiter",
+      "stack": ["Java", "Spring", "Kotlin", "Backend"],
+      "name": "Анна Петрова",
+      "likes": 45,
+      "dislikes": 3,
+      "telegramUrl": "https://t.me/anna_petrov_rec",
+      "email": "anna.petrov@sber.ru"
+    },
+    {
+      "id": 2,
+      "title": "Tech Recruiter в Яндексе",
+      "jobTitle": "Tech Recruiter",
+      "stack": ["Python", "Go", "Machine Learning", "Data Science"],
+      "name": "Максим Иванов",
+      "likes": 38,
+      "dislikes": 5,
+      "telegramUrl": "https://t.me/maxim_yandex_rec",
+      "email": "m.ivanov@yandex.ru"
+    },
+    {
+      "id": 3,
+      "title": "IT Talent Acquisition в EPAM",
+      "jobTitle": "IT Talent Acquisition Specialist",
+      "stack": ["JavaScript", "React", "Node.js", "Frontend"],
+      "name": "Елена Смирнова",
+      "likes": 52,
+      "dislikes": 2,
+      "email": "elena.smirnova@epam.com"
+    },
+    {
+      "id": 4,
+      "title": "Senior Recruiter в Тинькофф",
+      "jobTitle": "Senior Recruiter",
+      "stack": ["C#", ".NET", "Azure", "DevOps"],
+      "name": "Дмитрий Козлов",
+      "likes": 29,
+      "dislikes": 7,
+      "telegramUrl": "https://t.me/dmitry_tinkoff_rec",
+      "email": "d.kozlov@tinkoff.ru"
+    },
+    {
+      "id": 5,
+      "title": "Head of IT Recruitment в VK",
+      "jobTitle": "Head of IT Recruitment",
+      "stack": ["PHP", "Highload", "Databases", "Architecture"],
+      "name": "Ольга Васильева",
+      "likes": 67,
+      "dislikes": 1,
+      "telegramUrl": "https://t.me/olga_vk_head_rec",
+      "email": "o.vasilyeva@vk.company"
+    },
+    {
+      "id": 6,
+      "title": "Junior IT Recruiter в МТС",
+      "jobTitle": "Junior IT Recruiter",
+      "stack": ["Mobile", "iOS", "Android", "Flutter"],
+      "name": "Артем Морозов",
+      "likes": 18,
+      "dislikes": 4,
+      "telegramUrl": "https://t.me/artem_mts_rec",
+      "email": "a.morozov@mts.ru"
+    }
+  ],
+  "resumes": [
+    {
+      "id": 1,
+      "title": "Data Science",
+      "grade": "Junior",
+      "experience": "3 года",
+      "stack": [
+        "Python",
+        "Docker",
+        "Linux",
+        "PostgreSQL",
+        "Django",
+        "Git",
+        "Golang",
+        "SQL"
+      ],
+      "resumeUrl": "https://example.com/resume/1",
+      "avatarUrl": "/sofi.png",
+      "name": "Валерия",
+      "telegram": "telegram",
+      "email": "почта"
+    },
+    {
+      "id": 2,
+      "title": "Frontend Developer",
+      "grade": "Middle",
+      "experience": "5 лет",
+      "stack": [
+        "React",
+        "TypeScript",
+        "Next.js",
+        "Tailwind",
+        "Redux",
+        "Git",
+        "Figma"
+      ],
+      "resumeUrl": "https://example.com/resume/2",
+      "avatarUrl": "/sofi.png",
+      "name": "Алексей",
+      "telegram": "@alexdev",
+      "email": "alex@mail.ru"
+    },
+    {
+      "id": 3,
+      "title": "Backend Developer",
+      "grade": "Senior",
+      "experience": "7 лет",
+      "stack": [
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Redis",
+        "Docker",
+        "AWS",
+        "GraphQL"
+      ],
+      "resumeUrl": "https://example.com/resume/3",
+      "avatarUrl": "/sofi.png",
+      "name": "Михаил",
+      "telegram": "@mikhail_backend",
+      "email": "mikhail@gmail.com"
+    },
+    {
+      "id": 4,
+      "title": "DevOps Engineer",
+      "grade": "Middle",
+      "experience": "4 года",
+      "stack": [
+        "Kubernetes",
+        "Docker",
+        "Terraform",
+        "Jenkins",
+        "AWS",
+        "Linux",
+        "Prometheus"
+      ],
+      "resumeUrl": "https://example.com/resume/4",
+      "avatarUrl": "/sofi.png",
+      "name": "Дмитрий",
+      "telegram": "@dmitry_devops",
+      "email": "dmitry@yandex.ru"
+    },
+    {
+      "id": 5,
+      "title": "Mobile Developer",
+      "grade": "Junior",
+      "experience": "2 года",
+      "stack": [
+        "React Native",
+        "Flutter",
+        "Dart",
+        "JavaScript",
+        "Firebase",
+        "Git"
+      ],
+      "resumeUrl": "https://example.com/resume/5",
+      "avatarUrl": "/sofi.png",
+      "name": "Анна",
+      "telegram": "@anna_mobile",
+      "email": "anna@mail.ru"
+    },
+    {
+      "id": 6,
+      "title": "QA Engineer",
+      "grade": "Middle",
+      "experience": "4 года",
+      "stack": ["Selenium", "Cypress", "Jest", "Postman", "SQL", "Git", "Jira"],
+      "resumeUrl": "https://example.com/resume/6",
+      "avatarUrl": "/sofi.png",
+      "name": "Елена",
+      "telegram": "@elena_qa",
+      "email": "elena@gmail.com"
+    }
+  ],
+  "testTasks": [
+    {
+      "id": 1,
+      "title": "Реализация алгоритма сортировки массива",
+      "difficulty": "easy",
+      "company": "Яндекс",
+      "description": "Необходимо реализовать функцию для сортировки массива целых чисел по возрастанию. Разрешается использовать любой алгоритм сортировки.",
+      "url": "https://contest.yandex.ru/contest/12345",
+      "solution": "https://github.com/example/sorting-solution"
+    },
+    {
+      "id": 2,
+      "title": "Создание REST API для управления задачами",
+      "difficulty": "medium",
+      "company": "VK",
+      "description": "Разработать REST API с базовыми операциями CRUD для управления списком задач. Использовать Node.js и Express.",
+      "url": "https://career.vk.com/test-task/api-todo"
+    },
+    {
+      "id": 3,
+      "title": "Оптимизация SQL запросов",
+      "difficulty": "hard",
+      "company": "Тинькофф",
+      "description": "Дана база данных с медленными запросами. Необходимо проанализировать и оптимизировать производительность запросов к базе данных.",
+      "url": "https://tinkoff.ru/career/test-tasks/sql-optimization",
+      "solution": "https://github.com/tinkoff-solutions/sql-optimization"
+    },
+    {
+      "id": 4,
+      "title": "Разработка компонента календаря на React",
+      "difficulty": "medium",
+      "company": "Ozon",
+      "description": "Создать переиспользуемый компонент календаря на React с возможностью выбора даты и диапазона дат.",
+      "url": "https://ozon.dev/test-tasks/react-calendar"
+    }
+  ],
+  "requirements": [
+    {
+      "id": 1,
+      "title": "React",
+      "description": "Библиотека для создания пользовательских интерфейсов",
+      "mentions": 245
+    },
+    {
+      "id": 2,
+      "title": "TypeScript",
+      "description": "Типизированный супермножество JavaScript",
+      "mentions": 198
+    },
+    {
+      "id": 3,
+      "title": "Node.js",
+      "description": "Среда выполнения JavaScript на сервере",
+      "mentions": 167
+    },
+    {
+      "id": 4,
+      "title": "Python",
+      "description": "Высокоуровневый язык программирования общего назначения",
+      "mentions": 156
+    },
+    {
+      "id": 5,
+      "title": "Docker",
+      "description": "Платформа для разработки и развертывания приложений в контейнерах",
+      "mentions": 134
+    },
+    {
+      "id": 6,
+      "title": "PostgreSQL",
+      "description": "Объектно-реляционная система управления базами данных",
+      "mentions": 122
+    },
+    {
+      "id": 7,
+      "title": "Git",
+      "description": "Распределенная система контроля версий",
+      "mentions": 89
+    },
+    {
+      "id": 8,
+      "title": "Vue.js",
+      "description": "Прогрессивный JavaScript-фреймворк для создания UI",
+      "mentions": 76
+    },
+    {
+      "id": 9,
+      "title": "Kubernetes",
+      "description": "Система оркестрации контейнеров",
+      "mentions": 65
+    },
+    {
+      "id": 10,
+      "title": "MongoDB",
+      "description": "Документо-ориентированная NoSQL база данных",
+      "mentions": 54
+    }
+  ]
+}

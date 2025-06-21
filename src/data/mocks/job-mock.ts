@@ -1,4 +1,4 @@
-import type { Vacancy } from "./types";
+import { Vacancy } from "@/data/vacancies";
 
 export const jobsData: Vacancy[] = [
   {

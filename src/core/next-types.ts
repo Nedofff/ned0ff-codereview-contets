@@ -1,3 +1,5 @@
+import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
+
 export type QueryParams<T extends string> = Promise<{
   [K in T]: string | undefined;
 }>;
@@ -11,3 +13,5 @@ export type PageWithQuery<T extends string> = {
 export type PageWithParams<T extends string> = {
   params: PageParams<T>;
 };
+
+export type CookieStoreServer = ReadonlyRequestCookies;

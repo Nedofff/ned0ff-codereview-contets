@@ -4,7 +4,7 @@ import {
   CollectionPageLayout,
   createFilter,
 } from "@/widgets/collection-page-layout";
-import { resumesMock } from "./resumes-mock";
+import { resumesMock } from "../../data/mocks/resumes-mock";
 import { ResumeCard } from "./components/resume-card";
 import { ButtonLink } from "@/ui-kit";
 import { routes } from "@/core/router";

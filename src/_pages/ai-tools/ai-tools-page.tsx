@@ -8,7 +8,7 @@ import {
   createFilter,
 } from "@/widgets/collection-page-layout";
 import { useState } from "react";
-import { aiToolsMock } from "./ai-tools-mock";
+import { aiToolsMock } from "../../data/mocks/ai-tools-mock";
 import { AiToolCard } from "./components/ai-tool-card";
 
 const filters = createFilter([

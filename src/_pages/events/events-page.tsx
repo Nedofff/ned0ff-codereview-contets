@@ -8,7 +8,7 @@ import {
 } from "@/widgets/collection-page-layout";
 import { useState } from "react";
 import { EventCard } from "./components/event-card";
-import { eventsData } from "./events-mock";
+import { eventsData } from "../../data/mocks/events-mock";
 
 const filters = createFilter([
   {

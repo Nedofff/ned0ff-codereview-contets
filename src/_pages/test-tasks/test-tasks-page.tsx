@@ -6,7 +6,7 @@ import {
   createFilter,
 } from "@/widgets/collection-page-layout";
 import { useState } from "react";
-import { testTasksMockData } from "./test-tasks-mock";
+import { testTasksMockData } from "../../data/mocks/test-tasks-mock";
 import { TestTaskCard } from "./components/test-task-card";
 
 const filters = createFilter([

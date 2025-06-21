@@ -1,16 +1,6 @@
-export interface RecruiterData {
-  id: string;
-  title: string;
-  jobTitle: string;
-  stack: string[];
-  name: string;
-  likes: number;
-  dislikes: number;
-  telegramUrl?: string;
-  email: string;
-}
+import { Recruiter } from "../recruiters";
 
-export const recruitersData: RecruiterData[] = [
+export const recruitersData: Recruiter[] = [
   {
     id: "1",
     title: "Senior IT Recruiter в Сбере",
