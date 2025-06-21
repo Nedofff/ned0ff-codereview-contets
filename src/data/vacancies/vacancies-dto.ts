@@ -45,7 +45,6 @@ export interface VacancyFiltersDto extends PaginationParams {
   company_name?: string | null;
 }
 
-// Клиентские типы (для UI)
 export interface Vacancy {
   id: number;
   active: boolean;

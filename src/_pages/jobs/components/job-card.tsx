@@ -1,3 +1,4 @@
+"use client";
 import {
   BriefcaseIcon,
   BuildingIcon,
@@ -5,10 +6,11 @@ import {
   MoneyBagIcon,
   WebIcon,
 } from "@/ui-kit";
-import type { Vacancy } from "../types";
 import { cn } from "@/core/utils";
 import Image from "next/image";
 import { routes } from "@/core/router";
+import { Vacancy } from "@/data/vacancies";
+import { toRuble } from "../lib/to-rouble";
 
 export const JobCard = ({
   id,
@@ -23,7 +25,6 @@ export const JobCard = ({
 }: Vacancy) => {
   return (
     <Card className={cn("w-full  mx-auto", "grid grid-rows-[auto_1fr_auto] ")}>
-      <Card.Link title={title} url={routes.jobId(id.toString())} />
       <h3 className="text-lg font-bold leading-[22px] text-neutral-800 mb-2.5">
         {title}
       </h3>
@@ -49,7 +50,8 @@ export const JobCard = ({
           </span>
         )}
         <span className="flex items-center">
-          <MoneyBagIcon className="mr-0.5" /> {salary ?? "не указана"}
+          <MoneyBagIcon className="mr-0.5" />{" "}
+          {salary ? `от ${toRuble(+salary)}` : "не указана"}
         </span>
       </div>
       <div className="flex flex-col gap-y-[15px] items-end  md:gap-y-0 md:justify-between md:flex-row">
@@ -60,7 +62,7 @@ export const JobCard = ({
               width={42}
               height={42}
               alt={`Лого ${companyName}`}
-              className="row-span-2 rounded-lg"
+              className="w-10.5 h-10.5 object-cover row-span-2 rounded-lg"
             />
           )}
           <span className="font-semibold font-wix-display text-lg leading-[22px]">
@@ -74,6 +76,7 @@ export const JobCard = ({
           {new Date(datePublication).toLocaleDateString()}
         </div>
       </div>
+      <Card.Link title={title} href={routes.jobId(id.toString())} />
     </Card>
   );
 };

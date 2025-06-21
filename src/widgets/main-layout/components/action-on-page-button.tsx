@@ -4,6 +4,7 @@ import { cn } from "@/core/utils";
 import { ButtonLink } from "@/ui-kit";
 import { usePathname } from "next/navigation";
 import { createPortal } from "react-dom";
+import dynamic from "next/dynamic";
 
 const actions = {
   [routes.jobs]: {
@@ -16,19 +17,26 @@ const actions = {
   },
   [routes.requirements]: {
     text: "Конструктор резюме",
-    href: routes.notNow,
+    href: routes.underConstruction,
   },
   [routes.testTasks]: {
     text: "Тренажер заданий",
-    href: routes.notNow,
+    href: routes.underConstruction,
   },
   [routes.aboutUs]: {
     text: "Заказать подбор",
-    href: routes.notNow,
+    href: routes.underConstruction,
   },
 };
 
-export const ActionOnPageButton = () => (
+export const ActionOnPageButton = dynamic(
+  () => Promise.resolve(ActionOnPageButtonClient),
+  {
+    ssr: false,
+  }
+);
+
+const ActionOnPageButtonClient = () => (
   <>
     <ActionOnPageButtonInner className="hidden h-full sm:flex" />
     {createPortal(
@@ -51,6 +59,7 @@ const ActionOnPageButtonInner = ({ className }: { className?: string }) => {
     <ButtonLink
       className={cn("gap-2.5 text-nowrap", className)}
       href={externalLinks.sofi}
+      variant="accent"
     >
       {action.text}
     </ButtonLink>

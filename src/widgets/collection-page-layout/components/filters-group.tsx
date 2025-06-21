@@ -1,9 +1,16 @@
+"use client";
 import { Dropdown, HorizontalScroll, Switch } from "@/ui-kit";
 import { SpecialtyChange } from "./specialty-change";
+import { useQueryParams } from "@/core/use-query-params";
+import { specialtyDict } from "@/core/consts";
+import { useCurrentSpecialty } from "@/widgets/category-switcher";
+import { useEffect } from "react";
+import { AllFilters } from "@/core/filters-type";
+import { logger } from "@/core/logger";
 
 type Filter =
   | {
-      id: string;
+      name: AllFilters;
       type: "options";
       label: string;
       options: {
@@ -12,7 +19,7 @@ type Filter =
       }[];
     }
   | {
-      id: string;
+      name: AllFilters;
       type: "switch";
       label: string;
     };
@@ -20,57 +27,38 @@ type Filter =
 export type FilterGroupData = Filter[];
 
 export const FILTER_DATA_SPECIALTY: Filter & { type: "options" } = {
-  id: "specialty",
+  name: "specialty",
   type: "options",
   label: "Специальность",
-  options: [
-    {
-      label: "Python",
-      value: "python",
-    },
-    {
-      label: "Java",
-      value: "java",
-    },
-    {
-      label: "JavaScript",
-      value: "javascript",
-    },
-    {
-      label: "Data Science",
-      value: "data-science",
-    },
-    {
-      label: "QA",
-      value: "qa",
-    },
-    {
-      label: "C#",
-      value: "csharp",
-    },
-  ],
+  options: Object.entries(specialtyDict).map(([key, value]) => ({
+    label: value,
+    value: key,
+  })),
 };
 
 export interface FiltersGroupProps {
-  onChange: (id: string, value: string | boolean) => void;
   filters: FilterGroupData;
   action?: React.ReactNode;
 }
 
-export const FiltersGroup = ({
-  filters,
-  action,
-  onChange,
-}: FiltersGroupProps) => {
+export const FiltersGroup = ({ filters, action }: FiltersGroupProps) => {
+  const { setSearchParams } = useQueryParams();
+  const { keySpecialty } = useCurrentSpecialty();
+
+  useEffect(() => {
+    // setSearchParams("specialty", keySpecialty);
+    logger.info("Смена specialty component/category-switcher", keySpecialty);
+  }, [keySpecialty]);
+
   return (
     <HorizontalScroll className="gap-x-[15px] md:gap-x-2.5">
       {action}
       {filters.map((filter) => {
         if (filter.type === "options") {
-          if (filter.id === "specialty") {
+          if (filter.name === "specialty") {
             return (
               <SpecialtyChange
-                key={filter.id}
+                key={filter.name}
                 label={filter.label}
                 options={filter.options}
               />
@@ -79,19 +67,19 @@ export const FiltersGroup = ({
 
           return (
             <Dropdown
-              key={filter.id}
+              key={filter.name}
               options={filter.options}
               placeholder={filter.label}
-              onChange={(value) => onChange(filter.id, value)}
+              onChange={(value) => setSearchParams(filter.name, value)}
             />
           );
         }
 
         return (
           <Switch
-            key={filter.id}
+            key={filter.name}
             label={filter.label}
-            onChange={(value) => onChange(filter.id, value)}
+            onChange={(value) => setSearchParams(filter.name, value.toString())}
           />
         );
       })}

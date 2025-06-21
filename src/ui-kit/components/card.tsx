@@ -17,6 +17,11 @@ export const Card = ({
   );
 };
 
-Card.Link = ({ title, url }: { title: string; url: string }) => (
-  <Link href={url} aria-label={title} className="absolute inset-0" />
+Card.Link = ({ title, href }: { title: string; href: string }) => (
+  <Link
+    draggable={false}
+    href={href}
+    aria-label={title}
+    className="absolute inset-0"
+  />
 );

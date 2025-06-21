@@ -5,7 +5,7 @@ import {
 } from "@/widgets/collection-page-layout";
 import { useQueryParams } from "@/core/use-query-params";
 import { useState } from "react";
-import { useCurrentCategory } from "@/widgets/category-switcher";
+import { useCurrentSpecialty } from "@/widgets/category-switcher";
 import { RequirementItem } from "./components/requirement-item";
 import { requirementsMockData } from "./requirements-page-mock-data";
 import { cn } from "@/core/utils";
@@ -13,7 +13,7 @@ import { InfoCircleIcon } from "@/ui-kit";
 
 const filters = createFilter([
   {
-    id: "source",
+    name: "source",
     type: "options",
     label: "Источник",
     options: [
@@ -34,7 +34,7 @@ const filters = createFilter([
 ]);
 
 export const RequirementsPage = () => {
-  const currentCategory = useCurrentCategory();
+  const currentCategory = useCurrentSpecialty();
   const { searchParams, setSearchParams } = useQueryParams();
   const currentPage = searchParams.get("page") ?? 1;
   const [selectedFilters, setSelectedFilters] = useState<

@@ -1,7 +1,7 @@
 "use client";
 
 import { useQueryParams } from "@/core/use-query-params";
-import { useCurrentCategory } from "@/widgets/category-switcher";
+import { useCurrentSpecialty } from "@/widgets/category-switcher";
 import {
   CollectionPageLayout,
   createFilter,
@@ -12,7 +12,7 @@ import { eventsData } from "./events-mock";
 
 const filters = createFilter([
   {
-    id: "city",
+    name: "city",
     type: "options",
     label: "Город",
     options: [
@@ -35,14 +35,14 @@ const filters = createFilter([
     ],
   },
   {
-    id: "online",
+    name: "online",
     type: "switch",
     label: "Онлайн",
   },
 ]);
 
 export const EventsPage = () => {
-  const currentCategory = useCurrentCategory();
+  const currentCategory = useCurrentSpecialty();
   const { searchParams, setSearchParams } = useQueryParams();
   const currentPage = searchParams.get("page") ?? 1;
   const [selectedFilters, setSelectedFilters] = useState<

@@ -1,7 +1,6 @@
 "use client";
 import { Dropdown } from "@/ui-kit";
-import { useCategory } from "@/widgets/category-switcher";
-import { FILTER_DATA_SPECIALTY } from "./filters-group";
+import { useSpecialty } from "@/widgets/category-switcher";
 
 export const SpecialtyChange = (props: {
   label: string;
@@ -10,18 +9,14 @@ export const SpecialtyChange = (props: {
     value: string;
   }[];
 }) => {
-  const { currentCategory, setCurrentCategory } = useCategory();
-  const labelToValue = FILTER_DATA_SPECIALTY.options.reduce((acc, option) => {
-    acc[option.label] = option.value;
-    return acc;
-  }, {} as Record<string, string>);
+  const { currentSpecialty, setCurrentSpecialty } = useSpecialty();
 
   return (
     <Dropdown
       placeholder={props.label}
       options={props.options}
-      value={labelToValue[currentCategory]}
-      onChange={(value) => setCurrentCategory(value)}
+      value={currentSpecialty}
+      onChange={(value) => setCurrentSpecialty(value)}
     />
   );
 };

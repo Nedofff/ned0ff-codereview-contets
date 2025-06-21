@@ -41,7 +41,7 @@ export function Dropdown({
       dropdownContainerRef.current.style.left = `${
         rect.left + window.scrollX
       }px`;
-      dropdownContainerRef.current.style.width = `${rect.width}px`;
+      // dropdownContainerRef.current.style.width = `${rect.width}px`;
     }
   }, []);
 
@@ -133,7 +133,7 @@ export function Dropdown({
         <Portal>
           <div
             ref={dropdownContainerRef}
-            className="absolute z-20 bg-white rounded-xl border border-neutral-200 shadow-lg max-h-60 p-[10px_0px_5px] overflow-auto"
+            className="absolute z-20 bg-white rounded-xl border border-neutral-200 shadow-lg max-h-60 p-[10px_0px_5px] overflow-auto w-max"
           >
             {options.length === 0 ? (
               <div className="px-4 py-3 text-neutral-500 text-center">

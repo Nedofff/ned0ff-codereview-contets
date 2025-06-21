@@ -12,7 +12,7 @@ import { routes } from "@/core/router";
 const filters = createFilter(
   [
     {
-      id: "position",
+      name: "position",
       type: "options",
       label: "Позиция",
       options: [
@@ -51,7 +51,7 @@ const filters = createFilter(
       ],
     },
     {
-      id: "grade",
+      name: "grade",
       type: "options",
       label: "Уровень",
       options: [
@@ -74,7 +74,7 @@ const filters = createFilter(
       ],
     },
     {
-      id: "city",
+      name: "city",
       type: "options",
       label: "Город",
       options: [

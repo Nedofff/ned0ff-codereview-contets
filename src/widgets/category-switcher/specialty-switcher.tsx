@@ -1,0 +1,45 @@
+"use client";
+
+import { cn } from "@/core/utils";
+import { useCurrentSpecialty, useSpecialty } from "./model/specialty-state";
+import { specialtyDict } from "@/core/consts";
+import { logger } from "@/core/logger";
+
+export const SpecialtySwitcher = () => {
+  const { setCurrentSpecialty } = useSpecialty();
+  const { keySpecialty } = useCurrentSpecialty();
+
+  const handleCategoryClick = (specialty: string) => {
+    logger.info("Смена specialty component/category-switcher", specialty);
+    setCurrentSpecialty(specialty);
+  };
+
+  return (
+    <>
+      {Object.entries<string>(specialtyDict).map(([key, value]) => {
+        const isActive = key === keySpecialty;
+
+        return (
+          <button
+            key={key}
+            onClick={() => handleCategoryClick(key)}
+            className={cn(
+              "flex items-center justify-center gap-2.5",
+              "px-4 py-1.5 rounded-xl h-9",
+              "text-[22px] font-normal leading-[1.18] tracking-[-0.023em]",
+              "transition-all",
+              {
+                "gradient-primary text-white ring-1 ring-inset ring-black/10":
+                  isActive,
+                "bg-neutral-100 text-neutral-800 hover:bg-neutral-150":
+                  !isActive,
+              }
+            )}
+          >
+            {value}
+          </button>
+        );
+      })}
+    </>
+  );
+};

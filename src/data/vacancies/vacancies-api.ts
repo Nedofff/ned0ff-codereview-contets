@@ -17,9 +17,7 @@ class VacanciesApi {
 
   constructor(private readonly client: HttpClient) {}
 
-  async getAllVacancies(
-    filters?: VacancyFilters
-  ): Promise<PaginationModel<Vacancy>> {
+  async getAll(filters?: VacancyFilters): Promise<PaginationModel<Vacancy>> {
     const params = new URLSearchParams();
 
     if (filters) {

@@ -1,4 +1,3 @@
-"use client";
 import { PeopleIcons } from "@/widgets/people-icons";
 import { GradientText } from "./components/gradient-text";
 import { Measure } from "./components/measure";

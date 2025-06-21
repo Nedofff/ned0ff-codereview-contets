@@ -1,11 +1,15 @@
 import { cn } from "@/core/utils";
-import { Pagination, type PaginationProps } from "@/ui-kit";
 import {
   FiltersGroup,
   type FiltersGroupProps,
 } from "./components/filters-group";
 import { SeoKey } from "@/ui-kit";
 import { AuthWall, AuthWallMargin } from "../auth-wall/";
+import {
+  PaginationClient,
+  type PaginationClientProps,
+} from "./components/pagination-client";
+import { WithCategory } from "./components/with-category";
 
 export const CollectionPageLayout = ({
   children,
@@ -36,7 +40,7 @@ CollectionPageLayout.Title = ({ children }: { children: React.ReactNode }) => (
       "md:text-[50px] md:leading-[52px] ]"
     )}
   >
-    {children}
+    <WithCategory>{children}</WithCategory>
   </h1>
 );
 
@@ -77,10 +81,10 @@ CollectionPageLayout.Content = ({
 );
 
 CollectionPageLayout.Pagination = (
-  props: Omit<PaginationProps, "className">
+  props: Omit<PaginationClientProps, "className">
 ) => (
   <AuthWallMargin>
-    <Pagination {...props} className="mb-[25px] md:mb-10" />
+    <PaginationClient {...props} className="mb-[25px] md:mb-10" />
   </AuthWallMargin>
 );
 

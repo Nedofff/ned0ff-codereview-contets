@@ -1,6 +1,6 @@
 "use client";
 import { useQueryParams } from "@/core/use-query-params";
-import { useCurrentCategory } from "@/widgets/category-switcher";
+import { useCurrentSpecialty } from "@/widgets/category-switcher";
 import {
   CollectionPageLayout,
   createFilter,
@@ -11,7 +11,7 @@ import { TestTaskCard } from "./components/test-task-card";
 
 const filters = createFilter([
   {
-    id: "position",
+    name: "position",
     type: "options",
     label: "Позиция",
     options: [
@@ -26,7 +26,7 @@ const filters = createFilter([
     ],
   },
   {
-    id: "company",
+    name: "company",
     type: "options",
     label: "Компания",
     options: [
@@ -45,7 +45,7 @@ const filters = createFilter([
     ],
   },
   {
-    id: "complexity",
+    name: "complexity",
     type: "options",
     label: "Сложность",
     options: [
@@ -66,7 +66,7 @@ const filters = createFilter([
 ]);
 
 export const TestTasksPage = () => {
-  const currentCategory = useCurrentCategory();
+  const currentCategory = useCurrentSpecialty();
   const { searchParams, setSearchParams } = useQueryParams();
   const currentPage = searchParams.get("page") ?? 1;
   const [selectedFilters, setSelectedFilters] = useState<

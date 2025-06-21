@@ -5,16 +5,14 @@ import {
   createFilter,
 } from "@/widgets/collection-page-layout/";
 import { JobCard } from "./components/job-card";
-import { jobsData } from "./mock-data";
-import { useState } from "react";
 import { ButtonLink } from "@/ui-kit";
-import { useQueryParams } from "@/core/use-query-params";
 import { routes } from "@/core/router";
-import { useCurrentCategory } from "@/widgets/category-switcher";
+import { Vacancy } from "@/data/vacancies";
+import { PaginationPageProps } from "@/core/pagination/pagination-types";
 
 const filters = createFilter([
   {
-    id: "source",
+    name: "source",
     type: "options",
     label: "Источник",
     options: [
@@ -29,7 +27,7 @@ const filters = createFilter([
     ],
   },
   {
-    id: "location",
+    name: "location",
     type: "options",
     label: "Город",
     options: [
@@ -44,36 +42,26 @@ const filters = createFilter([
     ],
   },
   {
-    id: "remote",
+    name: "remote",
     type: "switch",
     label: "Удаленно",
   },
   {
-    id: "internship",
+    name: "internship",
     type: "switch",
     label: "Стажировка",
   },
 ]);
 
-export function JobsPage() {
-  const filteredJobs = jobsData;
-  const currentCategory = useCurrentCategory();
-  const { searchParams, setSearchParams } = useQueryParams();
-  const currentPage = searchParams.get("page") ?? 1;
-  const [selectedFilters, setSelectedFilters] = useState<
-    Record<string, string | boolean>
-  >({});
-
-  const handleSelectFilter = (id: string, value: string | boolean) => {
-    setSelectedFilters((prev) => ({ ...prev, [id]: value }));
-  };
-
+export const JobsPage = ({
+  currentPage,
+  totalPages,
+  vacancies,
+}: PaginationPageProps<{ vacancies: Vacancy[] }>) => {
   return (
     <CollectionPageLayout>
       <CollectionPageLayout.TitleSection>
-        <CollectionPageLayout.Title>
-          Вакансии по {currentCategory}
-        </CollectionPageLayout.Title>
+        <CollectionPageLayout.Title>Вакансии по</CollectionPageLayout.Title>
         <CollectionPageLayout.Description>
           На этой странице агрегируются junior-вакансии и стажировки из
           различных источников: hh.ru, Habr Career, LinkedIn, Telegram-каналы и
@@ -91,20 +79,18 @@ export function JobsPage() {
           </ButtonLink>
         }
         filters={filters}
-        onChange={handleSelectFilter}
       />
       <CollectionPageLayout.Content
         titleAuthWall="Получите доступ к 1200 вакансиям и стажировкам"
         className="grid grid-cols-1 gap-2.5 md:gap-4 md:grid-cols-2"
       >
-        {filteredJobs.map((job) => (
+        {vacancies.map((job) => (
           <JobCard key={job.id} {...job} />
         ))}
       </CollectionPageLayout.Content>
       <CollectionPageLayout.Pagination
-        currentPage={+currentPage}
-        totalPages={20}
-        onPageChange={(page) => setSearchParams("page", page.toString())}
+        currentPage={currentPage}
+        totalPages={totalPages}
       />
       <CollectionPageLayout.SeoKeys
         seoKeys={[
@@ -120,4 +106,4 @@ export function JobsPage() {
       />
     </CollectionPageLayout>
   );
-}
+};

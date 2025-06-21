@@ -2,7 +2,7 @@
 import { routes } from "@/core/router";
 import { useQueryParams } from "@/core/use-query-params";
 import { ButtonLink } from "@/ui-kit";
-import { useCurrentCategory } from "@/widgets/category-switcher";
+import { useCurrentSpecialty } from "@/widgets/category-switcher";
 import {
   CollectionPageLayout,
   createFilter,
@@ -13,7 +13,7 @@ import { AiToolCard } from "./components/ai-tool-card";
 
 const filters = createFilter([
   {
-    id: "type-tools",
+    name: "type-tools",
     type: "options",
     label: "Тип инструмента",
     options: [
@@ -27,7 +27,7 @@ const filters = createFilter([
 ]);
 
 export const AiToolsPage = () => {
-  const currentCategory = useCurrentCategory();
+  const currentCategory = useCurrentSpecialty();
   const { searchParams, setSearchParams } = useQueryParams();
   const currentPage = searchParams.get("page") ?? 1;
   const [selectedFilters, setSelectedFilters] = useState<

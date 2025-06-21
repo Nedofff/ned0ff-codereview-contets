@@ -7,7 +7,7 @@ import {
 } from "@/widgets/collection-page-layout";
 import { useState } from "react";
 import { QuestionCard } from "./components/question-card";
-import { useCurrentCategory } from "@/widgets/category-switcher";
+import { useCurrentSpecialty } from "@/widgets/category-switcher";
 
 interface Question {
   id: number;
@@ -65,7 +65,7 @@ const questions: Question[] = [
 
 const filters = createFilter([
   {
-    id: "stack",
+    name: "stack",
     type: "options",
     label: "Стек",
     options: [
@@ -88,7 +88,7 @@ const filters = createFilter([
     ],
   },
   {
-    id: "grade",
+    name: "grade",
     type: "options",
     label: "Грейд",
     options: [
@@ -109,7 +109,7 @@ const filters = createFilter([
 ]);
 
 export function QuestionsPage() {
-  const currentCategory = useCurrentCategory();
+  const currentCategory = useCurrentSpecialty();
   const { searchParams, setSearchParams } = useQueryParams();
   const currentPage = searchParams.get("page") ?? 1;
   const [selectedFilters, setSelectedFilters] = useState<

@@ -1,0 +1,13 @@
+export type QueryParams<T extends string> = Promise<{
+  [K in T]: string | undefined;
+}>;
+
+export type PageParams<T extends string> = Promise<{ [K in T]: string }>;
+
+export type PageWithQuery<T extends string> = {
+  searchParams: QueryParams<T>;
+};
+
+export type PageWithParams<T extends string> = {
+  params: PageParams<T>;
+};

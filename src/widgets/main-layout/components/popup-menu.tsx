@@ -2,8 +2,8 @@
 
 import React, { SVGProps } from "react";
 import {
-  CategorySwitcher,
-  useCurrentCategory,
+  SpecialtySwitcher,
+  useCurrentSpecialty,
 } from "@/widgets/category-switcher";
 import {
   ArrowDownIcon,
@@ -120,7 +120,7 @@ const MENU_ITEMS: MenuItem[] = [
 ];
 
 export const PopupMenu = () => {
-  const category = useCurrentCategory();
+  const { valueSpecialty } = useCurrentSpecialty();
 
   return (
     <Popover
@@ -130,7 +130,9 @@ export const PopupMenu = () => {
           className="grid grid-cols-[max-content_auto_max-content]  items-center gap-2"
         >
           <MenuIcon />
-          <div className="w-max leading-[22px] md:text-lg">{category}</div>
+          <div className="w-max leading-[22px] md:text-lg">
+            {valueSpecialty}
+          </div>
           <span className="text-center">
             <ArrowDownIcon
               className={cn(
@@ -152,7 +154,7 @@ export const PopupMenu = () => {
       >
         <div className="overflow-x-auto scrollbar-hide ">
           <HorizontalScroll className="flex items-center gap-2.5 w-max min-w-max">
-            <CategorySwitcher />
+            <SpecialtySwitcher />
           </HorizontalScroll>
         </div>
 

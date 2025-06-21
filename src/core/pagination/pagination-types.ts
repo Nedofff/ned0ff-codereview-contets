@@ -1,0 +1,4 @@
+export type PaginationPageProps<T> = {
+  currentPage: number;
+  totalPages: number;
+} & T;

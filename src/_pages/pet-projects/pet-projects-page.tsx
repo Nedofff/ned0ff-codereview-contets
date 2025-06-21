@@ -1,6 +1,6 @@
 "use client";
 import { useQueryParams } from "@/core/use-query-params";
-import { useCurrentCategory } from "@/widgets/category-switcher";
+import { useCurrentSpecialty } from "@/widgets/category-switcher";
 import {
   CollectionPageLayout,
   createFilter,
@@ -12,7 +12,7 @@ import { petProjectsMock } from "./pet-projects-mock";
 import { PetProjectCard } from "./components/pet-project-card";
 
 export const PetProjectsPage = () => {
-  const currentCategory = useCurrentCategory();
+  const currentCategory = useCurrentSpecialty();
   const { searchParams, setSearchParams } = useQueryParams();
   const currentPage = searchParams.get("page") ?? 1;
   const [selectedFilters, setSelectedFilters] = useState<
