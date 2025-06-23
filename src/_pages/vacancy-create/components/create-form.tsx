@@ -1,10 +1,23 @@
 "use client";
 import { authCookieService } from "@/core/cookie/auth-cookie";
 import { routes } from "@/core/router";
-import { getVacanciesApi, VacancyCreate } from "@/data/vacancies";
+import { getVacanciesApi } from "@/data/vacancies";
 import { Button, Checkbox, Input, Textarea } from "@/ui-kit";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+
+type Fields = {
+  title: string;
+  description: string;
+  internship: boolean;
+  remote: boolean;
+  location: string;
+  companyName: string;
+  url: string;
+  source: string;
+  salary: string | null;
+};
+
 export const CreateForm = () => {
   const router = useRouter();
   const {
@@ -12,13 +25,20 @@ export const CreateForm = () => {
     handleSubmit,
     formState: { errors },
     setError,
-  } = useForm<VacancyCreate>({
+  } = useForm<Fields>({
     criteriaMode: "all",
   });
   const vacanciesApi = getVacanciesApi(authCookieService.getToken);
-  const onSubmit = async (data: VacancyCreate) => {
+  const onSubmit = async (data: Fields) => {
     try {
-      await vacanciesApi.createVacancy(data);
+      await vacanciesApi.createVacancy({
+        ...data,
+        salary: data.salary ?? null,
+        externalId: null,
+        specialty: "Backend Development",
+        image: null,
+        datePublication: new Date().toISOString(),
+      });
       router.push(routes.vacancies);
     } catch (err: unknown) {
       if (err instanceof Error) {
@@ -28,7 +48,7 @@ export const CreateForm = () => {
       }
     }
   };
-  const requiredRegister = (name: keyof VacancyCreate) =>
+  const requiredRegister = (name: keyof Fields) =>
     register(name, {
       required: "Не заполнено обязательное поле",
     });
@@ -56,7 +76,7 @@ export const CreateForm = () => {
       <Input
         errors={errors.salary?.message}
         label="Зарплата"
-        {...requiredRegister("salary")}
+        {...register("salary")}
       />
       <div className="space-y-3">
         <Checkbox label="Стажировка" {...register("internship")} />
