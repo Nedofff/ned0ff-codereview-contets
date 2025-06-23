@@ -94,7 +94,6 @@ export function QuestionsPage() {
             technology={item.technology}
             mentions={item.mentions}
             href={`/questions/${item.id}`}
-            // isAd={index === 3}
           />
         ))}
       </CollectionPageLayout.Content>

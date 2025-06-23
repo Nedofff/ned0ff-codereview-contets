@@ -10,8 +10,46 @@ import { audienceData } from "./data/audience-data";
 import { PercentageBar } from "./components/percentage-bar";
 
 export const AboutUsPage = () => {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "CodeReview",
+    description:
+      "CodeReview помогает IT компаниям находить талантливых джуниор-специалистов",
+    url: process.env.NEXT_PUBLIC_DOMAIN || "http://localhost:3000",
+    logo: `${
+      process.env.NEXT_PUBLIC_DOMAIN || "http://localhost:3000"
+    }/placeholder-logo.png`,
+    foundingDate: "2020",
+    industry: "IT Recruitment",
+    numberOfEmployees: "10-50",
+    slogan: "Помогаем компаниям находить таланты",
+    sameAs: ["https://t.me/ITjobofferbot"],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      availableLanguage: "Russian",
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Russia",
+    },
+    serviceType: ["IT Recruitment", "Job Placement", "Career Development"],
+    audience: {
+      "@type": "Audience",
+      audienceType: "Junior IT Specialists",
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(organizationSchema),
+        }}
+      />
+
       <section className="flex flex-col gap-y-2.5 mb-10 lg:gap-y-5 lg:mb-20">
         <PeopleIcons className="md:hidden" />
         <h1 className="font-bold text-2xl leading-[28px] tracking-[-1px] md:text-[50px] md:leading-[48px] mb-5">
