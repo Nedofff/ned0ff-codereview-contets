@@ -5,6 +5,7 @@
   --font-wix-display: var(--font-wix-madefor-display, "Wix Madefor Display");
   --font-wix-text: var(--font-wix-madefor-text, "Wix Madefor Text");
   --font-ibm-plex-sans: var(--font-ibm-plex-sans, "IBM Plex Sans");
+  --font-space-mono: var(--font-space-mono, "Space Mono");
   --ease-section-card: cubic-bezier(0.14, 0.45, 0.36, 1.24);
 
   --color-primary-100: #ecf0ff;

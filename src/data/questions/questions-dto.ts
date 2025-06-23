@@ -36,6 +36,7 @@ export interface Question {
   freq: number;
   answer: string | null;
   tags: string;
+  next: string | null;
 }
 
 export interface QuestionCreate {

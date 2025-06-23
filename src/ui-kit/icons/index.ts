@@ -32,3 +32,4 @@ export { default as UploadAvatarIcon } from "./upload-avatar";
 export { default as LikeIcon } from "./like";
 export { default as DislikeIcon } from "./dislike";
 export { default as ArrowRightIcon } from "./arrow-right";
+export { default as CopyIcon } from "./copy";

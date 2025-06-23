@@ -3,6 +3,7 @@ import {
   Wix_Madefor_Display,
   Wix_Madefor_Text,
   IBM_Plex_Sans,
+  Space_Mono,
 } from "next/font/google";
 import { MainLayout } from "@/widgets/main-layout";
 import "./globals.css";
@@ -24,6 +25,12 @@ const ibmPlexSans = IBM_Plex_Sans({
   variable: "--font-ibm-plex-sans",
   subsets: ["latin"],
   weight: ["400", "500"],
+});
+
+const spaceMono = Space_Mono({
+  variable: "--font-space-mono",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -100,7 +107,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body
-        className={`${wixMadeforDisplay.variable} ${wixMadeforText.variable} ${ibmPlexSans.variable} antialiased`}
+        className={`${wixMadeforDisplay.variable} ${wixMadeforText.variable} ${ibmPlexSans.variable} ${spaceMono.variable} antialiased`}
       >
         <MainLayout>{children}</MainLayout>
       </body>

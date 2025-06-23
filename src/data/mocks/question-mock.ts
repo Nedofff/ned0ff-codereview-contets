@@ -1,19 +1,67 @@
 import { Question } from "../questions";
 
-export const questions: Question[] = [
+const answer = `
+<p>
+  В Java все аргументы метода передаются по значению, то есть копируется
+  значение переменной (даже если она ссылочного типа). Однако у ссылочных
+  переменных копируется лишь значение ссылки, а не объекта, на который она
+  ссылается. Поэтому, если произойдет изменение состояния объекта, на который
+  ссылается переданная ссылка, то эти изменения будут отражены на объекте, на
+  который ссылается исходная переменная.
+</p>
+<p>
+  Таким образом, то, что большинство людей называют "передачей по ссылке", на
+  самом деле называется "передачей значения ссылки".
+</p>
+<h2>Пример</h2>
+<pre>
+  <code>
+    <span class="keyword">public class</span> <span class="name">Test</span> {
+      <span class="keyword">public static void</span> <span class="name">main</span>(String[] args) {
+          <span class="highlight">StringBuffer str</span> = <span class="keyword">new</span> <span class="name">StringBuffer</span>(<span class="var">"hello"</span>);
+          change(str);
+          System.out.println(str);
+      }
+  
+      <span class="keyword">public static void</span> <span class="name">change</span>(StringBuffer newStr) {
+          newStr.append(<span class="var">" world"</span>);
+      }
+  }
+  </code>
+</pre>
+
+<h2>Дополнительный пример, который отражает js</h2>
+<pre>
+  <code>
+    "use strict";
+
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.restaraunts && window.restaraunts.length > 0) {
+    <span class="comment">// Дожидаемся загрузки API Яндекс.Карт</span>
+    if (typeof ymaps === "undefined") {
+      let script = document.createElement("script");
+      script.src = "https://api-maps.yandex.ru/2.1/?lang=ru_RU";
+      script.onload = initMap;
+      document.head.appendChild(script);
+    } else {
+      ymaps.ready(initMap);
+    }
+  }
+});
+  </code>
+</pre>
+`;
+
+export const questionsMock: Question[] = [
   {
     id: 1,
     question: "В чем разница передачи параметров по ссылке и значению?",
     stack: "Java",
     position: "Junior",
     freq: 1490,
-    answer: `<p>В Java есть важное различие между передачей параметров:</p>
-<ul>
-<li><strong>По значению</strong> - передается копия значения примитивных типов (int, double, boolean и т.д.)</li>
-<li><strong>По ссылке</strong> - для объектов передается ссылка на объект в памяти, но сама ссылка передается по значению</li>
-</ul>
-<p>Важно понимать, что в Java всегда происходит передача по значению, но для объектов это значение является ссылкой.</p>`,
+    answer,
     tags: "основы java параметры ссылки",
+    next: "2",
   },
   {
     id: 2,
@@ -43,6 +91,7 @@ class ConcreteProduct implements Product {
     public void use() { /* реализация */ }
 }</code></pre>`,
     tags: "паттерны проектирование архитектура",
+    next: "2",
   },
   {
     id: 3,
@@ -68,6 +117,7 @@ class ConcreteProduct implements Product {
 <li>Примитивы не могут быть null</li>
 </ul>`,
     tags: "типы данных примитивы объекты",
+    next: "2",
   },
   {
     id: 4,
@@ -88,6 +138,7 @@ class ConcreteProduct implements Product {
 <p><strong>Связь:</strong> JDK включает JRE, JRE включает JVM</p>
 </div>`,
     tags: "jvm jdk jre основы java",
+    next: "2",
   },
   {
     id: 5,
@@ -105,6 +156,7 @@ class ConcreteProduct implements Product {
 </ol>
 <p>JVM абстрагирует Java код от операционной системы и предоставляет единую среду выполнения.</p>`,
     tags: "jvm назначение преимущества",
+    next: "2",
   },
   {
     id: 6,
@@ -124,6 +176,7 @@ class ConcreteProduct implements Product {
 <p><code>.java</code> → <em>javac</em> → <code>.class</code> (bytecode) → <em>JVM</em> → машинный код</p>
 <p>Bytecode обеспечивает портируемость Java программ между различными платформами.</p>`,
     tags: "bytecode компиляция jvm",
+    next: "2",
   },
   {
     id: 7,
@@ -153,5 +206,6 @@ class ConcreteProduct implements Product {
 }</code></pre>
 <p>JavaBeans используются в JSP, фреймворках и для создания компонентов.</p>`,
     tags: "javabean конвенции getter setter",
+    next: "2",
   },
 ];

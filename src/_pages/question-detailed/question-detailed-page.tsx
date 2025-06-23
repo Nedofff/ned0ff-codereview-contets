@@ -1,8 +1,9 @@
 import { Question } from "@/data/questions";
 import { DetailedPageLayout } from "@/widgets/detailed-page-layout";
 import { ArrowRightIcon, Card } from "@/ui-kit";
-import { cn } from "@/core/utils";
 import { externalLinks } from "@/core/router";
+import styles from "./question-detailed-page.module.css";
+import { ParseHtml } from "./components";
 
 const seoKeys = [
   "как отвечать на вопрос",
@@ -33,12 +34,7 @@ export const QuestionDetailedPage = ({
             {question}
           </h1>
         </div>
-        {answer && (
-          <div
-            className={cn("")}
-            dangerouslySetInnerHTML={{ __html: answer }}
-          />
-        )}
+        {answer && <ParseHtml html={answer} className={styles.answer} />}
       </div>
       <div className="flex flex-col-reverse gap-y-[10px] md:flex-col">
         <DetailedPageLayout.Advertising

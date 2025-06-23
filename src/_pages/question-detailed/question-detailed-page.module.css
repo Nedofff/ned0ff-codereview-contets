@@ -1,0 +1,25 @@
+@reference "../../app/globals.css";
+
+.answer {
+  @apply font-wix-display;
+}
+
+.answer p {
+  @apply mb-[15px] mt-5 first:mt-0;
+}
+
+.answer ul {
+  @apply list-disc pl-5 space-y-2 mt-6;
+}
+
+.answer :is(p, h2, h3, h4, h5, h6, ul, li) {
+  @apply font-medium leading-[22px] md:text-lg md:leading-[26px];
+}
+
+.answer :is(h2, h3, h4, h5, h6) {
+  @apply font-bold mt-7.5 mb-3 first:mt-0;
+}
+
+.answer code {
+  @apply font-space-mono;
+}

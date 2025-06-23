@@ -15,7 +15,10 @@
     "icons:generate": "npx @svgr/cli --out-dir src/ui-kit/icons/ --typescript --filename-case kebab --ext tsx --replace-attr-values \"#232325=currentColor\" --prettier-config package.json src/ui-kit/icons/raw-icons/*.svg"
   },
   "dependencies": {
+    "@types/cheerio": "^0.22.35",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "axios": "^1.10.0",
+    "cheerio": "^1.1.0",
     "clsx": "^2.1.1",
     "cors": "^2.8.5",
     "express": "^5.1.0",
@@ -23,6 +26,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.58.1",
+    "react-syntax-highlighter": "^15.6.1",
     "tailwind-merge": "^3.3.1",
     "zustand": "^5.0.5"
   },
