@@ -1,5 +1,6 @@
 import { cn } from "@/core/utils";
 import Image from "next/image";
+
 export function HeroSection() {
   return (
     <section className="pb-[50px] lg:pb-[80px] relative">
@@ -7,14 +8,16 @@ export function HeroSection() {
         <div className="mb-8">
           <div className="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden">
             <Image
-              src="/sofi-scaled.png"
+              src="/sofi.png"
               alt="Ассистент по поиску работы"
-              width={730}
-              height={752}
-              quality={80}
-              className="w-[115px] object-cover"
+              width={96}
+              height={96}
+              sizes="96px"
+              quality={85}
+              className="w-full h-full object-cover"
               draggable={false}
               priority
+              placeholder="empty"
             />
           </div>
         </div>
