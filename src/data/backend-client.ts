@@ -5,3 +5,6 @@ export const getBackendClient = (getAuthToken: GetAuthToken) =>
     process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001/api",
     getAuthToken
   );
+
+export const getNextApi = (getAuthToken: GetAuthToken) =>
+  getHttpClient(`${process.env.NEXT_PUBLIC_DOMAIN}/api`, getAuthToken);

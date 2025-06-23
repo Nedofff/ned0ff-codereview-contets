@@ -1,11 +1,11 @@
 import { MetadataRoute } from "next";
-import { getVacanciesApi, type Vacancy } from "@/data/vacancies";
+import { getVacanciesApiBackend, type Vacancy } from "@/data/vacancies";
 import { testTasksApi, type TestTask } from "@/data/test-tasks";
 import { getQuestionsApi, type Question } from "@/data/questions";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_DOMAIN || "http://localhost:3000";
   try {
-    const vacanciesApi = getVacanciesApi(() => "");
+    const vacanciesApi = getVacanciesApiBackend(() => "");
     const questionsApi = getQuestionsApi(() => "");
     const [vacancies, testTasks, questions] = await Promise.all([
       vacanciesApi

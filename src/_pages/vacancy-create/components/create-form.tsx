@@ -1,7 +1,7 @@
 "use client";
 import { authCookieService } from "@/core/cookie/auth-cookie";
 import { routes } from "@/core/router";
-import { getVacanciesApi } from "@/data/vacancies";
+import { getVacanciesApiNext } from "@/data/vacancies/vacancies-api";
 import { Button, Checkbox, Input, Textarea } from "@/ui-kit";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
@@ -28,7 +28,7 @@ export const CreateForm = () => {
   } = useForm<Fields>({
     criteriaMode: "all",
   });
-  const vacanciesApi = getVacanciesApi(authCookieService.getToken);
+  const vacanciesApi = getVacanciesApiNext(authCookieService.getToken);
   const onSubmit = async (data: Fields) => {
     try {
       await vacanciesApi.createVacancy({

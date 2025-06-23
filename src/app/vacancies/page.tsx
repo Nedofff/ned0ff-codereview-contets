@@ -1,5 +1,5 @@
 import { VacanciesPage } from "@/_pages/vacancies";
-import { getVacanciesApi } from "@/data/vacancies";
+import { getVacanciesApiBackend } from "@/data/vacancies";
 import { PageWithQueryFilters } from "@/core/filters-type";
 import { setupPaginationHandler } from "@/core/pagination";
 import { getAuthTokenServer } from "@/core/adapters/get-auth-token-server";
@@ -51,7 +51,7 @@ async function VacanciesContent(
   const specialty = cookieStore.get(COOKIE_SPECIALTY)?.value;
 
   const getAuthToken = await getAuthTokenServer(cookies());
-  const vacanciesApi = getVacanciesApi(getAuthToken);
+  const vacanciesApi = getVacanciesApiBackend(getAuthToken);
   try {
     const queryParams = { skip, limit, ...filters, specialty };
     const vacancies = fillDataWithMock.vacancies(
