@@ -37,9 +37,7 @@ export const VacanciesPage = ({
   return (
     <CollectionPageLayout>
       <CollectionPageLayout.TitleSection>
-        <CollectionPageLayout.Title
-          renderTitle={(category) => <>Вакансии по {category}</>}
-        />
+        <CollectionPageLayout.Title template="Вакансии по {category}" />
         <CollectionPageLayout.Description>
           На этой странице агрегируются junior-вакансии и стажировки из
           различных источников: hh.ru, Habr Career, LinkedIn, Telegram-каналы и

@@ -1,1 +1,5 @@
-import { TestTaskDetailedPage } from "@/pages/test-task-detailed";export default function TestTaskDetailed() {  return <TestTaskDetailedPage />;}
+import { UnderConstructionPage } from "@/_pages/under-construction";
+
+export default function Page() {
+  return <UnderConstructionPage />;
+}

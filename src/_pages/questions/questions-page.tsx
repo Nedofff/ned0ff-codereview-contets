@@ -41,11 +41,7 @@ export function QuestionsPage({
   return (
     <CollectionPageLayout>
       <CollectionPageLayout.TitleSection>
-        <CollectionPageLayout.Title
-          renderTitle={(category) => (
-            <>Вопросы по {category} на собеседовании</>
-          )}
-        />
+        <CollectionPageLayout.Title template="Вопросы по {category} на собеседовании" />
         <CollectionPageLayout.Description>
           Раздел помогает пользователям подготовиться к техническим и
           поведенческим интервью. Здесь собраны реальные вопросы, которые задают

@@ -9,8 +9,8 @@ import {
   PaginationClient,
   type PaginationClientProps,
 } from "./components/pagination-client";
-import { WithCategory } from "./components/with-category";
 import { EmptyState } from "./components/empty-state";
+import { TitleWithCategory } from "./components/title-with-category";
 export const CollectionPageLayout = ({
   children,
 }: {
@@ -32,9 +32,11 @@ CollectionPageLayout.TitleSection = ({
   </section>
 );
 CollectionPageLayout.Title = ({
-  renderTitle,
+  children,
+  template,
 }: {
-  renderTitle: (category: string) => React.ReactNode;
+  children?: React.ReactNode;
+  template?: string;
 }) => (
   <h1
     className={cn(
@@ -42,7 +44,7 @@ CollectionPageLayout.Title = ({
       "md:text-[50px] md:leading-[52px] ]"
     )}
   >
-    <WithCategory renderTitle={renderTitle} />
+    {children || <TitleWithCategory template={template || ""} />}
   </h1>
 );
 CollectionPageLayout.Description = ({

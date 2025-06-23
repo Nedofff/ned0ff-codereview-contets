@@ -10,6 +10,11 @@ export type AllFilters =
   | "stack"
   | "grade"
   | "online"
-  | "city";
+  | "city"
+  | "type-tools"
+  | "type-projects"
+  | "position"
+  | "complexity";
+
 export type PageWithQueryFilters<T extends AllFilters> = PageWithQuery<T> &
   PageWithQuery<"page">;

@@ -1,1 +1,5 @@
-import { RequirementsPage } from "@/pages/requirements";export default function Requirements() {  return <RequirementsPage />;}
+import { UnderConstructionPage } from "@/_pages/under-construction";
+
+export default function Page() {
+  return <UnderConstructionPage />;
+}

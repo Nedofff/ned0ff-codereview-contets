@@ -1,11 +1,7 @@
-"use client";
-import { useQueryParams } from "@/core/use-query-params";
-import { useCurrentSpecialty } from "@/widgets/category-switcher";
 import {
   CollectionPageLayout,
   createFilter,
 } from "@/widgets/collection-page-layout";
-import { useState } from "react";
 import { EventCard } from "./components/event-card";
 import { eventsData } from "../../data/mocks/events-mock";
 const filters = createFilter([
@@ -39,21 +35,10 @@ const filters = createFilter([
   },
 ]);
 export const EventsPage = () => {
-  const currentCategory = useCurrentSpecialty();
-  const { searchParams, setSearchParams } = useQueryParams();
-  const currentPage = searchParams.get("page") ?? 1;
-  const [selectedFilters, setSelectedFilters] = useState<
-    Record<string, string | boolean>
-  >({});
-  const handleSelectFilter = (id: string, value: string | boolean) => {
-    setSelectedFilters((prev) => ({ ...prev, [id]: value }));
-  };
   return (
     <CollectionPageLayout>
       <CollectionPageLayout.TitleSection>
-        <CollectionPageLayout.Title>
-          IT-мероприятия по {currentCategory}
-        </CollectionPageLayout.Title>
+        <CollectionPageLayout.Title template="IT-мероприятия по {category}" />
         <CollectionPageLayout.Description>
           В этом разделе собраны актуальные конференции, хакатоны, метапы и
           курсы, связанные с IT и карьерой в цифровой сфере. Это отличный способ
@@ -61,10 +46,7 @@ export const EventsPage = () => {
           завести полезные связи
         </CollectionPageLayout.Description>
       </CollectionPageLayout.TitleSection>
-      <CollectionPageLayout.FiltersGroup
-        filters={filters}
-        onChange={handleSelectFilter}
-      />
+      <CollectionPageLayout.FiltersGroup filters={filters} />
       <CollectionPageLayout.Content titleAuthWall="Получите доступ к 100+ IT-мероприятий и событий">
         <div className="grid grid-cols-1 gap-y-2.5 md:grid-cols-2 md:gap-4">
           {eventsData.map((item) => (
@@ -72,11 +54,7 @@ export const EventsPage = () => {
           ))}
         </div>
       </CollectionPageLayout.Content>
-      <CollectionPageLayout.Pagination
-        currentPage={+currentPage}
-        totalPages={10}
-        onPageChange={(page) => setSearchParams("page", page.toString())}
-      />
+      <CollectionPageLayout.Pagination currentPage={1} totalPages={10} />
       <CollectionPageLayout.SeoKeys
         seoKeys={[
           "it мероприятия 2025",

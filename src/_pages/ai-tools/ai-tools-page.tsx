@@ -1,13 +1,9 @@
-"use client";
 import { routes } from "@/core/router";
-import { useQueryParams } from "@/core/use-query-params";
 import { ButtonLink } from "@/ui-kit";
-import { useCurrentSpecialty } from "@/widgets/category-switcher";
 import {
   CollectionPageLayout,
   createFilter,
 } from "@/widgets/collection-page-layout";
-import { useState } from "react";
 import { aiToolsMock } from "../../data/mocks/ai-tools-mock";
 import { AiToolCard } from "./components/ai-tool-card";
 const filters = createFilter([
@@ -25,19 +21,10 @@ const filters = createFilter([
   },
 ]);
 export const AiToolsPage = () => {
-  const currentCategory = useCurrentSpecialty();
-  const { searchParams, setSearchParams } = useQueryParams();
-  const currentPage = searchParams.get("page") ?? 1;
-  const [selectedFilters, setSelectedFilters] = useState<
-    Record<string, string | boolean>
-  >({});
-  const handleSelectFilter = (id: string, value: string | boolean) => {
-    setSelectedFilters((prev) => ({ ...prev, [id]: value }));
-  };
   return (
     <CollectionPageLayout>
       <CollectionPageLayout.TitleSection>
-        <CollectionPageLayout.Title renderTitle={(category) => <>AI-инструменты для {category}</>} />
+        <CollectionPageLayout.Title template="AI-инструменты для {category}" />
         <CollectionPageLayout.Description>
           В этом разделе собраны AI-инструменты, которые помогают в разработке,
           автоматизации задач и поиске работы. Мы парсим популярные и новые
@@ -56,7 +43,6 @@ export const AiToolsPage = () => {
           </ButtonLink>
         }
         filters={filters}
-        onChange={handleSelectFilter}
       />
       <CollectionPageLayout.Content
         titleAuthWall="Получить доступ к 300+ AI-инструментам для разработки"
@@ -66,11 +52,7 @@ export const AiToolsPage = () => {
           <AiToolCard key={tool.id} {...tool} />
         ))}
       </CollectionPageLayout.Content>
-      <CollectionPageLayout.Pagination
-        currentPage={+currentPage}
-        totalPages={20}
-        onPageChange={(page) => setSearchParams("page", page.toString())}
-      />
+      <CollectionPageLayout.Pagination currentPage={1} totalPages={20} />
       <CollectionPageLayout.SeoKeys
         seoKeys={[
           "ai tools для программистов",

@@ -8,6 +8,8 @@ import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 import { parseFilters } from "@/core/parse-filters";
 import { COOKIE_SPECIALTY } from "@/core/consts";
+import { Suspense } from "react";
+
 export const metadata: Metadata = {
   title: "Вопросы на собеседованиях для программистов",
   description:
@@ -32,11 +34,13 @@ export const metadata: Metadata = {
     canonical: `${process.env.NEXT_PUBLIC_DOMAIN}/questions`,
   },
 };
+
 const { getTotalPages, handlePagination } = setupPaginationHandler({
   itemsPerPage: 8,
   withAdvertising: true,
 });
-export default async function Questions(
+
+async function QuestionsContent(
   props: PageWithQueryFilters<"stack" | "grade">
 ) {
   const { page, ...filters } = await props.searchParams;
@@ -52,14 +56,20 @@ export default async function Questions(
     const totalPages = getTotalPages(questions.total);
     const currentPage = +(page ?? 1);
     return (
-      <QuestionsPage
-        currentPage={currentPage}
-        totalPages={totalPages}
-        questions={questions.items}
-        filtersOptions={filtersOptions}
-      />
+      <Suspense fallback={<div>Загрузка...</div>}>
+        <QuestionsPage
+          currentPage={currentPage}
+          totalPages={totalPages}
+          questions={questions.items}
+          filtersOptions={filtersOptions}
+        />
+      </Suspense>
     );
   } catch {
     return notFound();
   }
+}
+
+export default function Page(props: PageWithQueryFilters<"stack" | "grade">) {
+  return <QuestionsContent {...props} />;
 }

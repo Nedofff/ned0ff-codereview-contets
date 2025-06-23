@@ -1,1 +1,5 @@
-import { PetProjectCreatePage } from "@/pages/pet-project-create";export default function PetProjectCreate() {  return <PetProjectCreatePage />;}
+import { UnderConstructionPage } from "@/_pages/under-construction";
+
+export default function Page() {
+  return <UnderConstructionPage />;
+}

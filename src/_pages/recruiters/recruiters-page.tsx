@@ -1,20 +1,12 @@
-"use client";
 import {
   CollectionPageLayout,
   createFilter,
 } from "@/widgets/collection-page-layout/";
 import { RecruitersCard } from "./components/recruiters-card";
-import { recruitersData } from "../../data/mocks/recruiters-mock";
-import { useQueryParams } from "@/core/use-query-params";
 import { ButtonLink } from "@/ui-kit";
 import { routes } from "@/core/router";
+import { recruitersData } from "@/data/mocks/recruiters-mock";
 export function RecruitersPage() {
-  const filteredRecruiters = recruitersData;
-  const { searchParams, setSearchParams } = useQueryParams();
-  const currentPage = searchParams.get("page") ?? 1;
-  const handleSelectFilter = (id: string, value: string | boolean) => {
-    console.log("Filter:", id, value);
-  };
   return (
     <CollectionPageLayout>
       <CollectionPageLayout.TitleSection>
@@ -35,21 +27,16 @@ export function RecruitersPage() {
           </ButtonLink>
         }
         filters={createFilter([])}
-        onChange={handleSelectFilter}
       />
       <CollectionPageLayout.Content
         titleAuthWall="Получите доступ к контактам 500+ рекрутеров и рефералов"
         className="grid grid-cols-1 gap-2.5 md:grid-cols-2  lg:gap-4 lg:grid-cols-3"
       >
-        {filteredRecruiters.map((recruiter) => (
+        {recruitersData.map((recruiter) => (
           <RecruitersCard key={recruiter.id} {...recruiter} />
         ))}
       </CollectionPageLayout.Content>
-      <CollectionPageLayout.Pagination
-        currentPage={+currentPage}
-        totalPages={20}
-        onPageChange={(page) => setSearchParams("page", page.toString())}
-      />
+      <CollectionPageLayout.Pagination currentPage={+1} totalPages={20} />
       <CollectionPageLayout.SeoKeys
         seoKeys={[
           "требования к junior frontend",

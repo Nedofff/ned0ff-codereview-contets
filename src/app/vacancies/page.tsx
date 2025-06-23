@@ -10,11 +10,14 @@ import { fillDataWithMock } from "@/data/mocks/fill-data-with-mock";
 import { Metadata } from "next";
 import { parseFilters } from "@/core/parse-filters";
 import { COOKIE_SPECIALTY } from "@/core/consts";
+import { Suspense } from "react";
+
 const { getTotalPages, handlePagination } = setupPaginationHandler({
   itemsPerPage: 8,
   withAdvertising: true,
   countAdvertising: 4,
 });
+
 export const metadata: Metadata = {
   title: "IT Вакансии для джуниоров",
   description:
@@ -39,7 +42,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function Vacancies(
+async function VacanciesContent(
   props: PageWithQueryFilters<"source" | "location" | "remote" | "internship">
 ) {
   const { page, ...filters } = await props.searchParams;
@@ -61,15 +64,23 @@ export default async function Vacancies(
     const totalPages = getTotalPages(vacancies.total);
     const currentPage = +(page ?? 1);
     return (
-      <VacanciesPage
-        currentPage={currentPage}
-        totalPages={totalPages}
-        vacancies={vacancies.items}
-        filtersOptions={filtersOptions}
-      />
+      <Suspense fallback={<div>Загрузка...</div>}>
+        <VacanciesPage
+          currentPage={currentPage}
+          totalPages={totalPages}
+          vacancies={vacancies.items}
+          filtersOptions={filtersOptions}
+        />
+      </Suspense>
     );
   } catch (error) {
     logger.error("Ошибка при получении вакансий", error);
     return notFound();
   }
+}
+
+export default function Page(
+  props: PageWithQueryFilters<"source" | "location" | "remote" | "internship">
+) {
+  return <VacanciesContent {...props} />;
 }

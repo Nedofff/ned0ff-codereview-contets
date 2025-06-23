@@ -1,1 +1,5 @@
-import { AiToolsPage } from "@/pages/ai-tools";export default AiToolsPage;
+import { UnderConstructionPage } from "@/_pages/under-construction";
+
+export default function Page() {
+  return <UnderConstructionPage />;
+}
