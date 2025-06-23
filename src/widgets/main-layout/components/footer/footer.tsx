@@ -110,13 +110,13 @@ export function Footer() {
             )}
           >
             <div className="flex items-center gap-x-2.5">
-              <Link href="#">
+              <Link href="#" aria-label="Телеграм codereview">
                 <TelegramIcon />
               </Link>
-              <Link href="#">
+              <Link href="#" aria-label="Ютуб codereview">
                 <YoutubeIcon />
               </Link>
-              <Link href="#">
+              <Link href="#" aria-label="Линкедин codereview">
                 <LinkedinIcon />
               </Link>
             </div>

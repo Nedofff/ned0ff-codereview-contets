@@ -41,12 +41,12 @@ SectionCard.Description = ({ children }: { children: React.ReactNode }) => (
 );
 
 SectionCard.Title = ({ children }: { children: React.ReactNode }) => (
-  <h3
+  <h2
     className={cn(
       "font-wix-text font-semibold text-gray-800 leading-[18px]",
       "md:text-xl md:leading-[20px]"
     )}
   >
     {children}
-  </h3>
+  </h2>
 );
