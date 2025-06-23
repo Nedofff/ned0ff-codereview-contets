@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { HhLogoIcon, TelegramColoredIcon, Logo, ButtonLink } from "@/ui-kit";
 import { externalLinks } from "@/core/router";
+import { cn } from "@/core/utils";
 export const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="grid h-full w-full grid-cols-1fr items-center rounded-3xl overflow-hidden md:grid-cols-[19fr_21fr]">
@@ -10,11 +11,18 @@ export const AuthLayout = ({ children }: { children: React.ReactNode }) => {
 };
 export const InfoScreenLayout = ({
   children,
+  className,
 }: {
   children?: React.ReactNode;
+  className?: string;
 }) => {
   return (
-    <div className="w-[380px] h-full bg-[#F5F5F5] relative overflow-hidden hidden md:block">
+    <div
+      className={cn(
+        "w-[380px] h-full bg-[#F5F5F5] relative overflow-hidden hidden md:block",
+        className
+      )}
+    >
       <div className="relative h-full flex flex-col">
         {children && (
           <div className="absolute top-8 left-8 right-8 z-20">
@@ -72,7 +80,7 @@ export const FormLayout = ({
 };
 export const SuccessLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex-1 p-[30px] flex flex-col justify-start">
+    <div className="flex-1 p-[30px] flex flex-col items-center md:h-full md:items-start md:justify-start">
       <div className="max-w-[360px] space-y-5">{children}</div>
     </div>
   );
