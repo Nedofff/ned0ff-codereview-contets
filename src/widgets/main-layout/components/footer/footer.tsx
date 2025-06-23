@@ -11,6 +11,7 @@ import {
 import Link from "next/link";
 import { cn } from "@/core/utils";
 import { Ticker } from "./ticker";
+import { routes } from "@/core/router";
 export function Footer() {
   return (
     <footer>
@@ -79,7 +80,7 @@ export function Footer() {
                 <Link href="">Тарифы</Link>
                 <Link href="">Команда</Link>
                 <Link href="">Блог</Link>
-                <Link href="">О нас</Link>
+                <Link href={routes.aboutUs}>О нас</Link>
               </div>
               <div className="flex flex-col gap-y-[10px]">
                 <Link href="">Вакансии</Link>

@@ -1,1 +1,101 @@
-"use client";import {  CollectionPageLayout,  createFilter,} from "@/widgets/collection-page-layout/";import { VacancyCard } from "./components/vacancy-card";import { ButtonLink } from "@/ui-kit";import { routes } from "@/core/router";import { Vacancy } from "@/data/vacancies";import { PaginationPageProps } from "@/core/pagination/pagination-types";import { AdvertisingCard } from "@/widgets/advertising-card/advertising-card";import { AvitoCard, KpokCard, MtsCard } from "./components/paid-vacancy";const filters = createFilter([  {    name: "source",    type: "options",    label: "Источник",    options: [      {        label: "hh.ru",        value: "hh",      },      {        label: "Habr Career",        value: "habr",      },    ],  },  {    name: "location",    type: "options",    label: "Город",    options: [      {        label: "Москва",        value: "moscow",      },      {        label: "Санкт-Петербург",        value: "spb",      },    ],  },  {    name: "remote",    type: "switch",    label: "Удаленно",  },  {    name: "internship",    type: "switch",    label: "Стажировка",  },]);export const VacanciesPage = ({  currentPage,  totalPages,  vacancies,}: PaginationPageProps<{ vacancies: Vacancy[] }>) => {  return (    <CollectionPageLayout>      <CollectionPageLayout.TitleSection>        <CollectionPageLayout.Title          renderTitle={(category) => <>Вакансии по {category}</>}        />        <CollectionPageLayout.Description>          На этой странице агрегируются junior-вакансии и стажировки из          различных источников: hh.ru, Habr Career, LinkedIn, Telegram-каналы и          многие другие        </CollectionPageLayout.Description>      </CollectionPageLayout.TitleSection>      <CollectionPageLayout.FiltersGroup        action={          <ButtonLink            href={routes.vacanciesCreate}            variant="filter"            className="text-lg mr-2.5 leading-[22px] text-nowrap p-[12px_15px]"          >            Добавить вакансию          </ButtonLink>        }        filters={filters}      />      <CollectionPageLayout.Content        titleAuthWall="Получите доступ к 1200 вакансиям и стажировкам"        className="grid grid-cols-1 gap-2.5 md:gap-4 md:grid-cols-2 auto-rows-fr"      >        <MtsCard />        <AvitoCard />        <KpokCard />        {vacancies.map((vacancy, index) => (          <>            <VacancyCard key={vacancy.id} {...vacancy} />            {index === 4 && (              <AdvertisingCard>                Больше никакого поиска и откликов — автоматизируй свой путь к                работе вместе с Софи!              </AdvertisingCard>            )}          </>        ))}      </CollectionPageLayout.Content>      <CollectionPageLayout.Pagination        currentPage={currentPage}        totalPages={totalPages}      />      <CollectionPageLayout.SeoKeys        seoKeys={[          "стажировка без опыта",          "вакансии джуниор",          "как откликнуться на вакансию",          "примеры вакансий junior",          "стажировки по Java",          "Junior Java Developer",          "Вакансии Java без опыта",          "Java Spring Boot вакансии",        ]}      />    </CollectionPageLayout>  );};
+"use client";
+import {
+  CollectionPageLayout,
+  createFilter,
+} from "@/widgets/collection-page-layout/";
+import { VacancyCard } from "./components/vacancy-card";
+import { ButtonLink } from "@/ui-kit";
+import { routes } from "@/core/router";
+import { Vacancy } from "@/data/vacancies";
+import { PaginationPageProps } from "@/core/pagination/pagination-types";
+import { AdvertisingCard } from "@/widgets/advertising-card/advertising-card";
+import { AvitoCard, KpokCard, MtsCard } from "./components/paid-vacancy";
+import { FilterGroupData } from "@/widgets/collection-page-layout/components/filters-group";
+
+const filtersSwitch: FilterGroupData = [
+  {
+    name: "remote",
+    type: "switch",
+    label: "Удаленно",
+  },
+  {
+    name: "internship",
+    type: "switch",
+    label: "Стажировка",
+  },
+];
+
+export const VacanciesPage = ({
+  currentPage,
+  totalPages,
+  vacancies,
+  filtersOptions,
+}: PaginationPageProps<{ vacancies: Vacancy[] }> & {
+  filtersOptions: FilterGroupData;
+}) => {
+  return (
+    <CollectionPageLayout>
+      <CollectionPageLayout.TitleSection>
+        <CollectionPageLayout.Title
+          renderTitle={(category) => <>Вакансии по {category}</>}
+        />
+        <CollectionPageLayout.Description>
+          На этой странице агрегируются junior-вакансии и стажировки из
+          различных источников: hh.ru, Habr Career, LinkedIn, Telegram-каналы и
+          многие другие
+        </CollectionPageLayout.Description>
+      </CollectionPageLayout.TitleSection>
+      <CollectionPageLayout.FiltersGroup
+        action={
+          <ButtonLink
+            href={routes.vacanciesCreate}
+            variant="filter"
+            className="text-lg mr-2.5 leading-[22px] text-nowrap p-[12px_15px]"
+          >
+            Добавить вакансию
+          </ButtonLink>
+        }
+        filters={createFilter([...filtersOptions, ...filtersSwitch])}
+      />
+      <CollectionPageLayout.Content
+        titleAuthWall="Получите доступ к 1200 вакансиям и стажировкам"
+        className="grid grid-cols-1 gap-2.5 md:gap-4 md:grid-cols-2 auto-rows-fr"
+      >
+        {currentPage === 1 && (
+          <>
+            <MtsCard />
+            <AvitoCard />
+            <KpokCard />
+          </>
+        )}
+        {vacancies.map((vacancy, index) => (
+          <>
+            <VacancyCard key={vacancy.id} {...vacancy} />
+            {index === 1 && currentPage === 1 && (
+              <AdvertisingCard>
+                Больше никакого поиска и откликов — автоматизируй свой путь к
+                работе вместе с Софи!
+              </AdvertisingCard>
+            )}
+          </>
+        ))}
+      </CollectionPageLayout.Content>
+      <CollectionPageLayout.Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+      />
+      <CollectionPageLayout.SeoKeys
+        seoKeys={[
+          "стажировка без опыта",
+          "вакансии джуниор",
+          "как откликнуться на вакансию",
+          "примеры вакансий junior",
+          "стажировки по Java",
+          "Junior Java Developer",
+          "Вакансии Java без опыта",
+          "Java Spring Boot вакансии",
+        ]}
+      />
+    </CollectionPageLayout>
+  );
+};
