@@ -53,7 +53,8 @@
     "typescript": "^5",
     "vitest": "^3.2.3"
   },
-  "engines": {
-    "node": "22.x"
+  "optionalDependencies": {
+    "lightningcss-linux-x64-gnu": "^1.29.1",
+    "@tailwindcss/oxide-linux-x64-gnu": "^4.0.14"
   }
 }
