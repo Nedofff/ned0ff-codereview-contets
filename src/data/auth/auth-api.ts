@@ -25,7 +25,7 @@ class AuthApi {
     logger.info("login auth-api formData", formData);
     const response = await this.client.postForm<TokenResponseDto>(
       `${this.basePath}/token`,
-      formData.keys()
+      formData
     );
     logger.info("login auth-api response", response);
     if (!response.data) {
