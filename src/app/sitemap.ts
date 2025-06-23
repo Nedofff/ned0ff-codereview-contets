@@ -16,7 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         .getAll({ skip: 0, limit: 1000 })
         .catch(() => ({ items: [], total: 0 })),
       testTasksApi.getTestTasks().catch(() => []),
-      questionsApi.getQuestions().catch(() => []),
+      questionsApi.getAll().catch(() => []),
     ]);
 
     // URL для вакансий

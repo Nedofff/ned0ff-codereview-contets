@@ -7,7 +7,9 @@ export type AllFilters =
   | "companyName"
   | "remote"
   | "internship"
-  | "source";
+  | "source"
+  | "stack"
+  | "grade";
 
 export type PageWithQueryFilters<T extends AllFilters> = PageWithQuery<T> &
   PageWithQuery<"page">;

@@ -2,12 +2,12 @@
 
 import { useCurrentSpecialty } from "@/widgets/category-switcher";
 
-export const WithCategory = ({ children }: { children: React.ReactNode }) => {
+export const WithCategory = ({
+  renderTitle,
+}: {
+  renderTitle: (category: string) => React.ReactNode;
+}) => {
   const { valueSpecialty } = useCurrentSpecialty();
 
-  return (
-    <>
-      {children} {valueSpecialty}
-    </>
-  );
+  return renderTitle(valueSpecialty);
 };

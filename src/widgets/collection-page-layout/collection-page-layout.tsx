@@ -33,14 +33,18 @@ CollectionPageLayout.TitleSection = ({
   </section>
 );
 
-CollectionPageLayout.Title = ({ children }: { children: React.ReactNode }) => (
+CollectionPageLayout.Title = ({
+  renderTitle,
+}: {
+  renderTitle: (category: string) => React.ReactNode;
+}) => (
   <h1
     className={cn(
       "text-2xl font-bold text-neutral-800 tracking-[-1px] leading-[28px]",
       "md:text-[50px] md:leading-[52px] ]"
     )}
   >
-    <WithCategory>{children}</WithCategory>
+    <WithCategory renderTitle={renderTitle} />
   </h1>
 );
 

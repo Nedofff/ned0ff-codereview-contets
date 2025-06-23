@@ -63,7 +63,9 @@ export const VacanciesPage = ({
   return (
     <CollectionPageLayout>
       <CollectionPageLayout.TitleSection>
-        <CollectionPageLayout.Title>Вакансии по</CollectionPageLayout.Title>
+        <CollectionPageLayout.Title
+          renderTitle={(category) => <>Вакансии по {category}</>}
+        />
         <CollectionPageLayout.Description>
           На этой странице агрегируются junior-вакансии и стажировки из
           различных источников: hh.ru, Habr Career, LinkedIn, Telegram-каналы и
@@ -91,13 +93,13 @@ export const VacanciesPage = ({
         <KpokCard />
         {vacancies.map((vacancy, index) => (
           <>
-            {index === 5 && (
+            <VacancyCard key={vacancy.id} {...vacancy} />
+            {index === 4 && (
               <AdvertisingCard>
                 Больше никакого поиска и откликов — автоматизируй свой путь к
                 работе вместе с Софи!
               </AdvertisingCard>
             )}
-            <VacancyCard key={vacancy.id} {...vacancy} />
           </>
         ))}
       </CollectionPageLayout.Content>

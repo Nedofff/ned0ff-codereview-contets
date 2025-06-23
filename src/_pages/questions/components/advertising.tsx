@@ -1,0 +1,32 @@
+import { Card } from "@/ui-kit";
+import bgImage from "../assets/bg-advertising.png";
+import { ArrowTopRightIcon } from "@/ui-kit/icons";
+import Image from "next/image";
+import { cn } from "@/core/utils";
+import { externalLinks } from "@/core/router";
+
+export const AdvertisingCard = () => {
+  return (
+    <Card
+      className={cn(
+        "bg-[#FDF6E2] rounded-xl flex items-center gap-x-2.5 font-wix-display",
+        "py-4 pl-[11px] pr-2.5",
+        "md:py-3 md:pl-[15px] md:pr-7.5 md:gap-x-[15px]"
+      )}
+    >
+      <Image src={bgImage} alt="" fill className="object-cover absolute" />
+
+      <p className="text-sm font-bold leading-[18px] md:text-base md:leading-[20px]">
+        Софи собрала все вопросы — тренируйся и получай офферы быстрее!
+        <br />
+        <span className=" text-[#8E521E]">Попробовать бесплатно</span>
+      </p>
+
+      <ArrowTopRightIcon
+        className="w-4 h-4 ml-auto mt-auto md:mt-0"
+        viewBox="0 0 12 12"
+      />
+      <Card.Link title="Софи" href={externalLinks.sofi} />
+    </Card>
+  );
+};

@@ -1,5 +1,12 @@
 import { QuestionsPage } from "@/_pages/questions";
+import { PageWithQueryFilters } from "@/core/filters-type";
+import { getAuthTokenServer } from "@/core/get-auth-token-server";
+import { logger } from "@/core/logger";
+import { setupPaginationHandler } from "@/core/pagination";
+import { getQuestionsApi } from "@/data/questions";
 import { Metadata } from "next";
+import { cookies } from "next/headers";
+import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Вопросы на собеседованиях для программистов",
@@ -26,6 +33,34 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Questions() {
-  return <QuestionsPage />;
+const { getTotalPages, handlePagination } = setupPaginationHandler({
+  itemsPerPage: 8,
+  withAdvertising: true,
+});
+
+export default async function Questions(
+  props: PageWithQueryFilters<"stack" | "grade">
+) {
+  const { page, ...filters } = await props.searchParams;
+  const { skip, limit } = handlePagination(page);
+
+  const getAuthToken = await getAuthTokenServer(cookies());
+  const questionsApi = await getQuestionsApi(getAuthToken);
+
+  try {
+    const queryParams = { skip, limit, ...filters };
+    const questions = await questionsApi.getAll(queryParams);
+    const totalPages = getTotalPages(questions.total);
+    const currentPage = +(page ?? 1);
+    return (
+      <QuestionsPage
+        currentPage={currentPage}
+        totalPages={totalPages}
+        questions={questions.items}
+      />
+    );
+  } catch (error) {
+    logger.error("Ошибка при получении вопросов", error);
+    return notFound();
+  }
 }

@@ -1,5 +1,9 @@
 import { getBackendClient } from "../backend-client";
-import type { GetAuthToken, HttpClient } from "@/core/http-client";
+import type {
+  GetAuthToken,
+  HttpClient,
+  PaginationModel,
+} from "@/core/http-client";
 import type {
   QuestionDto,
   Question,
@@ -17,7 +21,7 @@ class QuestionsApi {
 
   constructor(private readonly client: HttpClient) {}
 
-  async getQuestions(filters?: QuestionFilters): Promise<Question[]> {
+  async getAll(filters?: QuestionFilters): Promise<PaginationModel<Question>> {
     const params = new URLSearchParams();
 
     if (filters) {
@@ -33,13 +37,18 @@ class QuestionsApi {
       params.toString() ? `?${params.toString()}` : ""
     }`;
 
-    const response = await this.client.get<QuestionDto[]>(url);
+    const response = await this.client.get<PaginationModel<QuestionDto>>(url);
 
     if (!response.data) {
       throw new Error("No data received");
     }
 
-    return response.data.map(mapQuestionFromDto);
+    return {
+      items: response.data.items.map(mapQuestionFromDto),
+      total: response.data.total,
+      skip: response.data.skip,
+      limit: response.data.limit,
+    };
   }
 
   async getQuestion(questionId: number): Promise<Question> {
