@@ -1,1 +1,1 @@
-export { VacancyDetailPage } from "./vacancy-detail-page";
+export { VacancyDetailPage } from "./vacancy-detail-page";

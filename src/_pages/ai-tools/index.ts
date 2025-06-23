@@ -1,1 +1,1 @@
-export { AiToolsPage } from "./ai-tools-page";
+export { AiToolsPage } from "./ai-tools-page";

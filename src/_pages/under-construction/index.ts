@@ -1,1 +1,1 @@
-export { UnderConstructionPage } from "./under-construction";
+export { UnderConstructionPage } from "./under-construction";

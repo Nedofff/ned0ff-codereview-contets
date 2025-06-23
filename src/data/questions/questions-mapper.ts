@@ -6,8 +6,6 @@ import type {
   QuestionCreate,
   QuestionFilters,
 } from "./questions-dto";
-
-// Преобразование из DTO в клиентский тип
 export const mapQuestionFromDto = (dto: QuestionDto): Question => ({
   id: dto.id,
   stack: dto.stack,
@@ -16,9 +14,8 @@ export const mapQuestionFromDto = (dto: QuestionDto): Question => ({
   freq: dto.freq,
   answer: dto.answer,
   tags: dto.tags,
+  next: null,
 });
-
-// Преобразование из клиентского типа в DTO
 export const mapQuestionToDto = (
   question: QuestionCreate
 ): QuestionCreateDto => ({
@@ -29,8 +26,6 @@ export const mapQuestionToDto = (
   answer: question.answer,
   tags: question.tags,
 });
-
-// Преобразование фильтров (в данном случае одинаковые)
 export const mapQuestionFiltersToDto = (
   filters: QuestionFilters
 ): QuestionFiltersDto => ({

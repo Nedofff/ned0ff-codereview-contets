@@ -1,30 +1,1 @@
-import { DuckIcon } from "@/ui-kit";
-
-const TICKER_ITEMS = [
-  "Этим сайтом пользуется больше 30.000 человек каждый месяц",
-  "Сайт был сделан джунами с нашего карьерного трека",
-];
-
-export function Ticker() {
-  return (
-    <div className="h-10 overflow-hidden gradient-quaternary flex items-center">
-      <div className="animate-marquee flex items-center gap-2 whitespace-nowrap">
-        {Array.from({ length: 6 }).map((_, groupIndex) => (
-          <div key={groupIndex} className="flex items-center gap-2">
-            {TICKER_ITEMS.map((text, index) => (
-              <div
-                key={`${groupIndex}-${index}`}
-                className="flex items-center gap-2"
-              >
-                <DuckIcon className="w-[18px] h-[18px] text-neutral-800 flex-shrink-0" />
-                <span className="text-neutral-800 font-medium text-base tracking-tight">
-                  {text}
-                </span>
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+import { DuckIcon } from "@/ui-kit";const TICKER_ITEMS = [  "Этим сайтом пользуется больше 30.000 человек каждый месяц",  "Сайт был сделан джунами с нашего карьерного трека",];export function Ticker() {  return (    <div className="h-10 overflow-hidden gradient-quaternary flex items-center">      <div className="animate-marquee flex items-center gap-2 whitespace-nowrap">        {Array.from({ length: 6 }).map((_, groupIndex) => (          <div key={groupIndex} className="flex items-center gap-2">            {TICKER_ITEMS.map((text, index) => (              <div                key={`${groupIndex}-${index}`}                className="flex items-center gap-2"              >                <DuckIcon className="w-[18px] h-[18px] text-neutral-800 flex-shrink-0" />                <span className="text-neutral-800 font-medium text-base tracking-tight">                  {text}                </span>              </div>            ))}          </div>        ))}      </div>    </div>  );}

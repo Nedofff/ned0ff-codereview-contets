@@ -1,5 +1,1 @@
-import { NotFoundPage } from "@/_pages/not-found";
-
-export default function NotFound() {
-  return <NotFoundPage />;
-}
+import { NotFoundPage } from "@/_pages/not-found";import { Metadata } from "next";export const metadata: Metadata = {  title: "Страница не найдена - CodeReview",  description: "Запрашиваемая страница не найдена",  robots: { index: false, follow: false },};export default function NotFound() {  return <NotFoundPage />;}

@@ -1,6 +1,1 @@
-export * from "./pet-projects-api";
-export type {
-  Project,
-  ProjectCreate,
-  ProjectFilters,
-} from "./pet-projects-dto";
+export * from "./pet-projects-api";export type {  Project,  ProjectCreate,  ProjectFilters,} from "./pet-projects-dto";

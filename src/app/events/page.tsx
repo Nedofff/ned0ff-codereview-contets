@@ -1,5 +1,1 @@
-import { EventsPage } from "@/pages/events";
-
-export default function Events() {
-  return <EventsPage />;
-}
+import { EventsPage } from "@/pages/events";export default function Events() {  return <EventsPage />;}

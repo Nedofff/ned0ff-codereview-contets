@@ -1,53 +1,1 @@
-import React, { useId } from "react";
-import { cn } from "@/core/utils";
-import { TickIcon } from "../icons";
-interface CheckboxProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "type"> {
-  label?: string;
-  variant?: "default" | "error";
-}
-
-export function Checkbox({
-  label,
-  variant = "default",
-  className,
-  ...props
-}: CheckboxProps) {
-  const id = useId();
-
-  return (
-    <div className="flex items-center gap-2">
-      <div className="relative h-[22px]">
-        <input
-          id={id}
-          type="checkbox"
-          className={cn(
-            "peer w-[22px] h-[22px] appearance-none border-[1.5px] rounded-lg cursor-pointer",
-            "transition-all duration-200 ease-in-out",
-            variant === "default"
-              ? "border-[#D4D5D7]"
-              : "border-quaternary-400",
-            "bg-white",
-            "hover:border-[#86888E] hover:checked:bg-[#0560C9] hover:checked:border-[#0560C9]",
-            "checked:bg-[#0560C9] checked:border-[#0560C9]",
-            "focus:ring-2 focus:ring-blue-500/20 focus:outline-none",
-            className
-          )}
-          {...props}
-        />
-        <div className="absolute inset-0  flex items-center justify-center text-white pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity duration-200">
-          <TickIcon width={16} height={16} viewBox="0 0 17 17" />
-        </div>
-      </div>
-      {label && (
-        <label
-          className="text-[18px] font-medium text-[#232325] leading-[1.22] cursor-pointer select-none"
-          style={{ letterSpacing: "-2.78%" }}
-          htmlFor={id}
-        >
-          {label}
-        </label>
-      )}
-    </div>
-  );
-}
+import React, { useId } from "react";import { cn } from "@/core/utils";import { TickIcon } from "../icons";interface CheckboxProps  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "type"> {  label?: string;  variant?: "default" | "error";}export function Checkbox({  label,  variant = "default",  className,  ...props}: CheckboxProps) {  const id = useId();  return (    <div className="flex items-center gap-2">      <div className="relative h-[22px]">        <input          id={id}          type="checkbox"          className={cn(            "peer w-[22px] h-[22px] appearance-none border-[1.5px] rounded-lg cursor-pointer",            "transition-all duration-200 ease-in-out",            variant === "default"              ? "border-[#D4D5D7]"              : "border-quaternary-400",            "bg-white",            "hover:border-[#86888E] hover:checked:bg-[#0560C9] hover:checked:border-[#0560C9]",            "checked:bg-[#0560C9] checked:border-[#0560C9]",            "focus:ring-2 focus:ring-blue-500/20 focus:outline-none",            className          )}          {...props}        />        <div className="absolute inset-0  flex items-center justify-center text-white pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity duration-200">          <TickIcon width={16} height={16} viewBox="0 0 17 17" />        </div>      </div>      {label && (        <label          className="text-[18px] font-medium text-[#232325] leading-[1.22] cursor-pointer select-none"          style={{ letterSpacing: "-2.78%" }}          htmlFor={id}        >          {label}        </label>      )}    </div>  );}

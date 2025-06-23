@@ -1,5 +1,4 @@
 import type { NextConfig } from "next";
-
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
@@ -63,7 +62,6 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // Редирект со старых URL на новые
       {
         source: "/jobs/:path*",
         destination: "/vacancies/:path*",
@@ -75,5 +73,4 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ["@/ui-kit", "@/core", "@/widgets"],
   },
 };
-
 export default nextConfig;

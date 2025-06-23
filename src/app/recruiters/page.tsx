@@ -1,5 +1,1 @@
-import { RecruitersPage } from "@/pages/recruiters";
-
-export default function Recruiters() {
-  return <RecruitersPage />;
-}
+import { RecruitersPage } from "@/pages/recruiters";export default function Recruiters() {  return <RecruitersPage />;}

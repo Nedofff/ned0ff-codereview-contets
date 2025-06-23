@@ -1,1 +1,1 @@
-export { SectionsCards } from "./section-cards";
+export { SectionsCards } from "./section-cards";

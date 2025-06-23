@@ -1,1 +1,1 @@
-export { JobsCreatePage } from "./jobs-create-page";
+export { VacancyCreatePage as JobsCreatePage } from "./vacancy-create-page";

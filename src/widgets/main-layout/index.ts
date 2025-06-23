@@ -1,2 +1,1 @@
-export { MainLayout } from "./main-layout";
-export { openAuthModal } from "./components/auth-modal";
+export { MainLayout } from "./main-layout";export { openAuthModal } from "./components/auth-modal";

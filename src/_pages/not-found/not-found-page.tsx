@@ -1,27 +1,1 @@
-"use client";
-import Link from "next/link";
-import notFoundSrc from "./assets/not-found.png";
-import Image from "next/image";
-
-export const NotFoundPage = () => {
-  return (
-    <div className="flex flex-col items-center h-[calc(86vh-128px)] mt-[14vh] md:h-[calc(86vh-196px)]">
-      <Image
-        src={notFoundSrc}
-        alt="Logo"
-        width={270}
-        height={180}
-        quality={80}
-        className="w-7/12 min-w-55 sm:w-[270px]"
-      />
-      <p className="font-medium  tracking-[-1px] text-center leading-[100%] text-xl md:text-[30px]">
-        Мы искали эту страницу, но не нашли.
-        <br /> Давай{" "}
-        <Link href="/" className="text-primary-500">
-          на главную
-        </Link>{" "}
-        вернёмся ?
-      </p>
-    </div>
-  );
-};
+"use client";import Link from "next/link";import notFoundSrc from "./assets/not-found.png";import Image from "next/image";export const NotFoundPage = () => {  return (    <div className="flex flex-col items-center h-[calc(86vh-128px)] mt-[14vh] md:h-[calc(86vh-196px)]">      <Image        src={notFoundSrc}        alt="Logo"        width={270}        height={180}        quality={80}        className="w-7/12 min-w-55 sm:w-[270px]"      />      <p className="font-medium  tracking-[-1px] text-center leading-[100%] text-xl md:text-[30px]">        Мы искали эту страницу, но не нашли.        <br /> Давай{" "}        <Link href="/" className="text-primary-500">          на главную        </Link>{" "}        вернёмся ?      </p>    </div>  );};

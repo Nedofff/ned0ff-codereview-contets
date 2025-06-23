@@ -1,19 +1,1 @@
-import { cn } from "@/core/utils";
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
-import Image from "next/image";
-
-export const PeopleImage = ({
-  src,
-  className,
-}: {
-  src: string | StaticImport;
-  className?: string;
-}) => (
-  <Image
-    src={src}
-    alt="Стоковый человек"
-    width={50}
-    height={50}
-    className={cn("object-fill object-center scale-120", className)}
-  />
-);
+import { cn } from "@/core/utils";import { StaticImport } from "next/dist/shared/lib/get-img-props";import Image from "next/image";export const PeopleImage = ({  src,  className,}: {  src: string | StaticImport;  className?: string;}) => (  <Image    src={src}    alt="Стоковый человек"    width={50}    height={50}    className={cn("object-fill object-center scale-120", className)}  />);

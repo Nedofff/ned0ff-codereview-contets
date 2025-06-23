@@ -1,29 +1,1 @@
-// DTO типы (для бекенда)
-export interface LoginRequestDto {
-  grant_type?: string | null;
-  username: string;
-  password: string;
-  scope?: string;
-  client_id?: string | null;
-  client_secret?: string | null;
-}
-
-export interface TokenResponseDto {
-  access_token: string;
-  token_type: string;
-}
-
-// Клиентские типы (для UI)
-export interface LoginRequest {
-  grantType?: string | null;
-  username: string;
-  password: string;
-  scope?: string;
-  clientId?: string | null;
-  clientSecret?: string | null;
-}
-
-export interface TokenResponse {
-  accessToken: string;
-  tokenType: string;
-}
+export interface LoginRequestDto {  grant_type?: string | null;  username: string;  password: string;  scope?: string;  client_id?: string | null;  client_secret?: string | null;}export interface TokenResponseDto {  access_token: string;  token_type: string;}export interface LoginRequest {  grantType?: string | null;  username: string;  password: string;  scope?: string;  clientId?: string | null;  clientSecret?: string | null;}export interface TokenResponse {  accessToken: string;  tokenType: string;}

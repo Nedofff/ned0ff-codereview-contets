@@ -1,9 +1,1 @@
-import { selectByAuth } from "@/core/auth";
-
-export const AuthWallMargin = ({ children }: { children: React.ReactNode }) =>
-  selectByAuth({
-    ifAuth: children,
-    ifNotAuth: (
-      <div className="mb-15.5 pb-6.5 md:mb-14 md:pb-1.5">{children}</div>
-    ),
-  });
+import { selectByAuth } from "@/core/auth";export const AuthWallMargin = ({ children }: { children: React.ReactNode }) =>  selectByAuth({    ifAuth: children,    ifNotAuth: (      <div className="mb-15.5 pb-6.5 md:mb-14 md:pb-1.5">{children}</div>    ),  });

@@ -1,17 +1,13 @@
 "use client";
-
 import {
   CollectionPageLayout,
   createFilter,
-  FILTER_DATA_SPECIALTY,
 } from "@/widgets/collection-page-layout/";
 import { RecruitersCard } from "./components/recruiters-card";
 import { recruitersData } from "../../data/mocks/recruiters-mock";
-
 import { useQueryParams } from "@/core/use-query-params";
 import { ButtonLink } from "@/ui-kit";
 import { routes } from "@/core/router";
-
 export function RecruitersPage() {
   const filteredRecruiters = recruitersData;
   const { searchParams, setSearchParams } = useQueryParams();
@@ -19,7 +15,6 @@ export function RecruitersPage() {
   const handleSelectFilter = (id: string, value: string | boolean) => {
     console.log("Filter:", id, value);
   };
-
   return (
     <CollectionPageLayout>
       <CollectionPageLayout.TitleSection>

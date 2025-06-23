@@ -10,7 +10,6 @@ import {
 import { useState } from "react";
 import { aiToolsMock } from "../../data/mocks/ai-tools-mock";
 import { AiToolCard } from "./components/ai-tool-card";
-
 const filters = createFilter([
   {
     name: "type-tools",
@@ -25,7 +24,6 @@ const filters = createFilter([
     ],
   },
 ]);
-
 export const AiToolsPage = () => {
   const currentCategory = useCurrentSpecialty();
   const { searchParams, setSearchParams } = useQueryParams();
@@ -33,17 +31,13 @@ export const AiToolsPage = () => {
   const [selectedFilters, setSelectedFilters] = useState<
     Record<string, string | boolean>
   >({});
-
   const handleSelectFilter = (id: string, value: string | boolean) => {
     setSelectedFilters((prev) => ({ ...prev, [id]: value }));
   };
-
   return (
     <CollectionPageLayout>
       <CollectionPageLayout.TitleSection>
-        <CollectionPageLayout.Title>
-          AI-инструменты для {currentCategory}
-        </CollectionPageLayout.Title>
+        <CollectionPageLayout.Title renderTitle={(category) => <>AI-инструменты для {category}</>} />
         <CollectionPageLayout.Description>
           В этом разделе собраны AI-инструменты, которые помогают в разработке,
           автоматизации задач и поиске работы. Мы парсим популярные и новые

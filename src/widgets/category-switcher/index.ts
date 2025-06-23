@@ -1,2 +1,1 @@
-export { SpecialtySwitcher } from "./specialty-switcher";
-export { useCurrentSpecialty, useSpecialty } from "./model/specialty-state";
+export { SpecialtySwitcher } from "./specialty-switcher";export { useCurrentSpecialty, useSpecialty } from "./model/specialty-state";

@@ -1,16 +1,1 @@
-import { QuestionDetailedPage } from "@/pages/question-detailed";
-import { getQuestionsApi } from "@/data/questions/questions-api";
-import { getAuthTokenServer } from "@/core/get-auth-token-server";
-import { cookies } from "next/headers";
-import { PageWithParams } from "@/core/next-types";
-import { fillDataWithMock } from "@/data/mocks/fill-data-with-mock";
-
-export default async function QuestionDetailed(props: PageWithParams<"id">) {
-  const { id } = await props.params;
-  const questionsApi = getQuestionsApi(await getAuthTokenServer(cookies()));
-  const question = fillDataWithMock.questionDetailed(
-    await questionsApi.getQuestion(Number(id))
-  );
-
-  return <QuestionDetailedPage {...question} />;
-}
+import { QuestionDetailedPage } from "@/_pages/question-detailed";import { getQuestionsApi } from "@/data/questions/questions-api";import { getAuthTokenServer } from "@/core/adapters/get-auth-token-server";import { cookies } from "next/headers";import { PageWithParams } from "@/core/next-types";import { fillDataWithMock } from "@/data/mocks/fill-data-with-mock";import { Metadata } from "next";import { notFound } from "next/navigation";export async function generateMetadata({  params,}: PageWithParams<"id">): Promise<Metadata> {  const { id } = await params;  try {    const questionsApi = getQuestionsApi(await getAuthTokenServer(cookies()));    const question = await questionsApi.getQuestion(Number(id));    const title = `${question.question} - Вопрос на собеседовании`;    const description = question.answer      ? `${question.answer.replace(/<[^>]*>/g, "").slice(0, 155)}...`      : `Вопрос на собеседовании: ${question.question}. Подготовьтесь к интервью с нашими ответами и советами.`;    return {      title,      description,      keywords: [        "вопрос на собеседовании",        question.stack,        question.position,        ...question.tags.split(" ").filter(Boolean),        "интервью",        "технические вопросы",        "подготовка к собеседованию",      ].filter(Boolean),      openGraph: {        title,        description,        type: "article",        authors: ["CodeReview"],        section: "Interview Questions",        tags: question.tags.split(" ").filter(Boolean),      },      twitter: {        title,        description,        card: "summary_large_image",      },      alternates: {        canonical: `${process.env.NEXT_PUBLIC_DOMAIN}/questions/${id}`,      },    };  } catch {    return {      title: "Вопрос не найден - CodeReview",      description:        "Запрашиваемый вопрос для собеседования не найден или был удален",    };  }}export default async function QuestionDetailed(props: PageWithParams<"id">) {  const { id } = await props.params;  try {    const questionsApi = getQuestionsApi(await getAuthTokenServer(cookies()));    const question = fillDataWithMock.questionDetailed(      await questionsApi.getQuestion(Number(id))    );    return <QuestionDetailedPage {...question} />;  } catch {    return notFound();  }}

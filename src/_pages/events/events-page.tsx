@@ -1,5 +1,4 @@
 "use client";
-
 import { useQueryParams } from "@/core/use-query-params";
 import { useCurrentSpecialty } from "@/widgets/category-switcher";
 import {
@@ -9,7 +8,6 @@ import {
 import { useState } from "react";
 import { EventCard } from "./components/event-card";
 import { eventsData } from "../../data/mocks/events-mock";
-
 const filters = createFilter([
   {
     name: "city",
@@ -40,7 +38,6 @@ const filters = createFilter([
     label: "Онлайн",
   },
 ]);
-
 export const EventsPage = () => {
   const currentCategory = useCurrentSpecialty();
   const { searchParams, setSearchParams } = useQueryParams();
@@ -48,11 +45,9 @@ export const EventsPage = () => {
   const [selectedFilters, setSelectedFilters] = useState<
     Record<string, string | boolean>
   >({});
-
   const handleSelectFilter = (id: string, value: string | boolean) => {
     setSelectedFilters((prev) => ({ ...prev, [id]: value }));
   };
-
   return (
     <CollectionPageLayout>
       <CollectionPageLayout.TitleSection>

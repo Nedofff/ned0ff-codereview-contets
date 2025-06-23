@@ -1,130 +1,1 @@
-import React from "react";
-
-export const Hearts: React.FC = () => {
-  return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      {/* Маленькое сердечко - позиция из макета: x: 218, y: 105, размер: 30.4x30.4 */}
-      <div
-        className="absolute animate-pulse"
-        style={{
-          left: "218px",
-          top: "105px",
-          width: "30.4px",
-          height: "30.4px",
-          animationDelay: "0s",
-          animationDuration: "2s",
-        }}
-      >
-        <svg width="30.4" height="30.4" viewBox="0 0 30.4 30.4" fill="none">
-          <path
-            d="M2.84 3.47C2.84 3.47 15.2 13.2 15.2 13.2C15.2 13.2 27.55 3.47 27.55 3.47C30.89 0.65 35.42 3.28 35.42 7.84C35.42 11.33 33.12 14.45 29.87 16.78L15.2 26.92L0.53 16.78C-2.72 14.45 -5.02 11.33 -5.02 7.84C-5.02 3.28 -0.49 0.65 2.84 3.47Z"
-            fill="#FB6A6A"
-          />
-        </svg>
-      </div>
-
-      {/* Среднее сердечко - позиция из макета: x: 217, y: 41, размер: 58.58x58.58 */}
-      <div
-        className="absolute animate-bounce"
-        style={{
-          left: "217px",
-          top: "41px",
-          width: "58.58px",
-          height: "58.58px",
-          animationDelay: "1s",
-          animationDuration: "3s",
-        }}
-      >
-        <svg width="58.58" height="58.58" viewBox="0 0 58.58 58.58" fill="none">
-          <path
-            d="M5.38 6.77C5.38 6.77 29.29 25.4 29.29 25.4C29.29 25.4 53.2 6.77 53.2 6.77C59.45 1.25 68.07 6.32 68.07 15.09C68.07 21.78 63.82 27.83 57.55 32.32L29.29 51.78L1.03 32.32C-5.24 27.83 -9.49 21.78 -9.49 15.09C-9.49 6.32 -0.87 1.25 5.38 6.77Z"
-            fill="#FB6A6A"
-          />
-        </svg>
-      </div>
-
-      {/* Большое сердечко - позиция из макета: x: 248, y: 87, размер: 32.41x32.41 */}
-      <div
-        className="absolute animate-ping"
-        style={{
-          left: "248px",
-          top: "87px",
-          width: "32.41px",
-          height: "32.41px",
-          animationDelay: "2s",
-          animationDuration: "4s",
-        }}
-      >
-        <svg width="32.41" height="32.41" viewBox="0 0 32.41 32.41" fill="none">
-          <path
-            d="M2.75 3.97C2.75 3.97 16.205 14.5 16.205 14.5C16.205 14.5 29.66 3.97 29.66 3.97C33.31 0.7 38.05 3.51 38.05 8.34C38.05 12.15 35.55 15.5 32.02 17.95L16.205 28.43L0.39 17.95C-3.14 15.5 -5.64 12.15 -5.64 8.34C-5.64 3.51 -0.9 0.7 2.75 3.97Z"
-            fill="#FB6A6A"
-          />
-        </svg>
-      </div>
-    </div>
-  );
-};
-
-export const Sd = () => (
-  <div className="w-[380px] h-full bg-neutral-100 relative overflow-hidden hidden md:block">
-    {/* Background grid */}
-    <div className="absolute inset-0 opacity-20">
-      <svg className="w-full h-full" viewBox="0 0 380 532">
-        <defs>
-          <pattern
-            id="grid"
-            width="20"
-            height="20"
-            patternUnits="userSpaceOnUse"
-          >
-            <path
-              d="M 20 0 L 0 0 0 20"
-              fill="none"
-              stroke="#E6C4FD"
-              strokeWidth="1.2"
-            />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#grid)" />
-      </svg>
-    </div>
-
-    {/* Channel avatars */}
-    <div className="absolute inset-0 p-8">
-      <div className="relative w-full h-full">
-        {/* Telegram channel badges */}
-        <div className="absolute top-[99px] left-[36px] bg-primary-500 text-white px-2 py-1 rounded text-sm font-medium opacity-95">
-          @young_june
-        </div>
-        <div className="absolute top-[28px] left-[206px] bg-primary-500 text-white px-2 py-1 rounded text-sm font-medium opacity-95">
-          @it_interns
-        </div>
-        <div className="absolute top-[204px] left-[111px] bg-primary-500 text-white px-2 py-1 rounded text-sm font-medium opacity-95">
-          @juno_jobs
-        </div>
-        <div className="absolute top-[220px] left-[234px] bg-primary-500 text-white px-2 py-1 rounded text-sm font-medium opacity-85">
-          @young_intern
-        </div>
-        <div className="absolute top-[323px] left-[63px] bg-primary-500 text-white px-2 py-1 rounded text-sm font-medium opacity-95">
-          @bigtechjobs
-        </div>
-        <div className="absolute top-[425px] left-[215px] bg-primary-500 text-white px-2 py-1 rounded text-sm font-medium opacity-95">
-          @YourCodeReview
-        </div>
-        <div className="absolute top-[417px] left-[41px] bg-primary-500 text-white px-2 py-1 rounded text-sm font-medium opacity-95">
-          @junior_designers
-        </div>
-
-        {/* Avatar circles */}
-        <div className="absolute top-[269px] left-[37px] w-[100px] h-[100px] bg-gradient-to-br from-orange-400 to-red-500 rounded-full shadow-lg" />
-        <div className="absolute top-[372px] left-[233px] w-[100px] h-[100px] bg-gradient-to-br from-blue-400 to-purple-500 rounded-full shadow-lg" />
-        <div className="absolute top-[28px] left-[238px] w-[100px] h-[100px] bg-gradient-to-br from-green-400 to-blue-500 rounded-full shadow-lg" />
-        <div className="absolute top-[137px] left-[129px] w-[100px] h-[100px] bg-gradient-to-br from-purple-400 to-pink-500 rounded-full shadow-lg" />
-        <div className="absolute top-[388px] left-[60px] w-[100px] h-[100px] bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full shadow-lg" />
-        <div className="absolute top-[228px] left-[242px] w-[100px] h-[100px] bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full shadow-lg" />
-        <div className="absolute top-[26px] left-[30px] w-[100px] h-[100px] bg-gradient-to-br from-pink-400 to-red-500 rounded-full shadow-lg" />
-      </div>
-    </div>
-  </div>
-);
+import React from "react";export const Hearts: React.FC = () => {  return (    <div className="absolute inset-0 pointer-events-none overflow-hidden">      {}      <div        className="absolute animate-pulse"        style={{          left: "218px",          top: "105px",          width: "30.4px",          height: "30.4px",          animationDelay: "0s",          animationDuration: "2s",        }}      >        <svg width="30.4" height="30.4" viewBox="0 0 30.4 30.4" fill="none">          <path            d="M2.84 3.47C2.84 3.47 15.2 13.2 15.2 13.2C15.2 13.2 27.55 3.47 27.55 3.47C30.89 0.65 35.42 3.28 35.42 7.84C35.42 11.33 33.12 14.45 29.87 16.78L15.2 26.92L0.53 16.78C-2.72 14.45 -5.02 11.33 -5.02 7.84C-5.02 3.28 -0.49 0.65 2.84 3.47Z"            fill="#FB6A6A"          />        </svg>      </div>      {}      <div        className="absolute animate-bounce"        style={{          left: "217px",          top: "41px",          width: "58.58px",          height: "58.58px",          animationDelay: "1s",          animationDuration: "3s",        }}      >        <svg width="58.58" height="58.58" viewBox="0 0 58.58 58.58" fill="none">          <path            d="M5.38 6.77C5.38 6.77 29.29 25.4 29.29 25.4C29.29 25.4 53.2 6.77 53.2 6.77C59.45 1.25 68.07 6.32 68.07 15.09C68.07 21.78 63.82 27.83 57.55 32.32L29.29 51.78L1.03 32.32C-5.24 27.83 -9.49 21.78 -9.49 15.09C-9.49 6.32 -0.87 1.25 5.38 6.77Z"            fill="#FB6A6A"          />        </svg>      </div>      {}      <div        className="absolute animate-ping"        style={{          left: "248px",          top: "87px",          width: "32.41px",          height: "32.41px",          animationDelay: "2s",          animationDuration: "4s",        }}      >        <svg width="32.41" height="32.41" viewBox="0 0 32.41 32.41" fill="none">          <path            d="M2.75 3.97C2.75 3.97 16.205 14.5 16.205 14.5C16.205 14.5 29.66 3.97 29.66 3.97C33.31 0.7 38.05 3.51 38.05 8.34C38.05 12.15 35.55 15.5 32.02 17.95L16.205 28.43L0.39 17.95C-3.14 15.5 -5.64 12.15 -5.64 8.34C-5.64 3.51 -0.9 0.7 2.75 3.97Z"            fill="#FB6A6A"          />        </svg>      </div>    </div>  );};export const Sd = () => (  <div className="w-[380px] h-full bg-neutral-100 relative overflow-hidden hidden md:block">    {}    <div className="absolute inset-0 opacity-20">      <svg className="w-full h-full" viewBox="0 0 380 532">        <defs>          <pattern            id="grid"            width="20"            height="20"            patternUnits="userSpaceOnUse"          >            <path              d="M 20 0 L 0 0 0 20"              fill="none"              stroke="#E6C4FD"              strokeWidth="1.2"            />          </pattern>        </defs>        <rect width="100%" height="100%" fill="url(#grid)" />      </svg>    </div>    {}    <div className="absolute inset-0 p-8">      <div className="relative w-full h-full">        {}        <div className="absolute top-[99px] left-[36px] bg-primary-500 text-white px-2 py-1 rounded text-sm font-medium opacity-95">          @young_june        </div>        <div className="absolute top-[28px] left-[206px] bg-primary-500 text-white px-2 py-1 rounded text-sm font-medium opacity-95">          @it_interns        </div>        <div className="absolute top-[204px] left-[111px] bg-primary-500 text-white px-2 py-1 rounded text-sm font-medium opacity-95">          @juno_jobs        </div>        <div className="absolute top-[220px] left-[234px] bg-primary-500 text-white px-2 py-1 rounded text-sm font-medium opacity-85">          @young_intern        </div>        <div className="absolute top-[323px] left-[63px] bg-primary-500 text-white px-2 py-1 rounded text-sm font-medium opacity-95">          @bigtechjobs        </div>        <div className="absolute top-[425px] left-[215px] bg-primary-500 text-white px-2 py-1 rounded text-sm font-medium opacity-95">          @YourCodeReview        </div>        <div className="absolute top-[417px] left-[41px] bg-primary-500 text-white px-2 py-1 rounded text-sm font-medium opacity-95">          @junior_designers        </div>        {}        <div className="absolute top-[269px] left-[37px] w-[100px] h-[100px] bg-gradient-to-br from-orange-400 to-red-500 rounded-full shadow-lg" />        <div className="absolute top-[372px] left-[233px] w-[100px] h-[100px] bg-gradient-to-br from-blue-400 to-purple-500 rounded-full shadow-lg" />        <div className="absolute top-[28px] left-[238px] w-[100px] h-[100px] bg-gradient-to-br from-green-400 to-blue-500 rounded-full shadow-lg" />        <div className="absolute top-[137px] left-[129px] w-[100px] h-[100px] bg-gradient-to-br from-purple-400 to-pink-500 rounded-full shadow-lg" />        <div className="absolute top-[388px] left-[60px] w-[100px] h-[100px] bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full shadow-lg" />        <div className="absolute top-[228px] left-[242px] w-[100px] h-[100px] bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full shadow-lg" />        <div className="absolute top-[26px] left-[30px] w-[100px] h-[100px] bg-gradient-to-br from-pink-400 to-red-500 rounded-full shadow-lg" />      </div>    </div>  </div>);

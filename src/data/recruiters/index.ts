@@ -1,6 +1,1 @@
-export * from "./recruiters-api";
-export type {
-  Recruiter,
-  RecruiterCreate,
-  RecruiterFilters,
-} from "./recruiters-dto";
+export * from "./recruiters-api";export type {  Recruiter,  RecruiterCreate,  RecruiterFilters,} from "./recruiters-dto";

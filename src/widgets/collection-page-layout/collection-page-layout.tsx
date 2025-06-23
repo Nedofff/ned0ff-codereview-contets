@@ -10,7 +10,7 @@ import {
   type PaginationClientProps,
 } from "./components/pagination-client";
 import { WithCategory } from "./components/with-category";
-
+import { EmptyState } from "./components/empty-state";
 export const CollectionPageLayout = ({
   children,
 }: {
@@ -20,7 +20,6 @@ export const CollectionPageLayout = ({
     {children}
   </div>
 );
-
 CollectionPageLayout.TitleSection = ({
   children,
 }: {
@@ -32,7 +31,6 @@ CollectionPageLayout.TitleSection = ({
     {children}
   </section>
 );
-
 CollectionPageLayout.Title = ({
   renderTitle,
 }: {
@@ -47,7 +45,6 @@ CollectionPageLayout.Title = ({
     <WithCategory renderTitle={renderTitle} />
   </h1>
 );
-
 CollectionPageLayout.Description = ({
   children,
 }: {
@@ -62,13 +59,11 @@ CollectionPageLayout.Description = ({
     {children}
   </p>
 );
-
 CollectionPageLayout.FiltersGroup = (props: FiltersGroupProps) => (
   <section className="md:mb-[5px] z-10">
     <FiltersGroup {...props} />
   </section>
 );
-
 CollectionPageLayout.Content = ({
   children,
   className,
@@ -83,7 +78,6 @@ CollectionPageLayout.Content = ({
     <AuthWall title={titleAuthWall} />
   </section>
 );
-
 CollectionPageLayout.Pagination = (
   props: Omit<PaginationClientProps, "className">
 ) => (
@@ -91,11 +85,22 @@ CollectionPageLayout.Pagination = (
     <PaginationClient {...props} className="mb-[25px] md:mb-10" />
   </AuthWallMargin>
 );
-
 CollectionPageLayout.SeoKeys = ({ seoKeys }: { seoKeys: string[] }) => (
   <div className="flex flex-wrap gap-2 md:justify-center">
     {seoKeys.map((item, index) => (
       <SeoKey key={index}>{item}</SeoKey>
     ))}
   </div>
+);
+
+CollectionPageLayout.EmptyState = ({
+  title,
+  description,
+  className,
+}: {
+  title: string;
+  description?: string;
+  className?: string;
+}) => (
+  <EmptyState title={title} description={description} className={className} />
 );

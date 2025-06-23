@@ -1,24 +1,1 @@
-import { routes } from "@/core/router";
-import { Card } from "@/ui-kit";
-
-export const SimilarVacancy = ({
-  id,
-  title,
-  companyName,
-}: {
-  id: number;
-  title: string;
-  companyName: string;
-}) => {
-  return (
-    <div className="py-[15px]">
-      <div className="relative">
-        <div className="font-wix-display leading-[18px] space-y-2">
-          <p className=" font-semibold ">{title}</p>
-          <p className="font-medium text-neutral-500">{companyName}</p>
-        </div>
-        <Card.Link title={title} href={routes.vacancyId(id.toString())} />
-      </div>
-    </div>
-  );
-};
+import { routes } from "@/core/router";import { Card } from "@/ui-kit";export const SimilarVacancy = ({  id,  title,  companyName,}: {  id: number;  title: string;  companyName: string;}) => {  return (    <div className="py-[15px]">      <div className="relative">        <div className="font-wix-display leading-[18px] space-y-2">          <p className=" font-semibold ">{title}</p>          <p className="font-medium text-neutral-500">{companyName}</p>        </div>        <Card.Link title={title} href={routes.vacancyId(id.toString())} />      </div>    </div>  );};

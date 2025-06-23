@@ -1,47 +1,1 @@
-"use client";
-import { Button, Input, Textarea, UploadAvatar, UploadImage } from "@/ui-kit";
-import { useForm } from "react-hook-form";
-
-interface CreateFormFields {
-  title: string;
-  description: string;
-  image: File;
-  logo: File;
-  name: string;
-  telegram: string;
-  email: string;
-}
-
-export const CreateForm = () => {
-  const { register, handleSubmit } = useForm<CreateFormFields>();
-
-  const onSubmit = (data: CreateFormFields) => {
-    console.log(data);
-  };
-
-  return (
-    <form
-      className="flex flex-col gap-y-5 mx-auto"
-      onSubmit={handleSubmit(onSubmit)}
-    >
-      <Input label="Название проекта" {...register("title")} />
-      <Textarea
-        className="h-[215px] mb-8"
-        label="Описание проекта"
-        {...register("description")}
-      />
-      <UploadImage register={register("image")} />
-      <div className="flex gap-x-2.5 items-end">
-        <Input label="Имя" {...register("name")} />
-        <UploadAvatar register={register("logo")} />
-      </div>
-      <div className="flex flex-col md:flex-row gap-x-[15px]">
-        <Input label="Telegram" {...register("telegram")} />
-        <Input label="Почта" {...register("email")} />
-      </div>
-      <Button type="submit" variant="filter" className="mt-2.5" fullWidth>
-        Добавить вакансию
-      </Button>
-    </form>
-  );
-};
+"use client";import { Button, Input, Textarea, UploadAvatar, UploadImage } from "@/ui-kit";import { useForm } from "react-hook-form";interface CreateFormFields {  title: string;  description: string;  image: File;  logo: File;  name: string;  telegram: string;  email: string;}export const CreateForm = () => {  const { register, handleSubmit } = useForm<CreateFormFields>();  const onSubmit = (data: CreateFormFields) => {    console.log(data);  };  return (    <form      className="flex flex-col gap-y-5 mx-auto"      onSubmit={handleSubmit(onSubmit)}    >      <Input label="Название проекта" {...register("title")} />      <Textarea        className="h-[215px] mb-8"        label="Описание проекта"        {...register("description")}      />      <UploadImage register={register("image")} />      <div className="flex gap-x-2.5 items-end">        <Input label="Имя" {...register("name")} />        <UploadAvatar register={register("logo")} />      </div>      <div className="flex flex-col md:flex-row gap-x-[15px]">        <Input label="Telegram" {...register("telegram")} />        <Input label="Почта" {...register("email")} />      </div>      <Button type="submit" variant="filter" className="mt-2.5" fullWidth>        Добавить вакансию      </Button>    </form>  );};

@@ -1,2 +1,1 @@
-export { cookieService } from "./cookie-service-client";
-export { getSpecialtyCookie, setSpecialtyCookie } from "./specialty-cookie";
+export { cookieService } from "./cookie-service-client";export { getSpecialtyCookie, setSpecialtyCookie } from "./specialty-cookie";

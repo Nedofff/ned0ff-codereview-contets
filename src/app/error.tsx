@@ -1,0 +1,1 @@
+"use client";import { ServerErrorPage } from "@/_pages/server-error";export default function Error({  reset,}: {  error: Error & { digest?: string };  reset: () => void;}) {  return <ServerErrorPage reset={reset} />;}

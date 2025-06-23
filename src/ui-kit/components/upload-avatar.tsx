@@ -1,87 +1,1 @@
-"use client";
-import React, { useRef } from "react";
-import { cn } from "@/core/utils";
-import { UseFormRegisterReturn } from "react-hook-form";
-import { UploadAvatarIcon } from "../icons";
-import Image from "next/image";
-
-interface UploadAvatarProps<T extends string> {
-  onFileSelect?: (file: File) => void;
-  currentAvatar?: string;
-  size?: "sm" | "md" | "lg";
-  className?: string;
-  register?: UseFormRegisterReturn<T>;
-}
-
-const sizeClasses = {
-  sm: "w-10 h-10", // 40x40
-  md: "w-13 h-13", // 52x52 - основной размер по макету
-  lg: "w-16 h-16", // 64x64
-};
-
-const paddingClasses = {
-  sm: "p-2",
-  md: "p-[17px]", // точно как в макете
-  lg: "p-5",
-};
-
-export function UploadAvatar<T extends string>({
-  onFileSelect,
-  currentAvatar,
-  size = "md",
-  className,
-  register,
-}: UploadAvatarProps<T>) {
-  const fileInputRef = useRef<HTMLInputElement>(null);
-  const { ref, ...restRegister } = register || {};
-
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      if (file.size > 2 * 1024 * 1024) {
-        return;
-      }
-      onFileSelect?.(file);
-    }
-  };
-
-  const handleClick = () => {
-    fileInputRef.current?.click();
-  };
-
-  return (
-    <div className={cn("relative inline-block h-min", className)}>
-      <div
-        className={cn(
-          "bg-white border border-dashed border-[#ACAEB2] rounded-xl cursor-pointer transition-all duration-200",
-          "hover:border-[#C546FA] flex items-center justify-center group",
-          sizeClasses[size],
-          paddingClasses[size]
-        )}
-        onClick={handleClick}
-      >
-        <input
-          ref={(e) => {
-            ref?.(e);
-            fileInputRef.current = e;
-          }}
-          type="file"
-          accept="image/*"
-          onChange={handleFileChange}
-          className="hidden"
-          {...restRegister}
-        />
-
-        {currentAvatar ? (
-          <Image
-            src={currentAvatar}
-            alt="Avatar"
-            className="w-full h-full object-cover rounded-lg"
-          />
-        ) : (
-          <UploadAvatarIcon className="w-[18px] h-[18px] text-[#ACAEB2] group-hover:text-[#C546FA] transition-colors duration-200" />
-        )}
-      </div>
-    </div>
-  );
-}
+"use client";import React, { useRef } from "react";import { cn } from "@/core/utils";import { UseFormRegisterReturn } from "react-hook-form";import { UploadAvatarIcon } from "../icons";import Image from "next/image";interface UploadAvatarProps<T extends string> {  onFileSelect?: (file: File) => void;  currentAvatar?: string;  size?: "sm" | "md" | "lg";  className?: string;  register?: UseFormRegisterReturn<T>;}const sizeClasses = {  sm: "w-10 h-10",   md: "w-13 h-13",   lg: "w-16 h-16", };const paddingClasses = {  sm: "p-2",  md: "p-[17px]",   lg: "p-5",};export function UploadAvatar<T extends string>({  onFileSelect,  currentAvatar,  size = "md",  className,  register,}: UploadAvatarProps<T>) {  const fileInputRef = useRef<HTMLInputElement>(null);  const { ref, ...restRegister } = register || {};  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {    const file = event.target.files?.[0];    if (file) {      if (file.size > 2 * 1024 * 1024) {        return;      }      onFileSelect?.(file);    }  };  const handleClick = () => {    fileInputRef.current?.click();  };  return (    <div className={cn("relative inline-block h-min", className)}>      <div        className={cn(          "bg-white border border-dashed border-[#ACAEB2] rounded-xl cursor-pointer transition-all duration-200",          "hover:border-[#C546FA] flex items-center justify-center group",          sizeClasses[size],          paddingClasses[size]        )}        onClick={handleClick}      >        <input          ref={(e) => {            ref?.(e);            fileInputRef.current = e;          }}          type="file"          accept="image/*"          onChange={handleFileChange}          className="hidden"          {...restRegister}        />        {currentAvatar ? (          <Image            src={currentAvatar}            alt="Avatar"            className="w-full h-full object-cover rounded-lg"          />        ) : (          <UploadAvatarIcon className="w-[18px] h-[18px] text-[#ACAEB2] group-hover:text-[#C546FA] transition-colors duration-200" />        )}      </div>    </div>  );}

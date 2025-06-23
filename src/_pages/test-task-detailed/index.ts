@@ -1,1 +1,1 @@
-export { TestTaskDetailedPage } from "./test-task-detailed-page";
+export { TestTaskDetailedPage } from "./test-task-detailed-page";

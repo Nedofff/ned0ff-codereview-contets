@@ -1,5 +1,4 @@
 import { PageWithQuery } from "./next-types";
-
 export type AllFilters =
   | "search"
   | "specialty"
@@ -9,7 +8,8 @@ export type AllFilters =
   | "internship"
   | "source"
   | "stack"
-  | "grade";
-
+  | "grade"
+  | "online"
+  | "city";
 export type PageWithQueryFilters<T extends AllFilters> = PageWithQuery<T> &
   PageWithQuery<"page">;

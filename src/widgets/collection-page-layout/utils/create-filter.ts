@@ -1,14 +1,1 @@
-import {
-  FILTER_DATA_SPECIALTY,
-  FilterGroupData,
-} from "../components/filters-group";
-
-export const createFilter = (
-  additionalFilters: FilterGroupData,
-  { withOutSpecialty = false }: { withOutSpecialty?: boolean } = {}
-) => {
-  return [
-    ...(withOutSpecialty ? [] : [FILTER_DATA_SPECIALTY]),
-    ...additionalFilters,
-  ];
-};
+import {  FILTER_DATA_SPECIALTY,  FilterGroupData,} from "../components/filters-group";export const createFilter = (  additionalFilters: FilterGroupData,  { withOutSpecialty = false }: { withOutSpecialty?: boolean } = {}) => {  return [    ...(withOutSpecialty ? [] : [FILTER_DATA_SPECIALTY]),    ...additionalFilters,  ];};

@@ -1,5 +1,1 @@
-import { UnderConstructionPage } from "@/_pages/under-construction";
-
-export default function RecruitersAddPage() {
-  return <UnderConstructionPage />;
-}
+import { UnderConstructionPage } from "@/_pages/under-construction";export default function RecruitersAddPage() {  return <UnderConstructionPage />;}

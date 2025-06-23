@@ -1,5 +1,1 @@
-import { UnderConstructionPage } from "@/_pages/under-construction";
-
-export default function ResumeAddPage() {
-  return <UnderConstructionPage />;
-}
+import { UnderConstructionPage } from "@/_pages/under-construction";export default function ResumeAddPage() {  return <UnderConstructionPage />;}

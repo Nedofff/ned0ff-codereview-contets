@@ -1,138 +1,1 @@
-import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { HorizontalScroll } from "../components/horizontal-scroll";
-
-const meta = {
-  title: "HorizontalScroll",
-  component: HorizontalScroll,
-  parameters: {
-    layout: "padded",
-  },
-  tags: ["autodocs"],
-  argTypes: {
-    showScrollbar: {
-      control: "boolean",
-      description: "Показывать ли полосу прокрутки",
-    },
-    gap: {
-      control: { type: "number", min: 0, max: 50 },
-      description: "Расстояние между элементами в пикселях",
-    },
-    enableDragScroll: {
-      control: "boolean",
-      description: "Включить возможность перетаскивания для прокрутки",
-    },
-  },
-} satisfies Meta<typeof HorizontalScroll>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-// Пример карточек для демонстрации
-const SampleCard = ({ title, color }: { title: string; color: string }) => (
-  <div
-    className={`flex-shrink-0 w-48 h-32 ${color} rounded-lg p-4 text-white font-medium flex items-center justify-center`}
-  >
-    {title}
-  </div>
-);
-
-export const Default: Story = {
-  args: {
-    children: (
-      <>
-        <SampleCard title="Карточка 1" color="bg-blue-500" />
-        <SampleCard title="Карточка 2" color="bg-green-500" />
-        <SampleCard title="Карточка 3" color="bg-purple-500" />
-        <SampleCard title="Карточка 4" color="bg-red-500" />
-        <SampleCard title="Карточка 5" color="bg-yellow-500" />
-        <SampleCard title="Карточка 6" color="bg-pink-500" />
-        <SampleCard title="Карточка 7" color="bg-indigo-500" />
-        <SampleCard title="Карточка 8" color="bg-teal-500" />
-      </>
-    ),
-  },
-};
-
-export const WithScrollbar: Story = {
-  args: {
-    ...Default.args,
-    showScrollbar: true,
-  },
-};
-
-export const CustomGap: Story = {
-  args: {
-    ...Default.args,
-    gap: 32,
-  },
-};
-
-export const SmallGap: Story = {
-  args: {
-    ...Default.args,
-    gap: 8,
-  },
-};
-
-export const DisabledDragScroll: Story = {
-  args: {
-    ...Default.args,
-    enableDragScroll: false,
-  },
-};
-
-// Пример с разными размерами элементов
-const VariousItems = () => (
-  <>
-    <div className="flex-shrink-0 w-32 h-24 bg-gradient-to-r from-purple-400 to-pink-400 rounded-lg p-3 text-white text-sm flex items-center justify-center">
-      Маленькая
-    </div>
-    <div className="flex-shrink-0 w-64 h-40 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-lg p-4 text-white font-medium flex items-center justify-center">
-      Большая карточка
-    </div>
-    <div className="flex-shrink-0 w-40 h-32 bg-gradient-to-r from-green-400 to-blue-400 rounded-lg p-3 text-white text-sm flex items-center justify-center">
-      Средняя
-    </div>
-    <div className="flex-shrink-0 w-56 h-28 bg-gradient-to-r from-red-400 to-yellow-400 rounded-lg p-3 text-white font-medium flex items-center justify-center">
-      Широкая карточка
-    </div>
-    <div className="flex-shrink-0 w-32 h-32 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-lg p-3 text-white text-sm flex items-center justify-center">
-      Квадрат
-    </div>
-  </>
-);
-
-export const VariousSizes: Story = {
-  args: {
-    children: <VariousItems />,
-    gap: 20,
-  },
-};
-
-// Пример с изображениями
-const ImageCard = ({ src, title }: { src: string; title: string }) => (
-  <div className="flex-shrink-0 w-48 h-64 bg-white rounded-lg shadow-md overflow-hidden">
-    <div className="w-full h-48 bg-gray-200 flex items-center justify-center text-gray-500">
-      {src || "Изображение"}
-    </div>
-    <div className="p-3">
-      <h3 className="font-medium text-gray-800">{title}</h3>
-    </div>
-  </div>
-);
-
-export const ImageGallery: Story = {
-  args: {
-    children: (
-      <>
-        <ImageCard src="" title="Фото 1" />
-        <ImageCard src="" title="Фото 2" />
-        <ImageCard src="" title="Фото 3" />
-        <ImageCard src="" title="Фото 4" />
-        <ImageCard src="" title="Фото 5" />
-        <ImageCard src="" title="Фото 6" />
-      </>
-    ),
-    gap: 16,
-  },
-};
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";import { HorizontalScroll } from "../components/horizontal-scroll";const meta = {  title: "HorizontalScroll",  component: HorizontalScroll,  parameters: {    layout: "padded",  },  tags: ["autodocs"],  argTypes: {    showScrollbar: {      control: "boolean",      description: "Показывать ли полосу прокрутки",    },    gap: {      control: { type: "number", min: 0, max: 50 },      description: "Расстояние между элементами в пикселях",    },    enableDragScroll: {      control: "boolean",      description: "Включить возможность перетаскивания для прокрутки",    },  },} satisfies Meta<typeof HorizontalScroll>;export default meta;type Story = StoryObj<typeof meta>;const SampleCard = ({ title, color }: { title: string; color: string }) => (  <div    className={`flex-shrink-0 w-48 h-32 ${color} rounded-lg p-4 text-white font-medium flex items-center justify-center`}  >    {title}  </div>);export const Default: Story = {  args: {    children: (      <>        <SampleCard title="Карточка 1" color="bg-blue-500" />        <SampleCard title="Карточка 2" color="bg-green-500" />        <SampleCard title="Карточка 3" color="bg-purple-500" />        <SampleCard title="Карточка 4" color="bg-red-500" />        <SampleCard title="Карточка 5" color="bg-yellow-500" />        <SampleCard title="Карточка 6" color="bg-pink-500" />        <SampleCard title="Карточка 7" color="bg-indigo-500" />        <SampleCard title="Карточка 8" color="bg-teal-500" />      </>    ),  },};export const WithScrollbar: Story = {  args: {    ...Default.args,    showScrollbar: true,  },};export const CustomGap: Story = {  args: {    ...Default.args,    gap: 32,  },};export const SmallGap: Story = {  args: {    ...Default.args,    gap: 8,  },};export const DisabledDragScroll: Story = {  args: {    ...Default.args,    enableDragScroll: false,  },};const VariousItems = () => (  <>    <div className="flex-shrink-0 w-32 h-24 bg-gradient-to-r from-purple-400 to-pink-400 rounded-lg p-3 text-white text-sm flex items-center justify-center">      Маленькая    </div>    <div className="flex-shrink-0 w-64 h-40 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-lg p-4 text-white font-medium flex items-center justify-center">      Большая карточка    </div>    <div className="flex-shrink-0 w-40 h-32 bg-gradient-to-r from-green-400 to-blue-400 rounded-lg p-3 text-white text-sm flex items-center justify-center">      Средняя    </div>    <div className="flex-shrink-0 w-56 h-28 bg-gradient-to-r from-red-400 to-yellow-400 rounded-lg p-3 text-white font-medium flex items-center justify-center">      Широкая карточка    </div>    <div className="flex-shrink-0 w-32 h-32 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-lg p-3 text-white text-sm flex items-center justify-center">      Квадрат    </div>  </>);export const VariousSizes: Story = {  args: {    children: <VariousItems />,    gap: 20,  },};const ImageCard = ({ src, title }: { src: string; title: string }) => (  <div className="flex-shrink-0 w-48 h-64 bg-white rounded-lg shadow-md overflow-hidden">    <div className="w-full h-48 bg-gray-200 flex items-center justify-center text-gray-500">      {src || "Изображение"}    </div>    <div className="p-3">      <h3 className="font-medium text-gray-800">{title}</h3>    </div>  </div>);export const ImageGallery: Story = {  args: {    children: (      <>        <ImageCard src="" title="Фото 1" />        <ImageCard src="" title="Фото 2" />        <ImageCard src="" title="Фото 3" />        <ImageCard src="" title="Фото 4" />        <ImageCard src="" title="Фото 5" />        <ImageCard src="" title="Фото 6" />      </>    ),    gap: 16,  },};

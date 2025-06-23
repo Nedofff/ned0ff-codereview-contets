@@ -1,1 +1,1 @@
-export { RequirementsPage } from "./requirements-page";
+export { RequirementsPage } from "./requirements-page";

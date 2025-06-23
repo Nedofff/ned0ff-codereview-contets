@@ -1,35 +1,1 @@
-import { cn } from "@/core/utils";
-
-export const RequirementItem = ({
-  title,
-  description,
-  mentions,
-}: {
-  title: string;
-  description: string;
-  mentions: number;
-}) => (
-  <div
-    className={cn(
-      "font-wix-display",
-      "grid grid-rows-[max-content_max-content_max-content] grid-cols-1 gap-y-0.5 py-[15px]",
-      "-mx-[15px] px-[15px] md:mx-0 md:px-0",
-      "md:grid-rows-2 md:grid-cols-[auto_max-content] md:gap-y-0 md:py-2.5"
-    )}
-  >
-    <h3 className="text-lg font-bold leading-[22px] text-neutral-1000 md:leading-[24px]">
-      {title}
-    </h3>
-    <div
-      className={cn(
-        "text-neutral-600 font-medium text-sm leading-[18px]",
-        "row-start-3 mt-[7px]",
-        "md:row-span-2 md:self-center md:mt-0",
-        "md:text-lg md:leading-[22px] md:text-neutral-1000 md:font-semibold"
-      )}
-    >
-      <span className="md:hidden">Упоминаний:</span> {mentions}
-    </div>
-    <p className="font-medium leading-[20px] text-neutral-600">{description}</p>
-  </div>
-);
+import { cn } from "@/core/utils";export const RequirementItem = ({  title,  description,  mentions,}: {  title: string;  description: string;  mentions: number;}) => (  <div    className={cn(      "font-wix-display",      "grid grid-rows-[max-content_max-content_max-content] grid-cols-1 gap-y-0.5 py-[15px]",      "-mx-[15px] px-[15px] md:mx-0 md:px-0",      "md:grid-rows-2 md:grid-cols-[auto_max-content] md:gap-y-0 md:py-2.5"    )}  >    <h3 className="text-lg font-bold leading-[22px] text-neutral-1000 md:leading-[24px]">      {title}    </h3>    <div      className={cn(        "text-neutral-600 font-medium text-sm leading-[18px]",        "row-start-3 mt-[7px]",        "md:row-span-2 md:self-center md:mt-0",        "md:text-lg md:leading-[22px] md:text-neutral-1000 md:font-semibold"      )}    >      <span className="md:hidden">Упоминаний:</span> {mentions}    </div>    <p className="font-medium leading-[20px] text-neutral-600">{description}</p>  </div>);

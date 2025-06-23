@@ -1,1 +1,1 @@
-export { VacancySpecs } from "./vacancy-specs";
+export { VacancySpecs } from "./vacancy-specs";

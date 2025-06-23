@@ -1,11 +1,1 @@
-export type LoginFields = {
-  email: string;
-  password: string;
-};
-
-export type SignInFields = {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-};
+export type LoginFields = {  email: string;  password: string;};export type SignInFields = {  name: string;  email: string;  password: string;  confirmPassword: string;};

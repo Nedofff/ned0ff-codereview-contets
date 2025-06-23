@@ -11,7 +11,6 @@ import {
 import Link from "next/link";
 import { cn } from "@/core/utils";
 import { Ticker } from "./ticker";
-
 export function Footer() {
   return (
     <footer>
@@ -45,7 +44,6 @@ export function Footer() {
               )}
             >
               <Logo className={cn("text-xl", "lg:text-3xl")} />
-
               <div
                 className={cn("flex flex-col font-semibold", "md:mb-[17px]")}
               >

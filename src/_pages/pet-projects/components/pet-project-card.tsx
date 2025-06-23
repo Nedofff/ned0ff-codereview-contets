@@ -2,23 +2,20 @@ import { Card } from "@/ui-kit";
 import Image from "next/image";
 import NoIconGithub from "./no-icon.png";
 import Link from "next/link";
+import { Project } from "@/data/pet-projects";
 
 export const PetProjectCard = ({
   title,
   description,
   icon,
   author,
-  type,
-  githubUrl,
-  contactUrl,
-}: {
-  title: string;
-  author: string;
-  description: string;
-  icon?: string;
-  type: "opensource" | "commercial";
-  githubUrl: string;
-  contactUrl: string;
+  type = "opensource",
+  authorLink,
+  projectLink,
+  tags,
+  stack,
+}: Project & {
+  type?: "opensource" | "commercial";
 }) => {
   return (
     <Card className="font-wix-display">
@@ -41,9 +38,9 @@ export const PetProjectCard = ({
             {author}
           </div>
           <div className="flex items-center gap-x-1 text-primary-500 font-medium leading-[20px]  ">
-            <Link href={contactUrl}>telegram</Link>
+            <Link href={authorLink}>telegram</Link>
             <span className="text-neutral-300 mx-1.5">•</span>
-            <Link href={githubUrl}>GitHub</Link>
+            <Link href={projectLink}>GitHub</Link>
           </div>
         </div>
         <div className="text-neutral-500 font-medium leading-[20px]">

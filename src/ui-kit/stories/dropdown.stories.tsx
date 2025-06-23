@@ -1,98 +1,1 @@
-import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { fn } from "storybook/test";
-import { Dropdown } from "../components/dropdown";
-
-const meta = {
-  title: "Dropdown",
-  component: Dropdown,
-  parameters: {
-    layout: "centered",
-  },
-  tags: ["autodocs"],
-  argTypes: {
-    disabled: {
-      control: "boolean",
-    },
-    placeholder: {
-      control: "text",
-    },
-  },
-  args: { onChange: fn() },
-} satisfies Meta<typeof Dropdown>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-const mockOptions = [
-  { value: "react", label: "React" },
-  { value: "vue", label: "Vue.js" },
-  { value: "angular", label: "Angular" },
-  { value: "svelte", label: "Svelte" },
-];
-
-const mockCities = [
-  { value: "moscow", label: "Москва" },
-  { value: "spb", label: "Санкт-Петербург" },
-  { value: "nsk", label: "Новосибирск" },
-  { value: "ekb", label: "Екатеринбург" },
-  { value: "nn", label: "Нижний Новгород" },
-];
-
-export const Default: Story = {
-  args: {
-    options: mockOptions,
-    placeholder: "Выберите технологию",
-  },
-};
-
-export const WithSelectedValue: Story = {
-  args: {
-    options: mockOptions,
-    value: "react",
-    placeholder: "Выберите технологию",
-  },
-};
-
-export const Cities: Story = {
-  args: {
-    options: mockCities,
-    placeholder: "Выберите город",
-  },
-};
-
-export const WithDisabledOption: Story = {
-  args: {
-    options: [
-      { value: "js", label: "JavaScript" },
-      { value: "ts", label: "TypeScript" },
-      { value: "php", label: "PHP", disabled: true },
-      { value: "python", label: "Python" },
-    ],
-    placeholder: "Выберите язык",
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    options: mockOptions,
-    disabled: true,
-    placeholder: "Недоступно",
-  },
-};
-
-export const EmptyOptions: Story = {
-  args: {
-    options: [],
-    placeholder: "Нет опций",
-  },
-};
-
-export const LongList: Story = {
-  args: {
-    options: Array.from({ length: 20 }, (_, i) => ({
-      value: `option-${i}`,
-      label: `Опция ${i + 1}`,
-    })),
-    placeholder: "Выберите из длинного списка",
-  },
-};
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";import { fn } from "storybook/test";import { Dropdown } from "../components/dropdown";const meta = {  title: "Dropdown",  component: Dropdown,  parameters: {    layout: "centered",  },  tags: ["autodocs"],  argTypes: {    disabled: {      control: "boolean",    },    placeholder: {      control: "text",    },  },  args: { onChange: fn() },} satisfies Meta<typeof Dropdown>;export default meta;type Story = StoryObj<typeof meta>;const mockOptions = [  { value: "react", label: "React" },  { value: "vue", label: "Vue.js" },  { value: "angular", label: "Angular" },  { value: "svelte", label: "Svelte" },];const mockCities = [  { value: "moscow", label: "Москва" },  { value: "spb", label: "Санкт-Петербург" },  { value: "nsk", label: "Новосибирск" },  { value: "ekb", label: "Екатеринбург" },  { value: "nn", label: "Нижний Новгород" },];export const Default: Story = {  args: {    options: mockOptions,    placeholder: "Выберите технологию",  },};export const WithSelectedValue: Story = {  args: {    options: mockOptions,    value: "react",    placeholder: "Выберите технологию",  },};export const Cities: Story = {  args: {    options: mockCities,    placeholder: "Выберите город",  },};export const WithDisabledOption: Story = {  args: {    options: [      { value: "js", label: "JavaScript" },      { value: "ts", label: "TypeScript" },      { value: "php", label: "PHP", disabled: true },      { value: "python", label: "Python" },    ],    placeholder: "Выберите язык",  },};export const Disabled: Story = {  args: {    options: mockOptions,    disabled: true,    placeholder: "Недоступно",  },};export const EmptyOptions: Story = {  args: {    options: [],    placeholder: "Нет опций",  },};export const LongList: Story = {  args: {    options: Array.from({ length: 20 }, (_, i) => ({      value: `option-${i}`,      label: `Опция ${i + 1}`,    })),    placeholder: "Выберите из длинного списка",  },};

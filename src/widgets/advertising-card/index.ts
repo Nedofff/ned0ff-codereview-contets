@@ -1,1 +1,1 @@
-export { AdvertisingCard } from "./advertising-card";
+export { AdvertisingCard } from "./advertising-card";
