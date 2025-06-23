@@ -4,7 +4,7 @@ import { externalLinks } from "@/core/router";
 import { cn } from "@/core/utils";
 export const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="grid h-full w-full grid-cols-1fr items-center rounded-3xl overflow-hidden md:grid-cols-[19fr_21fr]">
+    <div className="grid h-full w-full max-h-[90vh] grid-cols-1 items-center rounded-3xl overflow-hidden md:grid-cols-[380px_1fr] lg:grid-cols-[19fr_21fr]">
       {children}
     </div>
   );
@@ -19,20 +19,20 @@ export const InfoScreenLayout = ({
   return (
     <div
       className={cn(
-        "w-[380px] h-full bg-[#F5F5F5] relative overflow-hidden hidden md:block",
+        "w-full md:w-[380px] h-[200px] md:h-full bg-[#F5F5F5] relative overflow-hidden",
         className
       )}
     >
       <div className="relative h-full flex flex-col">
         {children && (
-          <div className="absolute top-8 left-8 right-8 z-20">
-            <h2 className="text-[22px] font-medium leading-[26px] tracking-[-0.045em] text-center text-black">
+          <div className="absolute top-4 md:top-8 left-4 md:left-8 right-4 md:right-8 z-20">
+            <h2 className="text-[18px] md:text-[22px] font-medium leading-[22px] md:leading-[26px] tracking-[-0.045em] text-center text-black">
               {children}
             </h2>
           </div>
         )}
         <div className="flex-1 flex items-center justify-center">
-          <div className="relative w-[276px] h-[276px] rounded-full overflow-hidden">
+          <div className="relative w-[120px] h-[120px] md:w-[276px] md:h-[276px] rounded-full overflow-hidden">
             <Image
               src="/sofi.png"
               alt="Profile"
@@ -43,7 +43,7 @@ export const InfoScreenLayout = ({
             />
           </div>
         </div>
-        <div className="absolute bottom-8 left-[115px]">
+        <div className="absolute bottom-4 md:bottom-8 left-1/2 md:left-[115px] transform -translate-x-1/2 md:transform-none">
           <Logo />
         </div>
       </div>
@@ -58,8 +58,11 @@ export const FormLayout = ({
   onSubmit: (e?: React.BaseSyntheticEvent) => Promise<void>;
 }) => {
   return (
-    <div className="p-4 md:p-8">
-      <form onSubmit={onSubmit} className="max-w-[360px] mx-auto space-y-4 ">
+    <div className="p-4 md:p-8 w-full flex-1 flex flex-col justify-center">
+      <form
+        onSubmit={onSubmit}
+        className="max-w-[360px] mx-auto space-y-4 w-full"
+      >
         <div className="space-y-2">
           <ButtonLink href={externalLinks.botTelegram()}>
             <TelegramColoredIcon /> Войти через Telegram

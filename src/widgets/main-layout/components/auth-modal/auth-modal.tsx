@@ -21,10 +21,12 @@ export function AuthModal() {
               Вы готовы к большему. <br />
               Мы поможем начать.
             </InfoScreenLayout>
-            <LoginForm
-              goToRegister={() => setStep("register")}
-              onSuccess={() => setStep("success")}
-            />
+            <div className="flex-1">
+              <LoginForm
+                goToRegister={() => setStep("register")}
+                onSuccess={() => setStep("success")}
+              />
+            </div>
           </>
         );
       case "register":
@@ -34,10 +36,12 @@ export function AuthModal() {
               Вы готовы к большему. <br />
               Мы поможем начать.
             </InfoScreenLayout>
-            <SignInForm
-              goToLogin={() => setStep("login")}
-              onSuccess={() => setStep("success")}
-            />
+            <div className="flex-1">
+              <SignInForm
+                goToLogin={() => setStep("login")}
+                onSuccess={() => setStep("success")}
+              />
+            </div>
           </>
         );
       case "success":
