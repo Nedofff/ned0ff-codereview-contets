@@ -1,9 +1,5 @@
 import { getBackendClient, getNextApi } from "../backend-client";
-import {
-  getHttpClient,
-  type GetAuthToken,
-  type HttpClient,
-} from "@/core/http-client";
+import { type GetAuthToken, type HttpClient } from "@/core/http-client";
 import type {
   TokenResponseDto,
   LoginRequest,
