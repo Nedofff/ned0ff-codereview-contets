@@ -57,7 +57,6 @@ export default async function Vacancies(
     const filtersOptions = parseFilters(vacancies.items, [
       "source",
       "location",
-      "specialty",
     ]);
     const totalPages = getTotalPages(vacancies.total);
     const currentPage = +(page ?? 1);

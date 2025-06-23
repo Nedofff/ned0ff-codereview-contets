@@ -37,6 +37,7 @@ export function QuestionsPage({
 }: PaginationPageProps<{ questions: Question[] }> & {
   filtersOptions: FilterGroupData;
 }) {
+  const isEmpty = !questions.length;
   return (
     <CollectionPageLayout>
       <CollectionPageLayout.TitleSection>
@@ -59,13 +60,20 @@ export function QuestionsPage({
         titleAuthWall="Получите доступ к 1000+ вопросов с ответами на собеседование"
         className="flex flex-col gap-[10px]"
       >
-        {questions.map((item, index) => (
-          <>
-            <QuestionCard key={item.id} {...item} />
-            {index === 2 && <AdvertisingCard />}
-          </>
-        ))}
+        {!isEmpty &&
+          questions.map((item, index) => (
+            <>
+              <QuestionCard key={item.id} {...item} />
+              {!isEmpty && index === 2 && <AdvertisingCard />}
+            </>
+          ))}
       </CollectionPageLayout.Content>
+      {isEmpty && (
+        <CollectionPageLayout.EmptyState
+          title="Ничего не найдено"
+          description="Попробуйте изменить фильтры"
+        />
+      )}
       <CollectionPageLayout.Pagination
         currentPage={currentPage}
         totalPages={totalPages}

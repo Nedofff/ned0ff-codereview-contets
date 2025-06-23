@@ -33,6 +33,7 @@ export const VacanciesPage = ({
 }: PaginationPageProps<{ vacancies: Vacancy[] }> & {
   filtersOptions: FilterGroupData;
 }) => {
+  const isEmpty = !vacancies.length;
   return (
     <CollectionPageLayout>
       <CollectionPageLayout.TitleSection>
@@ -61,25 +62,32 @@ export const VacanciesPage = ({
         titleAuthWall="Получите доступ к 1200 вакансиям и стажировкам"
         className="grid grid-cols-1 gap-2.5 md:gap-4 md:grid-cols-2 auto-rows-fr"
       >
-        {currentPage === 1 && (
+        {!isEmpty && currentPage === 1 && (
           <>
             <MtsCard />
             <AvitoCard />
             <KpokCard />
           </>
         )}
-        {vacancies.map((vacancy, index) => (
-          <>
-            <VacancyCard key={vacancy.id} {...vacancy} />
-            {index === 1 && currentPage === 1 && (
-              <AdvertisingCard>
-                Больше никакого поиска и откликов — автоматизируй свой путь к
-                работе вместе с Софи!
-              </AdvertisingCard>
-            )}
-          </>
-        ))}
+        {!isEmpty &&
+          vacancies.map((vacancy, index) => (
+            <>
+              <VacancyCard key={vacancy.id} {...vacancy} />
+              {index === 1 && currentPage === 1 && (
+                <AdvertisingCard>
+                  Больше никакого поиска и откликов — автоматизируй свой путь к
+                  работе вместе с Софи!
+                </AdvertisingCard>
+              )}
+            </>
+          ))}
       </CollectionPageLayout.Content>
+      {isEmpty && (
+        <CollectionPageLayout.EmptyState
+          title="Ничего не найдено"
+          description="Попробуйте изменить фильтры"
+        />
+      )}
       <CollectionPageLayout.Pagination
         currentPage={currentPage}
         totalPages={totalPages}
