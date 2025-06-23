@@ -21,7 +21,7 @@ export const VacancyCard = ({
   <Card
     className={cn(
       "w-full  mx-auto",
-      "grid grid-rows-[auto_1fr_auto] ",
+      "grid grid-rows-[auto_1fr_auto] h-screen max-h-51",
       className
     )}
   >
@@ -32,7 +32,7 @@ export const VacancyCard = ({
       remote={remote}
       internship={internship}
       salary={salary}
-      className="mb-7.5 md:mb-12.5"
+      className="mb-auto md:mb-auto"
     />
     <div className="flex flex-col gap-y-[15px] items-end  md:gap-y-0 md:justify-between md:flex-row">
       <Company

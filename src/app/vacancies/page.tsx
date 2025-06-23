@@ -12,6 +12,7 @@ import { Metadata } from "next";
 const { getTotalPages, handlePagination } = setupPaginationHandler({
   itemsPerPage: 8,
   withAdvertising: true,
+  countAdvertising: 4,
 });
 
 export const metadata: Metadata = {

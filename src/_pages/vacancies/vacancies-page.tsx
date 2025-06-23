@@ -10,6 +10,7 @@ import { routes } from "@/core/router";
 import { Vacancy } from "@/data/vacancies";
 import { PaginationPageProps } from "@/core/pagination/pagination-types";
 import { AdvertisingCard } from "@/widgets/advertising-card/advertising-card";
+import { AvitoCard, KpokCard, MtsCard } from "./components/paid-vacancy";
 
 const filters = createFilter([
   {
@@ -85,6 +86,9 @@ export const VacanciesPage = ({
         titleAuthWall="Получите доступ к 1200 вакансиям и стажировкам"
         className="grid grid-cols-1 gap-2.5 md:gap-4 md:grid-cols-2 auto-rows-fr"
       >
+        <MtsCard />
+        <AvitoCard />
+        <KpokCard />
         {vacancies.map((vacancy, index) => (
           <>
             {index === 5 && (
