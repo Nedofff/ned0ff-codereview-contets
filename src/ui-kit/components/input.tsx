@@ -8,6 +8,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   withIndicator?: boolean;
+  // errorMessage?: string;
 }
 
 export function Input({
@@ -18,6 +19,7 @@ export function Input({
   leftIcon,
   rightIcon,
   withIndicator,
+  // errorMessage,
   ...props
 }: InputProps) {
   // Автоматически устанавливаем variant="disabled" если передан disabled prop

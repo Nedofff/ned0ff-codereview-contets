@@ -1,4 +1,16 @@
-export const aiToolsMock = [
+interface AITool {
+  id: number;
+  title: string;
+  iconUrl: string;
+  tags: string[];
+  category: string;
+  description: string;
+  url: string;
+  like: number;
+  dislike: number;
+}
+
+export const aiToolsMock: AITool[] = [
   {
     id: 1,
     title: "ChatGPT",

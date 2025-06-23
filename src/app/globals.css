@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @tailwind utilities;
 
-@theme {
+@theme inline {
   --font-wix-display: var(--font-wix-madefor-display, "Wix Madefor Display");
   --font-wix-text: var(--font-wix-madefor-text, "Wix Madefor Text");
   --font-ibm-plex-sans: var(--font-ibm-plex-sans, "IBM Plex Sans");
@@ -220,7 +220,7 @@
 }
 
 .animate-marquee {
-  animation: marquee 30s linear infinite;
+  animation: marquee 40s linear infinite;
 }
 
 /* Better border radius utilities */

@@ -91,9 +91,17 @@ const authMiddleware = (req, res, next) => {
 
 // Функция для создания пагинации
 const createPaginationResponse = (items, skip = 0, limit = 10) => {
+  console.log(
+    "items",
+    items.map((item) => item.id)
+  );
   const startIndex = skip;
   const endIndex = startIndex + limit;
   const paginatedItems = items.slice(startIndex, endIndex);
+  console.log(
+    "paginatedItems",
+    paginatedItems.map((item) => item.id)
+  );
 
   return {
     items: paginatedItems,
@@ -173,6 +181,7 @@ collections.forEach((collection) => {
 
   // GET BY ID
   app.get(`/api/${collection}/:id`, (req, res) => {
+    console.log("GET BY ID", req.params.id);
     try {
       const data = loadData();
       const items = data[collection] || [];

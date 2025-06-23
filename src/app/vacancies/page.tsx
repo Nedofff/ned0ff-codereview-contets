@@ -1,18 +1,19 @@
-import { JobsPage } from "@/pages/jobs/jobs-page";
+import { VacanciesPage } from "@/pages/vacancies";
 import { getVacanciesApi } from "@/data/vacancies";
 import { PageWithQueryFilters } from "@/core/filters-type";
 import { setupPaginationHandler } from "@/core/pagination";
-import { notFound } from "next/navigation";
-import { logger } from "@/core/logger";
-import { cookies } from "next/headers";
 import { getAuthTokenServer } from "@/core/get-auth-token-server";
+import { logger } from "@/core/logger";
+import { notFound } from "next/navigation";
+import { cookies } from "next/headers";
+import { fillDataWithMock } from "@/data/mocks/fill-data-with-mock";
 
 const { getTotalPages, handlePagination } = setupPaginationHandler({
-  itemsPerPage: 10,
+  itemsPerPage: 8,
   withAdvertising: true,
 });
 
-export default async function Jobs(
+export default async function Vacancies(
   props: PageWithQueryFilters<"source" | "location" | "remote" | "internship">
 ) {
   const { page, ...filters } = await props.searchParams;
@@ -23,18 +24,20 @@ export default async function Jobs(
 
   try {
     const queryParams = { skip, limit, ...filters };
-    const vacancies = await vacanciesApi.getAll({ skip, limit, ...filters });
-    logger.info(
-      "Запрос на получение вакансий page/jobs",
-      queryParams,
-      vacancies
+    const vacancies = fillDataWithMock.vacancies(
+      await vacanciesApi.getAll(queryParams)
     );
+    // logger.info(
+    //   "Запрос на получение вакансий page/jobs",
+    //   queryParams,
+    //   vacancies
+    // );
 
     const totalPages = getTotalPages(vacancies.total);
     const currentPage = +(page ?? 1);
 
     return (
-      <JobsPage
+      <VacanciesPage
         currentPage={currentPage}
         totalPages={totalPages}
         vacancies={vacancies.items}

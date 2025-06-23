@@ -10,7 +10,7 @@ import { AuthButton } from "./auth-button";
 
 export function TopMenu() {
   return (
-    <div
+    <header
       className={cn(
         "fixed left-1/2 transform -translate-x-1/2 z-50",
         "sm:top-[29px]"
@@ -46,6 +46,6 @@ export function TopMenu() {
         </div>
         <ActionOnPageButton />
       </nav>
-    </div>
+    </header>
   );
 }

@@ -1,4 +1,17 @@
-export const resumesMock = [
+interface Resume {
+  id: string;
+  title: string;
+  grade: string;
+  experience: string;
+  stack: string[];
+  resumeUrl: string;
+  avatarUrl: string;
+  name: string;
+  telegram: string;
+  email: string;
+}
+
+export const resumesMock: Resume[] = [
   {
     id: "1",
     title: "Data Science",

@@ -4,14 +4,16 @@ import { useId } from "react";
 export const Textarea = ({
   label,
   className,
+  errors,
   ...props
 }: {
   label: string;
   className?: string;
+  errors?: string;
 } & React.ComponentProps<"textarea">) => {
   const id = useId();
   return (
-    <div className={className}>
+    <div className={cn("mb-7", className)}>
       <label
         className={cn("block font-medium mb-2 font-wix-display")}
         htmlFor={id}

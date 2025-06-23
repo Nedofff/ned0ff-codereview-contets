@@ -1,5 +1,5 @@
 "use client";
-import React, { useId, useState } from "react";
+import React, { useEffect, useId, useState } from "react";
 import { cn } from "@/core/utils";
 
 interface SwitchProps {
@@ -7,6 +7,7 @@ interface SwitchProps {
   disabled?: boolean;
   className?: string;
   label: string;
+  checked?: boolean;
 }
 
 export function Switch({
@@ -14,9 +15,14 @@ export function Switch({
   disabled = false,
   className,
   label,
+  checked = false,
 }: SwitchProps) {
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(checked);
   const id = useId();
+
+  useEffect(() => {
+    setIsChecked(checked);
+  }, [checked]);
 
   const handleToggle = () => {
     if (disabled) return;

@@ -1,3 +1,4 @@
+import { getLocalDate } from "@/core/time";
 import { cn } from "@/core/utils";
 import { ArrowTopRightIcon, Card } from "@/ui-kit";
 import { ButtonLink } from "@/ui-kit/";
@@ -22,7 +23,7 @@ export const EventCard = ({
       <div className="flex justify-between mb-2.5 leading-[20px] font-wix-display font-semibold">
         <div className="text-neutral-600 ">
           {location} <span className="mx-1.5 text-neutral-300">•</span>{" "}
-          {new Date(dateTime).toLocaleDateString("ru-RU")}
+          {getLocalDate(dateTime)}
         </div>
         <div
           className={cn({

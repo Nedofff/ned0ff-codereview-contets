@@ -9,7 +9,6 @@ export function Ticker() {
   return (
     <div className="h-10 overflow-hidden gradient-quaternary flex items-center">
       <div className="animate-marquee flex items-center gap-2 whitespace-nowrap">
-        {/* Дублируем содержимое для бесшовной анимации */}
         {Array.from({ length: 6 }).map((_, groupIndex) => (
           <div key={groupIndex} className="flex items-center gap-2">
             {TICKER_ITEMS.map((text, index) => (

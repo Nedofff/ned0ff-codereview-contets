@@ -61,6 +61,18 @@ export interface Vacancy {
   source: string;
   image: string | null;
   datePublication: string;
+  similarVacancies: [
+    {
+      id: number;
+      title: string;
+      companyName: string;
+    },
+    {
+      id: number;
+      title: string;
+      companyName: string;
+    }
+  ];
 }
 
 export interface VacancyCreate {

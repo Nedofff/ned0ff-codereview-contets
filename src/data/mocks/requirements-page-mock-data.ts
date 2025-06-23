@@ -1,4 +1,11 @@
-export const requirementsMockData = [
+interface Requirement {
+  id: number;
+  title: string;
+  description: string;
+  mentions: number;
+}
+
+export const requirementsMockData: Requirement[] = [
   {
     id: 1,
     title: "React",

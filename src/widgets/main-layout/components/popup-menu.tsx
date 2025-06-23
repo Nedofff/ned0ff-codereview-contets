@@ -24,6 +24,7 @@ import {
 import { cn } from "@/core/utils";
 import Link from "next/link";
 import { routes } from "@/core/router";
+import { noSsrImport } from "@/core/no-ssr-import";
 
 const MenuItem = ({ title, href, Icon }: MenuItem) => {
   return (
@@ -31,23 +32,22 @@ const MenuItem = ({ title, href, Icon }: MenuItem) => {
       href={href}
       className="
         flex items-center gap-1.5 px-0 py-0 rounded-md
-        text-left hover:bg-gray-50 transition-colors
-        group text-black
+        text-left transition-opacity
+        group text-black w-fit
       "
     >
       <Icon
         viewBox="0 0 24 24"
         width={20}
         height={20}
-        className="w-5 h-5 text-[#333333]"
+        className="w-5 h-5 text-neutral-1000"
       />
       <span
-        className="
-        font-['Wix_Madefor_Text'] font-normal 
-        text-base md:text-lg leading-[1.25] md:leading-[1.22] 
-        tracking-[-0.03125em] md:tracking-[-0.028em]
-        group-hover:text-gray-700
-      "
+        className={cn(
+          "font-wix-text leading-[22px]",
+          "md:text-lg",
+          "group-hover:opacity-70"
+        )}
       >
         {title}
       </span>
@@ -56,7 +56,6 @@ const MenuItem = ({ title, href, Icon }: MenuItem) => {
 };
 
 interface MenuItem {
-  id: string;
   title: string;
   href: string;
   Icon: (props: SVGProps<SVGSVGElement>) => React.ReactNode;
@@ -64,62 +63,53 @@ interface MenuItem {
 
 const MENU_ITEMS: MenuItem[] = [
   {
-    id: "jobs",
     title: "Вакансии / Cтажировки",
-    href: routes.jobs,
+    href: routes.vacancies,
     Icon: BriefcaseIcon,
   },
   {
-    id: "tests",
     title: "Тестовые задания",
-    href: "/test-assignments",
+    href: routes.testTasks,
     Icon: CodeIcon,
   },
   {
-    id: "events",
     title: "IT-мероприятия",
-    href: "/events",
+    href: routes.events,
     Icon: CalendarIcon,
   },
   {
-    id: "contacts",
     title: "Контакты рекрутеров",
-    href: "/recruiters",
+    href: routes.recruiters,
     Icon: MessageIcon,
   },
   {
-    id: "resumes",
     title: "Резюме соискателей",
-    href: "/resumes",
+    href: routes.resumes,
     Icon: PersonIcon,
   },
   {
-    id: "skills",
     title: "Необходимые навыки",
-    href: "/skills",
+    href: routes.requirements,
     Icon: StackIcon,
   },
   {
-    id: "interviews",
     title: "Собеседования",
-    href: "/interviews",
+    href: routes.questions,
     Icon: MicrophoneIcon,
   },
   {
-    id: "projects",
     title: "Пет-проекты",
-    href: "/projects",
+    href: routes.petProjects,
     Icon: CodeAsteriskIcon,
   },
   {
-    id: "ai-tools",
     title: "ИИ инструменты",
-    href: "/ai-tools",
+    href: routes.aiTools,
     Icon: SparklesIcon,
   },
 ];
 
-export const PopupMenu = () => {
+const PopupMenuClient = () => {
   const { valueSpecialty } = useCurrentSpecialty();
 
   return (
@@ -164,11 +154,26 @@ export const PopupMenu = () => {
             "grid grid-cols-1 md:grid-cols-2 gap-3.5 md:gap-x-20"
           )}
         >
-          {MENU_ITEMS.map((props) => (
-            <MenuItem {...props} key={props.id} />
+          {MENU_ITEMS.map((props, index) => (
+            <MenuItem {...props} key={index} />
           ))}
         </div>
       </div>
     </Popover>
   );
 };
+
+const Loader = () => (
+  <Button
+    variant="ghost"
+    className="grid grid-cols-[max-content_auto_max-content]  items-center gap-2"
+  >
+    <MenuIcon />
+    <div className="leading-[22px] md:text-lg w-12.5 bg-neutral-200 rounded-sm h-5 animate-pulse" />
+    <span className="text-center">
+      <ArrowDownIcon className={cn("text-neutral-500", "w-4 h-4 mt-px")} />
+    </span>
+  </Button>
+);
+
+export const PopupMenu = noSsrImport(PopupMenuClient, () => <Loader />);

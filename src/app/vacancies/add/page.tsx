@@ -1,4 +1,4 @@
-import { JobsCreatePage } from "@/pages/jobs-create";
+import { JobsCreatePage } from "@/_pages/vacancy-create";
 
 export default function JobsCreate() {
   return <JobsCreatePage />;

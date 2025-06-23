@@ -30,7 +30,7 @@ export const SectionCard = ({
         "group-active:opacity-100 group-active:translate-x-[0] group-active:-translate-y-[0] active:delay-500"
       )}
     >
-      <Image src={BgImg} alt="background" fill className="object-cover" />
+      <Image src={BgImg} alt="" fill className="object-cover" />
     </div>
 
     <div className="relative grid grid-rows-[max-content_1fr_max-content] h-full">
@@ -56,7 +56,7 @@ SectionCard.Description = ({ children }: { children: React.ReactNode }) => (
   <div
     className={cn(
       "mb-4",
-      "relative md:opacity-0",
+      "relative opacity-0",
       "transition-all ease-initial duration-300",
       "group-hover:opacity-100 group-hover:translate-y-3.5"
     )}

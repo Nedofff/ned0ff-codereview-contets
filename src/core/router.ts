@@ -1,8 +1,8 @@
 export const routes = {
   home: "/",
-  jobs: "/jobs",
-  jobCreate: "/jobs/add",
-  jobId: (id: string) => `/jobs/${id}`,
+  vacancies: "/vacancies",
+  vacanciesCreate: "/vacancies/add",
+  vacancyId: (id: string) => `/vacancies/${id}`,
   petProjects: "/pet-projects",
   petProjectCreate: "/pet-projects/add",
   petProjectId: (id: string) => `/pet-projects/${id}`,
@@ -24,6 +24,10 @@ export const routes = {
 export const externalLinks = {
   sofi: "https://jobs.yourcodereview.com/ai/",
   testing: "https://interview.yourcodereview.com/testing",
-  loginTelegram: "https://t.me/yourcodereview_bot",
+  botTelegram: (uuid?: string) => {
+    const baseUrl = "https://t.me/ITjobofferbot";
+    const params = uuid ? `?startapp=${uuid}` : "";
+    return baseUrl + params;
+  },
   loginHh: "https://hh.ru/login",
 };

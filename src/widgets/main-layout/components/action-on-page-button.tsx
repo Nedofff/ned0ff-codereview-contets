@@ -4,10 +4,10 @@ import { cn } from "@/core/utils";
 import { ButtonLink } from "@/ui-kit";
 import { usePathname } from "next/navigation";
 import { createPortal } from "react-dom";
-import dynamic from "next/dynamic";
+import { noSsrImport } from "@/core/no-ssr-import";
 
 const actions = {
-  [routes.jobs]: {
+  [routes.vacancies]: {
     text: "Автоотклик",
     href: externalLinks.sofi,
   },
@@ -29,13 +29,6 @@ const actions = {
   },
 };
 
-export const ActionOnPageButton = dynamic(
-  () => Promise.resolve(ActionOnPageButtonClient),
-  {
-    ssr: false,
-  }
-);
-
 const ActionOnPageButtonClient = () => (
   <>
     <ActionOnPageButtonInner className="hidden h-full sm:flex" />
@@ -44,6 +37,11 @@ const ActionOnPageButtonClient = () => (
       document.body
     )}
   </>
+);
+
+export const ActionOnPageButton = noSsrImport(
+  ActionOnPageButtonClient,
+  () => null
 );
 
 const ActionOnPageButtonInner = ({ className }: { className?: string }) => {

@@ -1,0 +1,21 @@
+@reference "../../app/globals.css";
+
+.description {
+  @apply flex flex-col gap-y-7.5 font-wix-display;
+}
+
+.description p {
+  @apply mb-[15px];
+}
+
+.description ul {
+  @apply list-disc pl-5 space-y-2 mt-6;
+}
+
+.description :is(p, h2, h3, h4, h5, h6, ul, li) {
+  @apply font-medium leading-[22px] md:text-lg md:leading-[26px];
+}
+
+.description :is(h2, h3, h4, h5, h6) {
+  @apply font-bold mt-7.5 first:mt-0;
+}

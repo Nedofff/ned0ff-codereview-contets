@@ -50,7 +50,7 @@ class VacanciesApi {
     };
   }
 
-  async getVacancy(vacancyId: number): Promise<Vacancy> {
+  async get(vacancyId: number): Promise<Vacancy> {
     const response = await this.client.get<VacancyDto>(
       `${this.basePath}/${vacancyId}`
     );
@@ -58,7 +58,6 @@ class VacanciesApi {
     if (!response.data) {
       throw new Error("Отсутствуют");
     }
-
     return mapVacancyFromDto(response.data);
   }
 

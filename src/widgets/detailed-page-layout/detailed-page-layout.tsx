@@ -1,4 +1,9 @@
-import { SeoKey } from "@/ui-kit";
+import { SeoKey, ArrowTopRightIcon } from "@/ui-kit";
+import { externalLinks } from "@/core/router";
+import Image from "next/image";
+import Link from "next/link";
+import bgImage from "./assets/bg.png";
+import { cn } from "@/core/utils";
 
 export const DetailedPageLayout = ({
   children,
@@ -8,11 +13,11 @@ export const DetailedPageLayout = ({
   seoKeys: string[];
 }) => {
   return (
-    <section>
+    <section className="w-full">
       <div className="grid grid-rows-[max-content_max-content] gap-y-7.5 md:gap-y-0 md:gap-x-15 md:grid-rows-1 md:grid-cols-[11fr_5fr]">
         {children}
       </div>
-      <div className="flex flex-wrap gap-2 justify-center">
+      <div className="flex flex-wrap gap-2 md:justify-center mt-10 md:mt-15">
         {seoKeys.map((key) => (
           <SeoKey key={key}>{key}</SeoKey>
         ))}
@@ -20,3 +25,50 @@ export const DetailedPageLayout = ({
     </section>
   );
 };
+
+DetailedPageLayout.Advertising = ({
+  children,
+  className,
+  classNameLink,
+}: {
+  children: React.ReactNode;
+  className: string;
+  classNameLink: string;
+}) => (
+  <div
+    className={cn(
+      "relative p-5 flex flex-col gap-y-[15px] font-wix-display rounded-xl text-lg",
+      className
+    )}
+  >
+    <Image
+      src="/sofi-scaled.png"
+      alt="sofi"
+      width={730}
+      height={752}
+      className="rounded-full z-1 w-15"
+    />
+    <p className="mb-[29px] z-1 leading-[22px] font-semibold">{children}</p>
+    <p
+      className={cn(
+        "flex items-center justify-between z-1 font-bold text-primary-500 leading-[20px]",
+        classNameLink
+      )}
+    >
+      <span>Попробовать бесплатно</span>{" "}
+      <ArrowTopRightIcon
+        className="w-4 h-4 hidden md:block"
+        width={16}
+        height={16}
+        viewBox="0 0 12 12"
+      />
+    </p>
+    <Image
+      src={bgImage}
+      fill
+      alt="bg"
+      className="absolute top-0 left-0 object-cover pointer-events-none"
+    />
+    <Link className="absolute inset-0" href={externalLinks.sofi} />
+  </div>
+);

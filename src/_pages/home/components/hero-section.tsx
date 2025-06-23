@@ -8,12 +8,12 @@ export function HeroSection() {
         <div className="mb-8">
           <div className="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden">
             <Image
-              src="/sofi.png"
+              src="/sofi-scaled.png"
               alt="Ассистент по поиску работы"
-              width={115}
-              height={115}
-              quality={90}
-              className="w-[115px] h-[115px] object-cover"
+              width={730}
+              height={752}
+              quality={80}
+              className="w-[115px] object-cover"
               draggable={false}
             />
           </div>

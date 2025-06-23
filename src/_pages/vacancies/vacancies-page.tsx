@@ -4,12 +4,12 @@ import {
   CollectionPageLayout,
   createFilter,
 } from "@/widgets/collection-page-layout/";
-import { JobCard } from "./components/job-card";
+import { VacancyCard } from "./components/vacancy-card";
 import { ButtonLink } from "@/ui-kit";
 import { routes } from "@/core/router";
 import { Vacancy } from "@/data/vacancies";
 import { PaginationPageProps } from "@/core/pagination/pagination-types";
-import { jobsData } from "../../data/mocks/job-mock";
+import { AdvertisingCard } from "@/widgets/advertising-card/advertising-card";
 
 const filters = createFilter([
   {
@@ -54,7 +54,7 @@ const filters = createFilter([
   },
 ]);
 
-export const JobsPage = ({
+export const VacanciesPage = ({
   currentPage,
   totalPages,
   vacancies,
@@ -72,7 +72,7 @@ export const JobsPage = ({
       <CollectionPageLayout.FiltersGroup
         action={
           <ButtonLink
-            href={routes.jobCreate}
+            href={routes.vacanciesCreate}
             variant="filter"
             className="text-lg mr-2.5 leading-[22px] text-nowrap p-[12px_15px]"
           >
@@ -83,10 +83,18 @@ export const JobsPage = ({
       />
       <CollectionPageLayout.Content
         titleAuthWall="Получите доступ к 1200 вакансиям и стажировкам"
-        className="grid grid-cols-1 gap-2.5 md:gap-4 md:grid-cols-2"
+        className="grid grid-cols-1 gap-2.5 md:gap-4 md:grid-cols-2 auto-rows-fr"
       >
-        {jobsData.map((job) => (
-          <JobCard key={job.id} {...job} />
+        {vacancies.map((vacancy, index) => (
+          <>
+            {index === 5 && (
+              <AdvertisingCard>
+                Больше никакого поиска и откликов — автоматизируй свой путь к
+                работе вместе с Софи!
+              </AdvertisingCard>
+            )}
+            <VacancyCard key={vacancy.id} {...vacancy} />
+          </>
         ))}
       </CollectionPageLayout.Content>
       <CollectionPageLayout.Pagination

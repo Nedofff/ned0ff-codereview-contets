@@ -59,7 +59,7 @@ export const FormLayout = ({
     <div className="p-4 md:p-8">
       <form onSubmit={onSubmit} className="max-w-[360px] mx-auto space-y-4 ">
         <div className="space-y-2">
-          <ButtonLink href={externalLinks.loginTelegram}>
+          <ButtonLink href={externalLinks.botTelegram()}>
             <TelegramColoredIcon /> Войти через Telegram
           </ButtonLink>
           <ButtonLink href={externalLinks.loginHh}>

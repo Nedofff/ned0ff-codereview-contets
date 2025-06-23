@@ -1,0 +1,1 @@
+export { AdvertisingCard } from "./advertising-card";

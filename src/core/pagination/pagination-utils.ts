@@ -8,7 +8,7 @@ export const setupPaginationHandler = ({
   countAdvertising?: number;
 }) => ({
   handlePagination: (currentPage: string | number | undefined) => {
-    const page = Number(currentPage);
+    const page = Number(currentPage ?? 1);
 
     if (isNaN(page)) {
       return {
@@ -29,5 +29,6 @@ export const setupPaginationHandler = ({
       limit,
     };
   },
-  getTotalPages: (totalItems: number) => Math.ceil(totalItems / itemsPerPage),
+  getTotalPages: (totalItems: number) =>
+    Math.ceil((totalItems + countAdvertising) / itemsPerPage),
 });

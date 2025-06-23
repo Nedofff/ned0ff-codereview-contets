@@ -42,7 +42,7 @@ export interface FiltersGroupProps {
 }
 
 export const FiltersGroup = ({ filters, action }: FiltersGroupProps) => {
-  const { setSearchParams } = useQueryParams();
+  const { setSearchParams, searchParams } = useQueryParams(false);
   const { keySpecialty } = useCurrentSpecialty();
 
   useEffect(() => {
@@ -71,6 +71,7 @@ export const FiltersGroup = ({ filters, action }: FiltersGroupProps) => {
               options={filter.options}
               placeholder={filter.label}
               onChange={(value) => setSearchParams(filter.name, value)}
+              value={searchParams.get(filter.name) ?? undefined}
             />
           );
         }

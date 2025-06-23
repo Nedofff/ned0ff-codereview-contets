@@ -23,3 +23,5 @@ export { SeoKey } from "./seo-key";
 export { ButtonLink } from "./button-link";
 export { Textarea } from "./textarea";
 export { Rating } from "./rating";
+export { Company } from "./company";
+export { Portal } from "./portal";
