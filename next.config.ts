@@ -15,7 +15,6 @@ const nextConfig: NextConfig = {
   },
   compress: true,
   poweredByHeader: false,
-  swcMinify: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
   },
@@ -86,7 +85,6 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     optimizePackageImports: ["@/ui-kit", "@/core", "@/widgets"],
-    optimizeCss: true,
   },
 };
 
