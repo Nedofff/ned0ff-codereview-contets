@@ -1,5 +1,7 @@
 import { Card } from "@/ui-kit";
 import { cn } from "@/core/utils";
+import Image from "next/image";
+import BgImg from "./assets/background-category.png";
 
 export const SectionCard = ({
   children,
@@ -19,6 +21,18 @@ export const SectionCard = ({
       className
     )}
   >
+    <div
+      className={cn(
+        "overflow-hidden absolute inset-0 w-full justify-self-start",
+        "transition-transform ease-section-card duration-300",
+        "-translate-x-[91px] translate-y-[61px] opacity-0",
+        "group-hover:opacity-100 group-hover:translate-x-[0] group-hover:-translate-y-[0]",
+        "group-active:opacity-100 group-active:translate-x-[0] group-active:-translate-y-[0] active:delay-500"
+      )}
+    >
+      <Image src={BgImg} alt="" fill className="object-cover" />
+    </div>
+
     <div className="relative grid grid-rows-[max-content_1fr_max-content] h-full">
       {children}
     </div>
